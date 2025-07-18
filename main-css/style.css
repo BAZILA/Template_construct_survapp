@@ -1,0 +1,135 @@
+:root[data-bs-theme='dark'] {
+  --bg-color: #1e1e2f;
+  --sidebar-bg: #2c2f48;
+  --text-color: #ffffff;
+  --link-color: #b0b3c4;
+  --link-hover-bg: #3d4160;
+  --card-bg: #2c2f48;
+  --card-text: #ffffff;
+}
+
+:root[data-bs-theme='light'] {
+  --bg-color: #f8f9fa;
+  --sidebar-bg: #e9ecef;
+  --text-color: #212529;
+  --link-color: #343a40;
+  --link-hover-bg: #dee2e6;
+  --card-bg: #ffffff;
+  --card-text: #212529;
+}
+
+/* Application des variables les gars on ajusteras au besoin.... */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar {
+  min-height: 100vh;
+  background-color: var(--sidebar-bg);
+  transition: background-color 0.3s;
+}
+
+.sidebar a {
+  color: var(--link-color);
+  padding: 12px;
+  display: block;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background-color: var(--link-hover-bg);
+  color: var(--text-color);
+  border-radius: 15px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: none;
+  color: var(--card-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.status-box-hote {
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  min-width: 70px;
+  text-align: center;
+  min-height: 120px;
+}
+.status-box {
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  min-width: 70px;
+  text-align: center;
+}
+
+/* Les statuts gardent leurs couleurs puisque je ne trouve pas que ça cause problème .. mais on verra mieux lors des réunions  */
+
+.status-ok { background-color: #198754; }
+.status-critical { background-color: #dc3545; }
+.status-warning {
+  background-color: #ffc107;
+  color: #000;
+}
+.status-pending { background-color: #0d6efd; }
+
+/*  ici c'est juste pour arranger le truc des thèmes là genre sombre et clair */
+
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #6c757d;
+  border-radius: 50px;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-label .ball {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.sun-icon,
+.moon-icon {
+  z-index: 2;
+  font-size: 16px;
+  padding: 0 6px;
+  color: #fff;
+}
+
+#themeSwitch:checked + .toggle-label {
+  background-color: #0f2928;
+}
+
+#themeSwitch:checked + .toggle-label .ball {
+  transform: translateX(30px);
+}
+
+
