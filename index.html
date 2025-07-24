@@ -1,291 +1,465 @@
 <!DOCTYPE html>
 <html lang="fr" data-bs-theme="dark">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Network Monitor</title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet"
-            href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="main-css/style.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Monitor</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+      href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="main-css/style.css">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
 
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Sidebar -->
-                <nav class="col-md-2 d-none d-md-block sidebar">
-                    <div class="pt-3">
-                        <h5 class="text-center">Network Monitor</h5>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-2 d-none d-md-block sidebar">
+          <div class="pt-3">
+            <h5 class="text-center">Network Monitor</h5>
 
-                        <a href="#" class="active">
-                            <i class="bi bi-graph-up me-2"></i> Accueil
-                        </a>
+            <a href="#" class="active" data-target="accueil">
+              <i class="bi bi-graph-up me-2"></i> Accueil
+            </a>
 
-                        <a href="#">
-                            <i class="bi bi-pc-display-horizontal me-2"></i>
-                            Hôtes
-                        </a>
+            <a href="#" data-target="hote">
+              <i class="bi bi-pc-display-horizontal me-2"></i>
+              Hôtes
+            </a>
 
-                        <a href="#">
-                            <i class="bi bi-hdd-network me-2"></i> Services
-                        </a>
+            <a href="#" data-target="services">
+              <i class="bi bi-hdd-network me-2"></i> Services
+            </a>
 
-                        <a href="#">
-                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                            Alertes
-                        </a>
+            <a href="#" data-target="alertes">
+              <i class="bi bi-exclamation-triangle-fill me-2"></i>
+              Alertes
+            </a>
 
-                        <a href="#">
-                            <i class="bi bi-diagram-3-fill me-2"></i> Cartes
-                            réseau
-                        </a>
+            <a href="#" data-target="reseau">
+              <i class="bi bi-diagram-3-fill me-2"></i> Cartes
+              réseau
+            </a>
 
-                        <a href="#">
-                            <i class="bi bi-bar-chart-fill me-2"></i> Rapports
-                        </a>
+            <a href="#" data-target="rapport">
+              <i class="bi bi-bar-chart-fill me-2"></i> Rapports
+            </a>
 
-                        <a href="#">
-                            <i class="bi bi-person-circle me-2"></i>
-                            Utilisateurs
-                        </a>
+            <a href="#">
+              <i class="bi bi-person-circle me-2"></i>
+              Utilisateurs
+            </a>
 
-                        <a href="#">
-                            <i class="bi bi-gear-fill me-2"></i> Configuration
-                        </a>
+            <a href="#" data-target="configuration">
+              <i class="bi bi-gear-fill me-2"></i> Configuration
+            </a>
 
-                        <a href="#">
-                            <i class="bi bi-journal-text me-2"></i> Logs
-                        </a>
-                    </div>
-                </nav>
-                <!-- Main content -->
-                <main class="col-md-10 ms-sm-auto px-md-4 pt-3">
-                    <div
-                        class="d-flex justify-content-between align-items-center mb-3">
-                        <h4>Accueil</h4>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="theme-toggle">
-                                <input type="checkbox" id="themeSwitch"
-                                    hidden />
-                                <label for="themeSwitch" class="toggle-label">
-                                    <i class="bi bi-moon-fill moon-icon"></i>
-                                    <i class="bi bi-sun-fill sun-icon"></i>
-                                    <span class="ball"></span>
-                                </label>
-                            </div>
-
-                            <div class="dropdown">
-                                <button
-                                    class="btn btn-secondary dropdown-toggle d-flex align-items-center gap-2"
-                                    type="button" id="userMenu"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <img src="assets/images/tech.jpeg"
-                                        alt="Avatar" class="rounded-circle"
-                                        style="width: 30px; height: 30px; object-fit: cover;">
-                                    Utilisateur
-                                </button>
-                                <ul
-                                    class="dropdown-menu dropdown-menu-end dropdown-menu-dark"
-                                    aria-labelledby="userMenu">
-                                    <li><a class="dropdown-item" href="#">Mes
-                                            logs</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="#">Modifier mon
-                                            profil</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item"
-                                            href="#">Déconnexion</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card p-3 mb-3">
-                                <h5>Utilisation du réseau</h5>
-                                <canvas id="networkChart" height="300"></canvas>
-                            </div>
-
-                            <div class="card p-3 mb-3">
-                                <h5>Statistique des utilisateurs</h5>
-                                <p>Rapport.</p>
-                                <div class="mb-3 p-3 rounded"
-                                    style="background-color: #243e73;">
-                                    <div class="d-flex align-items-center">
-                                        <i
-                                            class="fas fa-users fa-2x me-3 text-light"></i>
-                                        <div>
-                                            <div class="text-light small">Nombre
-                                                d'utilisateurs</div>
-                                            <div
-                                                class="h4 fw-bold text-primary">156</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3 rounded"
-                                    style="background-color: #1e4034;">
-                                    <div class="d-flex align-items-center">
-                                        <i
-                                            class="fas fa-user-check fa-2x me-3 text-light"></i>
-                                        <div>
-                                            <div
-                                                class="text-light small">Utilisateurs
-                                                connectés</div>
-                                            <div
-                                                class="h4 fw-bold text-success">24</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card p-3 mb-3">
-                                <h5>Services supervisés</h5>
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Service</th>
-                                            <th>Hôte</th>
-                                            <th>État</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>HTTP</td>
-                                            <td>web-server-01</td>
-                                            <td><span
-                                                    class="status-box status-ok">OK</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>SSH</td>
-                                            <td>db-server-01</td>
-                                            <td><span
-                                                    class="status-box status-ok">OK</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>FTP</td>
-                                            <td>file-server-01</td>
-                                            <td><span
-                                                    class="status-box status-ok">OK</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>MySQL</td>
-                                            <td>db-server-01</td>
-                                            <td><span
-                                                    class="status-box status-critical">Critical</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="card p-3 mb-3">
-                                <h5>État des hôtes</h5>
-                                <div class="d-grid gap-2"
-                                    style="grid-template-columns: repeat(2, 1fr);">
-                                    <div
-                                        class="status-box-hote status-ok pt-5">Up<br>32</div>
-                                    <div
-                                        class="status-box-hote status-critical pt-5"><span
-                                            class="pt-2 d-block">Down</span>
-                                        <strong>1</strong>
-                                    </div>
-                                    <div
-                                        class="status-box-hote status-warning pt-5"><span
-                                            class="pt-2 d-block">Unreachable</span>
-                                        <strong>13</strong>
-                                    </div>
-                                    <div
-                                        class="status-box-hote status-pending pt-5"><span
-                                            class="pt-2 d-block">Pending</span>
-                                        <strong>67</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card p-3 mb-3">
-                                <h5>Graphique historique</h5>
-                                <p><strong>Host:</strong> web-server-02 <span
-                                        class="text-danger">Down</span><br>
-                                    <strong>Service:</strong> CPU Load <span
-                                        class="text-warning">Warning</span><br>
-                                    <strong>Disk Space:</strong> 4/4/2024 13:50
-                                </p>
-                            </div>
-                            <div class="card p-3 mb-3">
-                                <h5>Graphique historique</h5>
-                                <canvas id="historiqueChart"
-                                    height="200"></canvas>
-                            </div>
-                            <div class="card text-white mb-4">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-4">Etat des
-                                        alertes</h5>
-
-                                    <div class="mb-3 p-3 rounded"
-                                        style="background-color: #834d34;">
-                                        <div class="d-flex align-items-center">
-                                            <i
-                                                class="bi bi-exclamation-triangle fa-3x me-3"></i>
-                                            <div>
-                                                <div
-                                                    class="text-light small">Etat
-                                                    critique</div>
-                                                <div
-                                                    class="h4 fw-bold text-primary">15</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3 rounded"
-                                        style="background-color: #6699f8;">
-                                        <div class="d-flex align-items-center">
-                                            <i
-                                                class="bi fa-3x bi-dash-circle-dotted me-3"></i>
-                                            <div>
-                                                <div
-                                                    class="text-light small">Etat
-                                                    normal</div>
-                                                <div
-                                                    class="h4 fw-bold text-success">2</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </main>
+            <a href="#" data-target="log">
+              <i class="bi bi-journal-text me-2"></i> Logs
+            </a>
+          </div>
+        </nav>
+        <!-- Main content -->
+        <main class="col-md-10 ms-sm-auto px-md-4 pt-3">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4>Bonjour Madame Clara JOHSON , Bienvenue sur SURVAPP</h4>
+            <div class="d-flex align-items-center gap-3">
+              <div class="theme-toggle">
+                <input type="checkbox" id="themeSwitch" hidden />
+                <label for="themeSwitch" class="toggle-label">
+                  <i class="bi bi-moon-fill moon-icon"></i>
+                  <i class="bi bi-sun-fill sun-icon"></i>
+                  <span class="ball"></span>
+                </label>
+              </div>
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown-toggle d-flex align-items-center gap-2"
+                  type="button"
+                  id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="assets/images/tech.jpeg" alt="Avatar"
+                    class="rounded-circle"
+                    style="width: 30px; height: 30px; object-fit: cover;">
+                  Utilisateur
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark"
+                  aria-labelledby="userMenu">
+                  <li><a class="dropdown-item" href="#">Mes
+                      logs</a></li>
+                  <li><a class="dropdown-item" href="#">Modifier mon
+                      profil</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Déconnexion</a></li>
+                </ul>
+              </div>
             </div>
-        </div>
-        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="node_modules/chart.js/dist/chart.umd.js"></script>
-        <script src="main-js/accueil-index.js"></script>
-        <script>
-        const themeSwitch = document.getElementById('themeSwitch');
-        const html = document.querySelector('html');
+          </div>
+          <div id="accueil" class="page-section">
+            <div class="row">
+              <h4 class="mb-4"><i class="bi bi-graph-up me-2"></i>Accueil</h4>
+              <div class="col-md-6">
+                <div class="card p-3 mb-3">
+                  <h5>Utilisation du réseau</h5>
+                  <canvas id="networkChart" height="300"></canvas>
+                </div>
 
-        // quand je finis la récupération c'est ici je sauvegarde .... bon en réunion on pourra en discuter s'il faut ajouter d'autre thème pour s'amuser 
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            html.setAttribute('data-bs-theme', savedTheme);
-            themeSwitch.checked = savedTheme === 'light';
-        }
+                <div class="card p-3 mb-3">
+                  <h5>Statistique des utilisateurs</h5>
+                  <p>Rapport.</p>
+                  <div class="mb-3 p-3 rounded"
+                    style="background-color: #243e73;">
+                    <div class="d-flex align-items-center">
+                      <i class="fas fa-users fa-2x me-3 text-light"></i>
+                      <div>
+                        <div class="text-light small">Nombre
+                          d'utilisateurs</div>
+                        <div class="h4 fw-bold text-primary">156</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-3 rounded" style="background-color: #1e4034;">
+                    <div class="d-flex align-items-center">
+                      <i class="fas fa-user-check fa-2x me-3 text-light"></i>
+                      <div>
+                        <div class="text-light small">Utilisateurs
+                          connectés</div>
+                        <div class="h4 fw-bold text-success">24</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-        themeSwitch.addEventListener('change', function () {
-            const theme = this.checked ? 'light' : 'dark';
-            html.setAttribute('data-bs-theme', theme);
-            localStorage.setItem('theme', theme);
-        });
-       </script>
+                <div class="card p-3 mb-3">
+                  <h5>Services supervisés</h5>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Service</th>
+                        <th>Hôte</th>
+                        <th>État</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>HTTP</td>
+                        <td>web-server-01</td>
+                        <td><span class="status-box status-ok">OK</span></td>
+                      </tr>
+                      <tr>
+                        <td>SSH</td>
+                        <td>db-server-01</td>
+                        <td><span class="status-box status-ok">OK</span></td>
+                      </tr>
+                      <tr>
+                        <td>FTP</td>
+                        <td>file-server-01</td>
+                        <td><span class="status-box status-ok">OK</span></td>
+                      </tr>
+                      <tr>
+                        <td>MySQL</td>
+                        <td>db-server-01</td>
+                        <td><span
+                            class="status-box status-critical">Critical</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
 
-    </body>
+              <div class="col-md-6">
+                <div class="card p-3 mb-3">
+                  <h5>État des hôtes</h5>
+                  <div class="d-grid gap-2"
+                    style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="status-box-hote status-ok pt-5">Up<br>32</div>
+                    <div class="status-box-hote status-critical pt-5"><span
+                        class="pt-2 d-block">Down</span>
+                      <strong>1</strong>
+                    </div>
+                    <div class="status-box-hote status-warning pt-5"><span
+                        class="pt-2 d-block">Unreachable</span>
+                      <strong>13</strong>
+                    </div>
+                    <div class="status-box-hote status-pending pt-5"><span
+                        class="pt-2 d-block">Pending</span>
+                      <strong>67</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="card p-3 mb-3">
+                  <h5>Graphique historique</h5>
+                  <p><strong>Host:</strong> web-server-02 <span
+                      class="text-danger">Down</span><br>
+                    <strong>Service:</strong> CPU Load <span
+                      class="text-warning">Warning</span><br>
+                    <strong>Disk Space:</strong> 4/4/2024 13:50
+                  </p>
+                </div>
+                <div class="card p-3 mb-3">
+                  <h5>Graphique historique</h5>
+                  <canvas id="historiqueChart" height="200"></canvas>
+                </div>
+                <div class="card text-white mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title mb-4">Etat des
+                      alertes</h5>
+
+                    <div class="mb-3 p-3 rounded"
+                      style="background-color: #834d34;">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-exclamation-triangle fa-3x me-3"></i>
+                        <div>
+                          <div class="text-light small">Etat
+                            critique</div>
+                          <div class="h4 fw-bold text-primary">15</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-3 rounded" style="background-color: #6699f8;">
+                      <div class="d-flex align-items-center">
+                        <i class="bi fa-3x bi-dash-circle-dotted me-3"></i>
+                        <div>
+                          <div class="text-light small">Etat
+                            normal</div>
+                          <div class="h4 fw-bold text-success">2</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="hote" class="page-section d-none">
+            <h4 class="mb-4 d-flex align-items-center">
+              <i class="bi bi-pc-display-horizontal me-2 fs-4"></i> Hôtes
+            </h4>
+            <div class="card p-4 mb-4">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge bg-dark p-2 px-3">Total hôtes:
+                    <strong>3</strong></span>
+                  <span class="badge bg-dark p-2 px-3">Équipements:
+                    <strong>7</strong></span>
+                  <span class="badge bg-dark p-2 px-3">Alertes:
+                    <strong>1</strong></span>
+                </div>
+                <div class="d-flex gap-2 flex-wrap">
+                  <button class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#addHostModal">
+                    <i class="bi bi-plus-circle me-1"></i> Ajouter un hôte
+                  </button>
+                  <button class="btn btn-success">
+                    <i class="bi bi-file-earmark-arrow-down me-1"></i> Exporter
+                  </button>
+                  <input type="text" class="form-control"
+                    placeholder="Rechercher un hôte..."
+                    style="max-width: 200px;">
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-dark align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>IP</th>
+                      <th>État</th>
+                      <th>CPU</th>
+                      <th>Disque</th>
+                      <th>Services</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>web-server-01</td>
+                      <td>192.168.1.10</td>
+                      <td><span class="badge bg-success">Up</span></td>
+                      <td>15%</td>
+                      <td>80%</td>
+                      <td>HTTP, SSH</td>
+                      <td>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-outline-info"><i
+                              class="bi bi-eye"></i></button>
+                          <button class="btn btn-sm btn-outline-light"><i
+                              class="bi bi-diagram-3"></i></button>
+                          <button class="btn btn-sm btn-danger"><i
+                              class="bi bi-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        db-server-01
+                        <span class="badge bg-danger ms-1">Alerte</span>
+                      </td>
+                      <td>192.168.1.20</td>
+                      <td><span class="badge bg-danger">Down</span></td>
+                      <td>0%</td>
+                      <td>N/A</td>
+                      <td>MySQL</td>
+                      <td>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-outline-info"><i
+                              class="bi bi-eye"></i></button>
+                          <button class="btn btn-sm btn-outline-light"><i
+                              class="bi bi-diagram-3"></i></button>
+                          <button class="btn btn-sm btn-danger"><i
+                              class="bi bi-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>file-server-01</td>
+                      <td>192.168.1.30</td>
+                      <td><span class="badge bg-success">Up</span></td>
+                      <td>22%</td>
+                      <td>60%</td>
+                      <td>FTP</td>
+                      <td>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-outline-info"><i
+                              class="bi bi-eye"></i></button>
+                          <button class="btn btn-sm btn-outline-light"><i
+                              class="bi bi-diagram-3"></i></button>
+                          <button class="btn btn-sm btn-danger"><i
+                              class="bi bi-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- Modal Bootstrap : Gestion de l'ajout des hôtes justin régarde bien comment ça doit marcher... boostrap est 
+                 trop ooouuf -->
+                <div class="modal fade" id="addHostModal" tabindex="-1"
+                  aria-labelledby="addHostModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="addHostModalLabel">
+                          <i class="bi bi-pc-display-horizontal me-2"></i>
+                          Ajouter un hôte
+                        </h5>
+                        <button type="button" class="btn-close"
+                          data-bs-dismiss="modal" aria-label="Fermer"></button>
+                      </div>
+
+                      <div class="modal-body">
+                        <!-- Zone Scanner genre on lance le scan ici quoi  -->
+                        <div class="mb-3">
+                          <button id="scanButton" class="btn btn-outline-info">
+                            <i class="bi bi-search"></i> Scanner les hôtes
+                            disponibles
+                          </button>
+
+                          <div id="host-list" class="list-group mt-3">
+                            <!-- Liste des hôtes détectés pour le moment  tu vois que je n'ai rien mis 
+                             quand on lancera le scan les choses viendront normalement 
+                             mais pour le moment je vais mettre des fausses donné pour la simulation pour qu'on ne souffre 
+                             pas trop  -->
+                          </div>
+                        </div>
+
+                        <!-- Formulaire dynamique donc comme wil le disait c'est ici maintenant que le formulaire commence-->
+                        <div id="host-form-zone" class="card p-4 d-none">
+                          <h6 class="mb-3">Configurer l’hôte sélectionné</h6>
+                          <form id="host-form">
+                            <div class="mb-3">
+                              <label for="hostName" class="form-label">Nom de
+                                l'hôte</label>
+                              <input type="text" class="form-control"
+                                id="hostName" readonly>
+                            </div>
+                            <div class="mb-3">
+                              <label for="hostIP" class="form-label">Adresse
+                                IP</label>
+                              <input type="text" class="form-control"
+                                id="hostIP" readonly>
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label">Services à
+                                surveiller</label>
+                              <div class="dropdown">
+                                <button
+                                  class="btn btn-outline-secondary dropdown-toggle"
+                                  type="button"
+                                  data-bs-toggle="dropdown">
+                                  Choisir les services
+                                </button>
+                                <ul class="dropdown-menu p-2"
+                                  style="min-width: 250px;">
+                                  <li><label class="form-check"><input
+                                        class="form-check-input" type="checkbox"
+                                        value="HTTP"> HTTP</label></li>
+                                  <li><label class="form-check"><input
+                                        class="form-check-input" type="checkbox"
+                                        value="SSH"> SSH</label></li>
+                                  <li><label class="form-check"><input
+                                        class="form-check-input" type="checkbox"
+                                        value="FTP"> FTP</label></li>
+                                  <li><label class="form-check"><input
+                                        class="form-check-input" type="checkbox"
+                                        value="MySQL"> MySQL</label></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="mb-3">
+                              <label for="url" class="form-label">URL de
+                                supervision</label>
+                              <input type="text" class="form-control" id="url"
+                                placeholder="http://192.168.x.x/survapp/blabla...">
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                          data-bs-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-success"
+                          form="host-form" href="#">Enregistrer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- --===================le modal prend fin ici (modal d'ajout d'équipement biensur )--=====================-->
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+    <script src="main-js/index.js" defer></script>
+    <script>
+    const themeSwitch = document.getElementById('themeSwitch');
+    const html = document.querySelector('html');
+
+    // quand je finis la récupération c'est ici je sauvegarde .... bon en réunion on pourra en discuter s'il faut ajouter d'autre thème pour s'amuser 
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      html.setAttribute('data-bs-theme', savedTheme);
+      themeSwitch.checked = savedTheme === 'light';
+    }
+
+    themeSwitch.addEventListener('change', function () {
+      const theme = this.checked ? 'light' : 'dark';
+      html.setAttribute('data-bs-theme', theme);
+      localStorage.setItem('theme', theme);
+    });
+  </script>
+
+  </body>
 
 </html>

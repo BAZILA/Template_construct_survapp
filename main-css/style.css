@@ -17,8 +17,13 @@
   --card-bg: #ffffff;
   --card-text: #212529;
 }
+/* transition entre les onglets et c'est global pour toutes les interfaces  */
+.page-section {
+  transition: opacity 0.3s ease;
+}
+/*-------------  accueil commence ici --------------*/
 
-/* Application des variables les gars on ajusteras au besoin.... */
+/* Application des variables en utilisant les var()...les gars on ajusteras au besoin.... */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -133,3 +138,44 @@ body {
 }
 
 
+/*------------- les gars c'est ici que commence les css des hôtes --------------*/
+
+
+/*  j'ai fait ici pour donne une couleur au icone qui s'affiche dedans ...
+genre dans les interfaces ..;*/
+
+.page-section h4 i {
+  color: #2ebe11;
+}
+
+.table-dark th {
+  background-color:var(--bg-color);
+  color: var(--card-text);
+  border: none;
+}
+
+.table-dark td {
+  background-color: var(--card-bg);
+  border-top: 1px solid #3b3d4a;
+  color: var(--card-text);
+}
+
+.badge.bg-dark {
+  background-color: var(--bg-color);
+  font-size: 0.9rem;
+}
+
+.btn-outline-light {
+  border-color: #6c757d;
+  color: var(--text-color);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--card-bg);
+}
+
+/*====== pour un peur créer une joli effet quand on va survoler les équipements qu'on veu ajouter lààà======*/
+#host-list button:hover {
+  background-color: #b2cdf3;
+  color: white;
+}
