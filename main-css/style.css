@@ -50,6 +50,20 @@ body {
   color: var(--text-color);
   border-radius: 15px;
 }
+.sidebar-sub-link {
+  display: block;
+  color: #b0b3c4;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.sidebar-sub-link:hover {
+  background-color: #3d4160;
+  color: white;
+  border-radius: 10px;
+}
+
 
 .card {
   background-color: var(--card-bg);
@@ -178,4 +192,11 @@ genre dans les interfaces ..;*/
 #host-list button:hover {
   background-color: #b2cdf3;
   color: white;
+}
+
+/*====== pour entete de table des utilisateurs =====*/
+.table-user th{
+  background-color:var(--bg-color);
+  color: var(--card-text);
+  border: none;
 }

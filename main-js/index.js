@@ -142,4 +142,49 @@ scanButton.addEventListener('click', () => {
     if (modal) modal.hide();
   });
 });
+/* =============pour afficher et cacher le mot de passe et stimulation d'ajput plus gestion du modal  =======================*/
+const showPasswordIcons = document.querySelectorAll('.password-toggle');
+const addUserForm = document.getElementById('addUserForm');
+const addUserModalEl = document.getElementById('addUserModal');
+const addUserModal = bootstrap.Modal.getInstance(addUserModalEl) || new bootstrap.Modal(addUserModalEl);
+
+// Gérer les yeux pour afficher/masquer les mots de passe bon vous même vous le savez déjà
+showPasswordIcons.forEach(icon => {
+  icon.addEventListener('click', function () {
+    const target = document.querySelector(this.dataset.target);
+    const isPassword = target.type === 'password';
+    target.type = isPassword ? 'text' : 'password';
+    this.classList.toggle('bi-eye');
+    this.classList.toggle('bi-eye-slash');
+  });
+});
+
+// Simulation de l’ajout essayer de voir
+if (addUserForm) {
+  addUserForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const prenom = document.getElementById('prenom').value;
+    const nom = document.getElementById('nom').value;
+    const email = document.getElementById('email').value;
+    const role = document.getElementById('role').value;
+    const etat = document.getElementById('etat').value;
+
+    console.log("Utilisateur ajouté (simulation) :", {
+      prenom, nom, email, role, etat
+    });
+
+    alert(`Utilisateur ${prenom} ${nom} a été simulé comme ajouté haha !`);
+
+    addUserModal.hide();
+    this.reset();
+  });
+}
+/* =============pour stimuler l'ajout d'un role  =======================*/
+document.getElementById('roleForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  alert("Rôle enregistré (simulation)");
+  const modal = bootstrap.Modal.getInstance(document.getElementById('roleModal'));
+  if (modal) modal.hide();
+});
 

@@ -48,10 +48,25 @@
               <i class="bi bi-bar-chart-fill me-2"></i> Rapports
             </a>
 
-            <a href="#">
-              <i class="bi bi-person-circle me-2"></i>
-              Utilisateurs
+            <!-- Dropdown principal pour les gest... des users et leur perms..-->
+            <a href="#"
+              class="d-flex align-items-center justify-content-between sidebar-link"
+              data-bs-toggle="collapse" data-bs-target="#userMgmtMenu"
+              aria-expanded="false">
+              <span><i class="bi bi-person-gear me-2"></i> User
+                Management</span>
+              <i class="bi bi-chevron-down small"></i>
             </a>
+
+            <!-- Sous-menu -->
+            <div class="collapse ps-3" id="userMgmtMenu">
+              <a href="#" class="sidebar-sub-link" data-target="utilisateurs">
+                <i class="bi bi-people me-2"></i> Utilisateurs
+              </a>
+              <a href="#" class="sidebar-sub-link" data-target="roles">
+                <i class="bi bi-shield-lock me-2"></i> Rôles & Permissions
+              </a>
+            </div>
 
             <a href="#" data-target="configuration">
               <i class="bi bi-gear-fill me-2"></i> Configuration
@@ -432,6 +447,333 @@
                   </div>
                 </div>
                 <!-- --===================le modal prend fin ici (modal d'ajout d'équipement biensur )--=====================-->
+              </div>
+            </div>
+          </div>
+          <div id="utilisateurs" class="page-section d-none">
+            <h4 class="mb-4 d-flex align-items-center">
+              <i class="bi bi-people-fill me-2 fs-4"></i> Utilisateurs
+            </h4>
+
+            <div class="card p-4 mb-4">
+              <!-- Boutons et filtres juste en haut là -->
+              <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                <button class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#addUserModal">
+                  <i class="bi bi-person-plus-fill me-1"></i> Ajouter un
+                  utilisateur
+                </button>
+
+                <input type="text" class="form-control"
+                  placeholder="Rechercher un utilisateur..."
+                  style="max-width: 220px;">
+
+                <select class="form-select" style="max-width: 180px;">
+                  <option>Tous les rôles</option>
+                  <option>Administrateur</option>
+                  <option>Utilisateur</option>
+                </select>
+
+                <select class="form-select" style="max-width: 180px;">
+                  <option>Tous les statuts</option>
+                  <option>Actif</option>
+                  <option>Inactif</option>
+                </select>
+
+                <button class="btn btn-success ms-auto">
+                  <i class="bi bi-download me-1"></i> Exporter CSV
+                </button>
+              </div>
+
+              <!-- Résumés -->
+              <div class="d-flex flex-wrap gap-3 mb-3">
+                <div class="badge bg-primary text-light p-3 rounded">
+                  Total utilisateurs: <strong>156</strong>
+                </div>
+                <div class="badge bg-info text-light p-3 rounded">
+                  Actifs: <strong>24</strong>
+                </div>
+                <div class="badge bg-dark text-light p-3 rounded">
+                  Administrateurs: <strong>5</strong>
+                </div>
+              </div>
+
+              <!-- Tableau des user ...disons même que c'est un commentaire inutiles haha -->
+              <div class="table-responsive">
+                <table
+                  class="table table-hover table-dark align-middle text-nowrap">
+                  <thead class="table-hote">
+                    <tr>
+                      <th>Nom</th>
+                      <th>Email</th>
+                      <th>Rôle</th>
+                      <th>Statut</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jean Dupont</td>
+                      <td>jean.dupont@email.com</td>
+                      <td>Administrateur</td>
+                      <td><span class="badge bg-success">ACTIF</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-primary me-1"><i
+                            class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-sm btn-warning me-1"><i
+                            class="bi bi-bounding-box"></i></button>
+                        <button class="btn btn-sm btn-danger"><i
+                            class="bi bi-trash"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Marie Martin</td>
+                      <td>marie.martin@email.com</td>
+                      <td>Utilisateur</td>
+                      <td><span class="badge bg-success">ACTIF</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-primary me-1"><i
+                            class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-sm btn-warning me-1"><i
+                            class="bi bi-bounding-box"></i></button>
+                        <button class="btn btn-sm btn-danger"><i
+                            class="bi bi-trash"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Paul Durand</td>
+                      <td>paul.durand@email.com</td>
+                      <td>Utilisateur</td>
+                      <td><span class="badge bg-secondary">INACTIF</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-primary me-1"><i
+                            class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-sm btn-warning me-1"><i
+                            class="bi bi-bounding-box"></i></button>
+                        <button class="btn btn-sm btn-danger"><i
+                            class="bi bi-trash"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- Modal d'ajout d'un user excusez de faire du css à l'interieur comme ça c'est pas cool mais on n'a 
+                 pas trop le temps ... on paufinera tout ça après  -->
+                <div class="modal fade" id="addUserModal" tabindex="-1"
+                  aria-labelledby="addUserModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content"
+                      style="background-color: var(--card-bg); color: var(--card-text);">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="addUserModalLabel">
+                          <i class="bi bi-person-plus-fill me-2"></i> Ajouter un
+                          utilisateur
+                        </h5>
+                        <button type="button" class="btn-close"
+                          data-bs-dismiss="modal" aria-label="Fermer"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form id="addUserForm">
+                          <div class="mb-3">
+                            <label for="prenom"
+                              class="form-label">Prénom</label>
+                            <input type="text" class="form-control" id="prenom"
+                              placeholder="Prénom">
+                          </div>
+                          <div class="mb-3">
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="nom"
+                              placeholder="Nom">
+                          </div>
+                          <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email"
+                              placeholder="Email">
+                          </div>
+                          <div class="mb-3">
+                            <label for="role" class="form-label">Rôle</label>
+                            <select id="role" class="form-select">
+                              <option value>Choisir un rôle</option>
+                              <option value="admin">Administrateur</option>
+                              <option value="user">Utilisateur</option>
+                            </select>
+                          </div>
+                          <div class="mb-3">
+                            <label for="etat" class="form-label">État</label>
+                            <select id="etat" class="form-select">
+                              <option value="actif">Actif</option>
+                              <option value="inactif">Inactif</option>
+                            </select>
+                          </div>
+                          <div class="mb-3 position-relative">
+                            <label for="password" class="form-label">Mot de
+                              passe</label>
+                            <input type="password" class="form-control"
+                              id="password" placeholder="Mot de passe">
+                            <i
+                              class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3 mt-3 text-muted password-toggle"
+                              data-target="#password" role="button"></i>
+                          </div>
+                          <div class="mb-3 position-relative">
+                            <label for="confirmPassword"
+                              class="form-label">Confirmation</label>
+                            <input type="password" class="form-control"
+                              id="confirmPassword"
+                              placeholder="Confirmation mot de passe">
+                            <i
+                              class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3 mt-3  text-muted password-toggle"
+                              data-target="#confirmPassword" role="button"></i>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit"
+                          class="btn btn-primary"
+                          form="addUserForm">Enregistrer</button>
+                        <button type="button" class="btn btn-secondary"
+                          data-bs-dismiss="modal">Annuler</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="roles" class="page-section d-none">
+            <h4 class="mb-4 d-flex align-items-center">
+              <i class="bi bi-shield-lock me-2 fs-4"></i> Gestion des rôles et
+              permissions
+            </h4>
+
+            <div class="card p-4 mb-4">
+              <div class="d-flex justify-content-between mb-3">
+                <button class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#roleModal">
+                  <i class="bi bi-plus-circle me-1"></i> Ajouter un rôle
+                </button>
+                <input type="search" class="form-control w-auto"
+                  placeholder="Rechercher un rôle...">
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-striped align-middle">
+                  <thead>
+                    <tr>
+                      <th>Rôle</th>
+                      <th>Permissions</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Administrateur</td>
+                      <td>
+                        <span class="badge bg-success">Voir utilisateurs</span>
+                        <span class="badge bg-success">Ajouter
+                          utilisateurs</span>
+                        <span class="badge bg-success">Modifier rôles</span>
+                      </td>
+                      <td>
+                        <button class="btn btn-sm btn-primary me-1"
+                          data-bs-toggle="modal" data-bs-target="#roleModal">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Utilisateur</td>
+                      <td>
+                        <span class="badge bg-secondary">Voir son profil</span>
+                        <span class="badge bg-secondary">Modifier son mot de
+                          passe</span>
+                      </td>
+                      <td>
+                        <button class="btn btn-sm btn-primary me-1"
+                          data-bs-toggle="modal" data-bs-target="#roleModal">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- ici c'etst le modal d'ajout que je maintiendrai aussi pour l'édition des roles -->
+                <div class="modal fade" id="roleModal" tabindex="-1"
+                  aria-labelledby="roleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title"
+                          id="roleModalLabel">Ajouter/Modifier un rôle</h5>
+                        <button type="button" class="btn-close"
+                          data-bs-dismiss="modal" aria-label="Fermer"></button>
+                      </div>
+                      <form id="roleForm">
+                        <div class="modal-body">
+                          <div class="mb-3">
+                            <label for="roleName" class="form-label">Nom du
+                              rôle</label>
+                            <input type="text" class="form-control"
+                              id="roleName" required>
+                          </div>
+
+                          <div class="mb-3">
+                            <label class="form-label">Permissions</label>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="form-check">
+                                  <input class="form-check-input"
+                                    type="checkbox" id="perm1">
+                                  <label class="form-check-label"
+                                    for="perm1">Voir utilisateurs</label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input"
+                                    type="checkbox" id="perm2">
+                                  <label class="form-check-label"
+                                    for="perm2">Ajouter utilisateurs</label>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-check">
+                                  <input class="form-check-input"
+                                    type="checkbox" id="perm3">
+                                  <label class="form-check-label"
+                                    for="perm3">Modifier rôles</label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input"
+                                    type="checkbox" id="perm4">
+                                  <label class="form-check-label"
+                                    for="perm4">Supprimer utilisateurs</label>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-check">
+                                  <input class="form-check-input"
+                                    type="checkbox" id="perm5">
+                                  <label class="form-check-label"
+                                    for="perm5">Gérer logs</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit"
+                            class="btn btn-primary">Enregistrer</button>
+                          <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Annuler</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
