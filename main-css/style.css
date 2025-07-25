@@ -179,3 +179,10 @@ genre dans les interfaces ..;*/
   background-color: #b2cdf3;
   color: white;
 }
+
+.modal_performance{
+  width: 100%;
+  height: 100vh;
+  background-color: aqua;
+  
+}

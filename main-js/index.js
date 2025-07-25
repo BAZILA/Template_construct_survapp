@@ -143,8 +143,10 @@ scanButton.addEventListener('click', () => {
   });
 });
 
-/*--------------------- Graphique de performance des equipements-------------------------*/
-
-
+/*<============================Graphique de performance===================================>*/
+ const graph1=document.getElementById("diagram");
+ graph1.addEventListener("click",()=>{
+  console.log("Hello")
+ })
 
 
