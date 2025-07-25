@@ -144,9 +144,104 @@ scanButton.addEventListener('click', () => {
 });
 
 /*<============================Graphique de performance===================================>*/
- const graph1=document.getElementById("diagram");
- graph1.addEventListener("click",()=>{
-  console.log("Hello")
- })
+const Open_modal=document.getElementById('open_modal')
+const modal=document.getElementById('modal')
 
+Open_modal.addEventListener('click',(e)=>{
+  console.log("hello")
+  modal.className= ""
+
+})
+
+
+/*===============Interface reseaux========= */
+const Interface1 = document.getElementById('interface1')
+  if (Interface1) {
+    const Inter = new Chart(Interface1.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],
+        datasets: [
+          {
+            label: 'Entrée (Mbps)',
+            data: [10, 20, 15, 25, 20, 30],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            tension: 0.3,
+            fill: true
+          },
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' },
+          title: { display: false }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    })
+  }
+
+  const Interface2 = document.getElementById('interface2')
+  if (Interface2) {
+    const Inter = new Chart(Interface2.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],
+        datasets: [
+          {
+            label: 'Entrée (Mbps)',
+            data: [10, 20, 15, 25, 20, 30],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            tension: 0.3,
+            fill: true
+          },
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' },
+          title: { display: false }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    })
+  }
+
+  const Interface3 = document.getElementById('interface3')
+  if (Interface3) {
+    const Inter = new Chart(Interface3.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],
+        datasets: [
+          {
+            label: 'Entrée (Mbps)',
+            data: [10, 20, 15, 25, 20, 30],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            tension: 0.3,
+            fill: true
+          },
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' },
+          title: { display: false }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    })
+  }
 

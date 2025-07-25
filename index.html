@@ -288,8 +288,7 @@
                       <td>
                         <div class="d-flex gap-2">
                           <button class="btn btn-sm btn-outline-info"><i class="bi bi-eye"></i></button>
-                          <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal"
-                          data-bs-target="#Graphique"><i
+                          <button class="btn btn-sm btn-outline-light" id="open_modal"><i
                               class="bi bi-diagram-3"></i></button>
                           <button class="btn btn-sm btn-danger"><i
                               class="bi bi-trash"></i></button>
@@ -432,21 +431,29 @@
                   </div>
                 </div>
                 <!-----Modal de performance des equipemments-------->
-                <div class="modal fade" id="Graphique" tabindex="-1"
-                  aria-labelledby="addHostModalLabel"
-                  aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                      <div class="modal-content w-75">
-                        <div class="modal-header">
-                          <div class="modal-title">
-                            <h1>Equipements de web-server-01</h1>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
 
             </div>
+          </div>
+          <div class="w-75 h-100 bg-body  position-fixed fixed-top mx-auto my-5 translate-middle-x-5 rounded-3 d-block" id="modal">
+                <button class="px-3 py-1  my-2 mx-2">X</button>
+                <div class="px-3">
+                  <h5 class=" bg-dark-subtle py-2 px-2">Equipements-server-01</h5>
+                  <h6 class="my-3 py-2 bg-dark-subtle px-2"><strong class="text-primary"><i class="bi bi-ethernet"></i>Eth (Interface reseau)</strong> </h6>
+                  <h6 class="my-3 py-2 bg-dark-subtle px-2"><strong class=""><i class="bi bi-ethernet"></i>Sda1 (Disque)</strong> </h6>
+                </div>
+                <div class="w-100 px-1  h-50 bg-dark-subtle mx-auto rounded-3">
+                  <span class=" text-primary">Eth (Interface reseau)</span>
+                  <div class="d-flex">
+                    <canvas height="50" width="50"  id="interface1" ></canvas>
+                    <canvas height="50" width="50"  id="interface2" ></canvas>
+                    <canvas height="50" width="50"  id="interface3" ></canvas>
+                  </div>
+                
+                </div>
+
+                
+                
           </div>
 
         </main>

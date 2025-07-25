@@ -180,11 +180,10 @@ genre dans les interfaces ..;*/
   color: white;
 }
 
-.modal_performance{
-  width: 100%;
-  height: 100vh;
-  background-color: aqua;
-  display: block;
-  position: fixed;
-  
+.modal{
+  width: 90%;
+  margin: 0 auto;
+  height: 50%;
+  background:blue;
+
 }
