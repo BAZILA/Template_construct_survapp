@@ -143,3 +143,8 @@ scanButton.addEventListener('click', () => {
   });
 });
 
+/*--------------------- Graphique de performance des equipements-------------------------*/
+
+
+
+
