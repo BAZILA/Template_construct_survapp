@@ -115,9 +115,9 @@ const hostIPInput = document.getElementById('hostIP');
 const form = document.getElementById('host-form');
 
 const fakeHosts = [
-  { name: "web-server-01", ip: "192.168.1.10" },
-  { name: "db-server-01", ip: "192.168.1.20" },
-  { name: "file-server-01", ip: "192.168.1.30" },
+  { name: "web-server-01", ip: "192.168.1.10" ,service:"HTTP,SSH",disque:"80%",etat:"Up",cpu:"15%"},
+  { name: "db-server-01", ip: "192.168.1.20" ,service:"MySQL",disque:"N/A",etat:"Down",cpu:"0%" },
+  { name: "file-server-01", ip: "192.168.1.30" ,service:"FTP",disque:"60%",etat:"Up",cpu:"22%" },
 ];
 
 scanButton.addEventListener('click', () => {
@@ -144,104 +144,101 @@ scanButton.addEventListener('click', () => {
 });
 
 /*<============================Graphique de performance===================================>*/
-const Open_modal=document.getElementById('open_modal')
-const modal=document.getElementById('modal')
 
-Open_modal.addEventListener('click',(e)=>{
-  console.log("hello")
-  modal.className= ""
-
-})
-
-
-/*===============Interface reseaux========= */
-const Interface1 = document.getElementById('interface1')
-  if (Interface1) {
-    const Inter = new Chart(Interface1.getContext('2d'), {
+  const graphe1Ctx = document.getElementById('graphe1')
+  if (graphe1Ctx) {
+    const historiqueChart = new Chart(graphe1Ctx.getContext('2d'), {
       type: 'line',
       data: {
-        labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],
+        labels: ['T-4', 'T-3', 'T-2', 'T-1'],
         datasets: [
           {
-            label: 'Entrée (Mbps)',
-            data: [10, 20, 15, 25, 20, 30],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            tension: 0.3,
-            fill: true
-          },
+            label: 'CPU(%)',
+            data: [0, 25, 50, 100],
+            backgroundColor: 'drak',
+            borderColor: 'blue',
+          }
         ]
       },
       options: {
         responsive: true,
-        plugins: {
-          legend: { position: 'top' },
-          title: { display: false }
-        },
         scales: {
-          y: { beginAtZero: true }
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 1 }
+          }
+        },
+        plugins: {
+          legend: { display: true },
+          tooltip: { mode: 'index', intersect: false }
         }
       }
     })
   }
 
-  const Interface2 = document.getElementById('interface2')
-  if (Interface2) {
-    const Inter = new Chart(Interface2.getContext('2d'), {
+
+    const graphe2Ctx = document.getElementById('graphe2')
+  if (graphe1Ctx) {
+    const historiqueChart = new Chart(graphe2Ctx.getContext('2d'), {
       type: 'line',
       data: {
-        labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],
+        labels: ['T-4', 'T-3', 'T-2', 'T-1'],
         datasets: [
           {
-            label: 'Entrée (Mbps)',
-            data: [10, 20, 15, 25, 20, 30],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            tension: 0.3,
-            fill: true
-          },
+            label: 'Disque(%)',
+            data: [20, 50, 20, 50],
+            backgroundColor: 'drak',
+            borderColor: 'green',
+          }
         ]
       },
       options: {
         responsive: true,
-        plugins: {
-          legend: { position: 'top' },
-          title: { display: false }
-        },
         scales: {
-          y: { beginAtZero: true }
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 1 }
+          }
+        },
+        plugins: {
+          legend: { display: true },
+          tooltip: { mode: 'index', intersect: false }
         }
       }
     })
   }
 
-  const Interface3 = document.getElementById('interface3')
-  if (Interface3) {
-    const Inter = new Chart(Interface3.getContext('2d'), {
+
+    const graphe3Ctx = document.getElementById('graphe3')
+  if (graphe3Ctx) {
+    const historiqueChart = new Chart(graphe3Ctx.getContext('2d'), {
       type: 'line',
       data: {
-        labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],
+        labels: ['T-4', 'T-3', 'T-2', 'T-1'],
         datasets: [
           {
-            label: 'Entrée (Mbps)',
-            data: [10, 20, 15, 25, 20, 30],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            tension: 0.3,
-            fill: true
-          },
+            label: 'CPU(%)',
+            data: [0, 10, 5, 50],
+            backgroundColor: '',
+            borderColor: 'yellow',
+          }
         ]
       },
       options: {
         responsive: true,
-        plugins: {
-          legend: { position: 'top' },
-          title: { display: false }
-        },
         scales: {
-          y: { beginAtZero: true }
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 1 }
+          }
+        },
+        plugins: {
+          legend: { display: true },
+          tooltip: { mode: 'index', intersect: false }
         }
       }
     })
   }
+
+
 

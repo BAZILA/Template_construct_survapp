@@ -287,10 +287,17 @@
                       <td>HTTP, SSHS</td>
                       <td>
                         <div class="d-flex gap-2">
-                          <button class="btn btn-sm btn-outline-info"><i class="bi bi-eye"></i></button>
-                          <button class="btn btn-sm btn-outline-light" id="open_modal"><i
+                          <button class="btn btn-sm btn-outline-info"
+                            data-bs-toggle="modal"
+                            data-bs-target="#detailModal"><i
+                              class="bi bi-eye"></i></button>
+                          <button class="btn btn-sm btn-outline-light"
+                            data-bs-toggle="modal"
+                            data-bs-target="#graphieModal"><i
                               class="bi bi-diagram-3"></i></button>
-                          <button class="btn btn-sm btn-danger"><i
+                          <button class="btn btn-sm btn-danger"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteModal"><i
                               class="bi bi-trash"></i></button>
                         </div>
                       </td>
@@ -431,25 +438,107 @@
                   </div>
                 </div>
                 <!-----Modal de performance des equipemments-------->
-                  <div class="modal fade" id="graphieModal" tabindex="-1" role="dialog" aria-labelledby="graphiqueModallabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          
+
+                <div class="modal fade" id="graphieModal" tabindex="-1"
+                  role="dialog" aria-labelledby="graphiqueModallabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <div class="modal-title">
+                          <strong>Equipements de web-server-01 </strong>
+                        </div>
+
+                      </div>
+                      <strong class="px-3 text-primary bg-body-tertiary py-2"><i
+                          class="bi bi-ethernet"> eth0 (Interface
+                          reseau)</i></strong>
+                      <strong class="px-3"><i class="bi bi-ethernet"> sda1
+                          (Disque)</i></strong>
+                      <div class="modal-body">
+                        <strong class> eth0 (Interface reseau)</strong>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <canvas id="graphe1"
+                              class=" bg-body-tertiary m-2 rounded-2"></canvas>
+                          </div>
+                          <div class="col-md-6">
+                            <canvas id="graphe2"
+                              class=" bg-body-tertiary m-2 rounded-2"></canvas>
+                          </div>
+                          <div class="col-md-6">
+                            <canvas id="graphe3"
+                              class=" bg-body-tertiary m-2 rounded-2"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-----------===============Modal de suppression================---------->
+
+                <div class="modal fade" id="deleteModal" tabindex="-1"
+                  role="dialog" aria-labelledby="graphiqueModallabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <div class="modal-title">
+                          <strong>Confirmer la suppression </strong>
+                        </div>
+
+                      </div>
+                      <div class="modal-body">
+                        <h4 class="text-bold">Voulez-vous vraiment supprimer
+                          l'hote "web-server-01"</h4>
+                      </div>
+                      <div class="modal-footer">
+                        <button class=" btn">Anuler</button>
+                        <button class="btn bg-danger">Confirmer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-----=============================Detail Modal==================-->
+
+                <div class="modal fade" id="detailModal" tabindex="-1"
+                  role="dialog" aria-labelledby="graphiqueModallabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <div class="modal-title">
+                          <h4>Detail de l'hote</h4>
+                        </div>
+                      </div>
+                      <div class="modal-body">
+                        <div class="flex flex-col">
+                          Nom : <strong>JUstin</strong> <br>
+                          IP : <strong>JUstin</strong> <br>
+                          Etat : <strong>JUstin</strong> <br>
+                          CPU : <strong>JUstin</strong> <br>
+                          Memoire : <strong>JUstin</strong> <br>
+                          Disque : <strong>JUstin</strong> <br>
+                          Service : <strong>JUstin</strong> <br>
+                          Logs recents:
+                          <ul>
+                            <li>CPU OK</li>
+                            <li>DisK OK</li>
+                          </ul>
+                          <button  class=" bg-primary btn px-2 py-1"><i class="bi bi-diagram-3"></i> Voir Equipements</button>
                         </div>
                       </div>
                     </div>
                   </div>
 
->
-
-        </main>
-      </div>
-    </div>
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
-    <script src="main-js/index.js" defer></script>
-    <script>
+                </main>
+              </div>
+            </div>
+            <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+            <script src="main-js/index.js" defer></script>
+            <script>
     const themeSwitch = document.getElementById('themeSwitch');
     const html = document.querySelector('html');
 
@@ -467,6 +556,6 @@
     });
   </script>
 
-  </body>
+          </body>
 
-</html>
+        </html>
