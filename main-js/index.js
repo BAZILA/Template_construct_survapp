@@ -523,5 +523,78 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-  
 
+
+
+/* =============Js pour mes carte reaux  =======================*/
+
+    const hosts = [
+      { name: 'web-server-01', x: 100, y: 100, status: 'up', ip: '192.168.1.10', os: 'Linux' },
+      { name: 'db-server-01', x: 500, y: 100, status: 'down', ip: '192.168.1.20', os: 'Windows' },
+      { name: 'backup-server', x: 300, y: 250, status: 'unreachable', ip: '192.168.1.30', os: 'Linux' }
+    ];
+    const links = [
+      { from: 0, to: 1 },
+      { from: 0, to: 2 },
+      { from: 1, to: 2 }
+    ];
+    const statusColor = { up: '#2ecc71', down: '#e74c3c', unreachable: '#f1c40f' };
+    // Dessin du schéma
+    const svg = document.getElementById('topoSvg');
+    // Lignes (liens)
+    links.forEach(link => {
+      const h1 = hosts[link.from];
+      const h2 = hosts[link.to];
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', h1.x);
+      line.setAttribute('y1', h1.y);
+      line.setAttribute('x2', h2.x);
+      line.setAttribute('y2', h2.y);
+      line.setAttribute('stroke', '#bfc9db');
+      line.setAttribute('stroke-width', '3');
+      svg.appendChild(line);
+    });
+    // Nœuds (hôtes)
+    hosts.forEach((host, i) => {
+      const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      group.classList.add('topo-node');
+      group.setAttribute('data-host', host.name);
+      // Cercle
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', host.x);
+      circle.setAttribute('cy', host.y);
+      circle.setAttribute('r', 32);
+      circle.setAttribute('fill', statusColor[host.status]);
+      circle.setAttribute('stroke', '#23232e');
+      circle.setAttribute('stroke-width', '4');
+      group.appendChild(circle);
+      // Label
+      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', host.x);
+      label.setAttribute('y', host.y + 50);
+      label.setAttribute('class', 'topo-label');
+      label.textContent = host.name;
+      svg.appendChild(group);
+      svg.appendChild(label);
+      // Clic sur le nœud
+      group.addEventListener('click', function() {
+        document.getElementById('hostDetailBody').innerHTML = `
+          <p><strong>Nom :</strong> ${host.name}</p>
+          <p><strong>Adresse IP :</strong> ${host.ip}</p>
+          <p><strong>OS :</strong> ${host.os}</p>
+          <p><strong>Statut :</strong> <span style='color:${statusColor[host.status]};font-weight:bold;'>${host.status.toUpperCase()}</span></p>
+        `;
+        document.getElementById('hostModalLabel').textContent = `Détail de ${host.name}`;
+        var modal = new bootstrap.Modal(document.getElementById('hostModal'));
+        modal.show();
+      });
+    });
+  
+/* =============Js pour mes configuration  =======================*/
+
+    document.getElementById('testNotifBtn').addEventListener('click', function() {
+      // Simulation d'envoi de notification
+      const resultDiv = document.getElementById('notifResult');
+      resultDiv.innerHTML = '<span style="color:#2ecc71;font-weight:bold;">Notification envoyée avec succès !</span>';
+      setTimeout(() => { resultDiv.innerHTML = ''; }, 3000);
+    });
