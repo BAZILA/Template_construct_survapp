@@ -35,8 +35,7 @@
             </a>
 
             <a href="#" data-target="alertes">
-              <i class="bi bi-exclamation-triangle-fill me-2"></i>
-              Alertes
+              <i class="bi bi-exclamation-triangle-fill me-2"></i> Alertes
             </a>
 
             <a href="#" data-target="reseau">
@@ -1022,6 +1021,173 @@
             <div class="modal-body" id="logDetailBody">
               <!-- Détails dynamiques -->
             </div>
+           
+            <div id="alertes" class="page-section d-none">
+              <h4 class="mb-4 d-flex align-items-center">
+              <i class="bi bi-exclamation-triangle-fill me-2 fs-4"></i> Alertes
+                </h4>
+  
+  <div class="card p-4 mb-4">
+    <div class="d-flex justify-content-between mb-3">
+      <div class="d-flex gap-2">
+        <span class="badge bg-danger p-2">Alertes critiques: <strong>5</strong></span>
+        <span class="badge bg-warning p-2">Alertes warning: <strong>12</strong></span>
+        <span class="badge bg-info p-2">Alertes info: <strong>7</strong></span>
+      </div>
+      <div>
+        <button class="btn btn-primary me-2" id="refreshAlerts">
+          <i class="bi bi-arrow-clockwise me-1"></i> Actualiser
+        </button>
+        <button class="btn btn-success">
+          <i class="bi bi-file-earmark-arrow-down me-1"></i> Exporter
+        </button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-dark table-hover align-middle">
+        <thead>
+          <tr>
+            <th>Date/Heure</th>
+            <th>Type</th>
+            <th>Hôte/Service</th>
+            <th>Message</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="alert-critical">
+            <td>04/04/2024 14:30</td>
+            <td><span class="badge bg-danger">CRITIQUE</span></td>
+            <td>db-server-01 (MySQL)</td>
+            <td>Service MySQL indisponible</td>
+            <td><span class="badge bg-secondary">Non traité</span></td>
+            <td>
+              <button class="btn btn-sm btn-success me-1" title="Marquer comme résolu">
+                <i class="bi bi-check-circle"></i>
+              </button>
+              <button class="btn btn-sm btn-info" title="Voir détails" data-bs-toggle="modal" data-bs-target="#alertDetailModal">
+                <i class="bi bi-eye"></i>
+              </button>
+            </td>
+          </tr>
+          <tr class="alert-warning">
+            <td>04/04/2024 14:25</td>
+            <td><span class="badge bg-warning">WARNING</span></td>
+            <td>web-server-01 (CPU)</td>
+            <td>Utilisation CPU à 95%</td>
+            <td><span class="badge bg-secondary">Non traité</span></td>
+            <td>
+              <button class="btn btn-sm btn-success me-1" title="Marquer comme résolu">
+                <i class="bi bi-check-circle"></i>
+              </button>
+              <button class="btn btn-sm btn-info" title="Voir détails" data-bs-toggle="modal" data-bs-target="#alertDetailModal">
+                <i class="bi bi-eye"></i>
+              </button>
+            </td>
+          </tr>
+          <tr class="alert-info">
+            <td>04/04/2024 14:20</td>
+            <td><span class="badge bg-info">INFO</span></td>
+            <td>file-server-01 (Disque)</td>
+            <td>Espace disque à 85%</td>
+            <td><span class="badge bg-success">Traité</span></td>
+            <td>
+              <button class="btn btn-sm btn-success me-1" title="Marquer comme résolu">
+                <i class="bi bi-check-circle"></i>
+              </button>
+              <button class="btn btn-sm btn-info" title="Voir détails" data-bs-toggle="modal" data-bs-target="#alertDetailModal">
+                <i class="bi bi-eye"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- Modal Détail Alerte -->
+  <div class="modal fade" id="alertDetailModal" tabindex="-1" aria-labelledby="alertDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alertDetailModalLabel">Détails de l'alerte</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h6>Informations de base</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Date/heure:</span>
+                  <span id="alert-date">04/04/2024 14:30:45</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Type:</span>
+                  <span id="alert-type" class="badge bg-danger">CRITIQUE</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Statut:</span>
+                  <span id="alert-status" class="badge bg-secondary">Non traité</span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h6>Ressource concernée</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Hôte:</span>
+                  <span id="alert-host">db-server-01</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Service:</span>
+                  <span id="alert-service">MySQL</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Adresse IP:</span>
+                  <span id="alert-ip">192.168.1.20</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <h6>Message complet</h6>
+            <div class="alert alert-danger" id="alert-message">
+              Le service MySQL sur db-server-01 (192.168.1.20) ne répond pas depuis 5 minutes. Dernière réponse: CRITICAL - Socket timeout after 10 seconds
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <h6>Graphique historique</h6>
+            <canvas id="alertHistoryChart" height="150"></canvas>
+          </div>
+          
+          <div>
+            <h6>Actions</h6>
+            <div class="d-flex gap-2">
+              <button class="btn btn-success" id="markAsResolved">
+                <i class="bi bi-check-circle me-1"></i> Marquer comme résolu
+              </button>
+              <button class="btn btn-warning" id="acknowledgeAlert">
+                <i class="bi bi-check2-all me-1"></i> Acquitter
+              </button>
+              <button class="btn btn-primary" id="createTicket">
+                <i class="bi bi-ticket-detailed me-1"></i> Créer un ticket
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
         </main>
       </div>
     </div>
