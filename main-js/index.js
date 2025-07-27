@@ -256,3 +256,14 @@ document.getElementById('roleForm').addEventListener('submit', function (e) {
       }, 1200);
     });
 
+    /* =============Js pour mes rapports  =======================*/
+
+    document.querySelectorAll('.btn-action[data-bs-toggle="modal"]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const title = this.getAttribute('data-title');
+        const content = this.getAttribute('data-content');
+        document.getElementById('rapportModalLabel').textContent = title;
+        document.getElementById('rapportPreviewBody').textContent = content;
+      });
+    });
+

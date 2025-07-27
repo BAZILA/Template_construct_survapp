@@ -44,7 +44,7 @@
               réseau
             </a>
 
-            <a href="#" data-target="rapport">
+            <a href="#" data-target="rapports">
               <i class="bi bi-bar-chart-fill me-2"></i> Rapports
             </a>
 
@@ -891,7 +891,65 @@
         </div>
       </div>
           </div>
-
+          <div id="rapports" class="page-section d-none">
+            <h4 class="mb-4 d-flex align-items-center">
+             <i class="bi bi-bar-chart-fill me-2"></i> Rapports
+            </h4>
+             <div class="card-block mb-4">
+        <h4 class="mb-3"><i class="fa fa-file-alt"></i> Générer un rapport</h4>
+        <form class="row g-3 align-items-end">
+          <div class="col-md-4">
+            <label class="form-label">Période</label>
+            <input type="date" class="form-control">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Type de rapport</label>
+            <select class="form-select">
+              <option>Résumé</option>
+              <option>Incidents</option>
+              <option>Utilisateurs</option>
+              <option>Réseau</option>
+            </select>
+          </div>
+          <div class="col-md-4 d-flex align-items-end">
+            <button class="btn-action" type="submit"><i class="fa fa-plus"></i> Générer</button>
+          </div>
+        </form>
+      </div>
+      <h4 class="mb-3">Rapports récents</h4>
+      <div class="report-list">
+        <div class="report-card">
+          <div class="report-title"><i class="fa fa-file-pdf"></i> Rapport_Resumé_2024-04-04.pdf</div>
+          <div class="text-muted" style="font-size:0.98em;">Résumé du réseau : 32 hôtes up, 1 down, 13 unreachable, 67 pending</div>
+          <div class="report-actions">
+            <button class="btn-action" data-bs-toggle="modal" data-bs-target="#rapportModal" data-title="Rapport Résumé 2024-04-04" data-content="Résumé du réseau :\n- 32 hôtes up\n- 1 hôte down\n- 13 unreachable\n- 67 pending\n- Aucun incident critique."><i class="fa fa-eye"></i> Aperçu</button>
+            <a href="#" class="btn-action"><i class="fa fa-download"></i> Télécharger</a>
+          </div>
+        </div>
+        <div class="report-card">
+          <div class="report-title"><i class="fa fa-file-pdf"></i> Rapport_Incidents_2024-04-03.pdf</div>
+          <div class="text-muted" style="font-size:0.98em;">Incidents détectés : 2 coupures réseau, 1 surcharge CPU, 5 alertes RAM</div>
+          <div class="report-actions">
+            <button class="btn-action" data-bs-toggle="modal" data-bs-target="#rapportModal" data-title="Rapport Incidents 2024-04-03" data-content="Incidents détectés :\n- 2 coupures réseau\n- 1 surcharge CPU\n- 5 alertes RAM\n- Actions recommandées : vérifier les logs."><i class="fa fa-eye"></i> Aperçu</button>
+            <a href="#" class="btn-action"><i class="fa fa-download"></i> Télécharger</a>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Aperçu Rapport -->
+      <div class="modal fade" id="rapportModal" tabindex="-1" aria-labelledby="rapportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="background:#28293d; color:#fff;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="rapportModalLabel">Aperçu du rapport</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="rapportPreviewBody">
+              <!-- Contenu dynamique -->
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
         </main>
       </div>
     </div>
