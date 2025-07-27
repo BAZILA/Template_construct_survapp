@@ -301,8 +301,66 @@ document.getElementById('roleForm').addEventListener('submit', function (e) {
       });
     });
 
+/* =============Js pour mes alerte =======================*/
 
 
-    
+     function acquitter(btn) {
+        const row = btn.closest('tr');
+        row.classList.add('table-success');
+        setTimeout(() => row.remove(), 1000);
+    }
+
+    function filterTable() {
+        const filter = document.getElementById('severityFilter').value.toLowerCase();
+        const rows = document.querySelectorAll('#alertesTable tbody tr');
+        rows.forEach(row => {
+            const severity = row.cells[1].textContent.trim().toLowerCase();
+            row.style.display = !filter || severity.includes(filter) ? '' : 'none';
+        });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', function () {
+        const search = this.value.toLowerCase();
+        document.querySelectorAll('#alertesTable tbody tr').forEach(row => {
+            row.style.display = row.innerText.toLowerCase().includes(search) ? '' : 'none';
+        });
+    });
+
+    function exportCSV() {
+        let csv = "Type,Gravité,Heure,Description\n";
+        document.querySelectorAll('#alertesTable tbody tr').forEach(row => {
+            if (row.style.display !== 'none') {
+                const cols = row.querySelectorAll('td');
+                csv += `${cols[0].innerText},${cols[1].innerText},${cols[2].innerText},${cols[3].innerText}\n`;
+            }
+        });
+        const blob = new Blob([csv], {type: "text/csv;charset=utf-8;"});
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "alertes.csv";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // Données du graphique
+    new Chart(document.getElementById('chart'), {
+        type: 'bar',
+        data: {
+            labels: ['Critique', 'Majeure', 'Mineure'],
+            datasets: [{
+                label: 'Nombre d\'alertes',
+                data: [1, 1, 1],
+                backgroundColor: ['#dc3545', '#ffc107', '#0d6efd']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                title: { display: true, text: 'Répartition des alertes' }
+            }
+        }
+    });
   
 

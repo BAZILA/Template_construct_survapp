@@ -285,7 +285,11 @@ genre dans les interfaces ..;*/
     .log-warning { color: #f1c40f; }
     .log-error { color: #e74c3c; }
 
+/*====== css pour alerte  =====*/
 
 
-
+    .badge-critique { background-color: #dc3545; }
+        .badge-majeure { background-color: #ffc107; color: #000; }
+        .badge-mineure { background-color: #0d6efd; }
+        .table td, .table th { vertical-align: middle; }
     
