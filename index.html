@@ -72,7 +72,7 @@
               <i class="bi bi-gear-fill me-2"></i> Configuration
             </a>
 
-            <a href="#" data-target="log">
+            <a href="#" data-target="logs">
               <i class="bi bi-journal-text me-2"></i> Logs
             </a>
           </div>
@@ -950,6 +950,78 @@
           </div>
         </div>
       </div>
+      <div id="logs" class="page-section d-none">
+            <h4 class="mb-4 d-flex align-items-center">
+             <i class="bi bi-hdd-network me-2 fs-4"></i> Journal d'événements
+            </h4>
+            <div class="row mb-3">
+        <div class="col-md-3">
+          <label class="form-label">Type</label>
+          <select id="filterType" class="form-select">
+            <option value="">Tous</option>
+            <option value="Info">Info</option>
+            <option value="Warning">Warning</option>
+            <option value="Erreur">Erreur</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Utilisateur</label>
+          <select id="filterUser" class="form-select">
+            <option value="">Tous</option>
+            <option value="Jean Dupont">Jean Dupont</option>
+            <option value="Marie Martin">Marie Martin</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Date</label>
+          <input type="date" id="filterDate" class="form-control">
+        </div>
+      </div>
+      <table class="table table-dark table-hover mt-4 rounded" id="logsTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Utilisateur</th>
+            <th>Message</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-type="Info" data-user="Jean Dupont" data-date="2024-04-04">
+            <td>04/04/2024 13:55</td>
+            <td><span class="log-info">Info</span></td>
+            <td>Jean Dupont</td>
+            <td>Connexion réussie</td>
+            <td><button class="btn-action btn-log-details" data-bs-toggle="modal" data-bs-target="#logModal" data-date="04/04/2024 13:55" data-type="Info" data-user="Jean Dupont" data-message="Connexion réussie">Détail</button></td>
+          </tr>
+          <tr data-type="Warning" data-user="Marie Martin" data-date="2024-04-04">
+            <td>04/04/2024 13:50</td>
+            <td><span class="log-warning">Warning</span></td>
+            <td>Marie Martin</td>
+            <td>Utilisation RAM élevée</td>
+            <td><button class="btn-action btn-log-details" data-bs-toggle="modal" data-bs-target="#logModal" data-date="04/04/2024 13:50" data-type="Warning" data-user="Marie Martin" data-message="Utilisation RAM élevée">Détail</button></td>
+          </tr>
+          <tr data-type="Erreur" data-user="Jean Dupont" data-date="2024-04-04">
+            <td>04/04/2024 13:45</td>
+            <td><span class="log-error">Erreur</span></td>
+            <td>Jean Dupont</td>
+            <td>Échec de sauvegarde</td>
+            <td><button class="btn-action btn-log-details" data-bs-toggle="modal" data-bs-target="#logModal" data-date="04/04/2024 13:45" data-type="Erreur" data-user="Jean Dupont" data-message="Échec de sauvegarde">Détail</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Modal Détail Log -->
+      <div class="modal fade" id="logModal" tabindex="-1" aria-labelledby="logModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="background:#28293d; color:#fff;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="logModalLabel">Détail du log</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="logDetailBody">
+              <!-- Détails dynamiques -->
+            </div>
         </main>
       </div>
     </div>

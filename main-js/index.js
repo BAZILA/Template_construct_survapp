@@ -267,3 +267,38 @@ document.getElementById('roleForm').addEventListener('submit', function (e) {
       });
     });
 
+    /* =============Js pour mes logs  =======================*/
+
+    // Filtres
+    function filterLogs() {
+      const type = document.getElementById('filterType').value;
+      const user = document.getElementById('filterUser').value;
+      const date = document.getElementById('filterDate').value;
+      document.querySelectorAll('#logsTable tbody tr').forEach(tr => {
+        let show = true;
+        if(type && tr.getAttribute('data-type') !== type) show = false;
+        if(user && tr.getAttribute('data-user') !== user) show = false;
+        if(date && tr.getAttribute('data-date') !== date) show = false;
+        tr.style.display = show ? '' : 'none';
+      });
+    }
+    document.getElementById('filterType').addEventListener('change', filterLogs);
+    document.getElementById('filterUser').addEventListener('change', filterLogs);
+    document.getElementById('filterDate').addEventListener('change', filterLogs);
+    // Détail log
+    document.querySelectorAll('.btn-log-details').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const date = this.getAttribute('data-date');
+        const type = this.getAttribute('data-type');
+        const user = this.getAttribute('data-user');
+        const message = this.getAttribute('data-message');
+        document.getElementById('logDetailBody').innerHTML = `
+          <p><strong>Date :</strong> ${date}</p>
+          <p><strong>Type :</strong> ${type}</p>
+          <p><strong>Utilisateur :</strong> ${user}</p>
+          <p><strong>Message :</strong> ${message}</p>
+        `;
+      });
+    });
+  
+

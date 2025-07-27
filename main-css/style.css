@@ -279,3 +279,8 @@ genre dans les interfaces ..;*/
       .report-list { flex-direction: column; gap: 16px; }
       .report-card { min-width: 0; max-width: 100%; }
     }
+
+   /*====== css pour logs  =====*/
+.log-info { color: #3498db; }
+    .log-warning { color: #f1c40f; }
+    .log-error { color: #e74c3c; }
