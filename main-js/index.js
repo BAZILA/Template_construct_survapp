@@ -188,3 +188,8 @@ document.getElementById('roleForm').addEventListener('submit', function (e) {
   if (modal) modal.hide();
 });
 
+/*================================ButttondeleteUser=================*/
+const deleteUser=document.getElementById("buttondeleteUser");
+deleteUser.addEventListener("click",()=>{
+  alert("Hahahahah Adolphe tu veut vraiment le supprimer 🤣🤣🤣🤣🤣🤣🤣🤣")
+})

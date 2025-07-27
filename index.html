@@ -522,7 +522,8 @@
                             class="bi bi-pencil-square"></i></button>
                         <button class="btn btn-sm btn-warning me-1"><i
                             class="bi bi-bounding-box"></i></button>
-                        <button class="btn btn-sm btn-danger" data_toggle="`modal" ><i
+                        <button  class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteUserModal" ><i
                             class="bi bi-trash"></i>Supprimer</button>
                       </td>
                     </tr>
@@ -537,7 +538,7 @@
                         <button class="btn btn-sm btn-warning me-1"><i
                             class="bi bi-bounding-box"></i></button>
                         <button class="btn btn-sm btn-danger"><i
-                            class="bi bi-trash"></i></button>
+                            class="bi bi-trash"></i>Supprimer</button>
                       </td>
                     </tr>
                     <tr>
@@ -551,7 +552,7 @@
                         <button class="btn btn-sm btn-warning me-1"><i
                             class="bi bi-bounding-box"></i></button>
                         <button class="btn btn-sm btn-danger"><i
-                            class="bi bi-trash "></i></button>
+                            class="bi bi-trash "></i>Supprimer</button>
                       </td>
                     </tr>
                   </tbody>
@@ -780,9 +781,9 @@
 
           <!-----------------------------------Modal delete User-------------------------------------------------->
            <div class="modal fade" id="deleteUserModal" tabindex="-1"
-                  role="dialog" aria-labelledby="deleteModallabel"
+                  role="dialog" aria-labelledby="deleteUserModallabel"
                   aria-hidden="true">
-                  <div class="modal-dialog" role="document">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <div class="modal-title">
@@ -791,12 +792,11 @@
 
                       </div>
                       <div class="modal-body">
-                        <h4 class="text-bold">Voulez-vous vraiment supprimer
-                          l'hote "web-server-01"</h4>
+                        <h3 class="h3"> Etes-vous sur de vouloir supprimer l'utilsateur  "Jean Dupont"</h3>
                       </div>
                       <div class="modal-footer">
-                        <button class=" btn">Anuler</button>
-                        <button class="btn bg-danger">Confirmer</button>
+                        <button class=" btn text-bg-light">Anuler</button>
+                        <button  id="buttondeleteUser"  class="btn text-bg-primary">Confirmer</button>
                       </div>
                     </div>
                   </div>
