@@ -188,3 +188,71 @@ document.getElementById('roleForm').addEventListener('submit', function (e) {
   if (modal) modal.hide();
 });
 
+/* =============Js pour mes services   =======================*/
+ // Données fictives de dépendances
+    const serviceDeps = {
+      'HTTP': ['web-server-01', 'web-server-02'],
+      'FTP': ['web-server-01', 'backup-server'],
+      'SSH': ['db-server-01', 'db-server-02']
+    };
+    // Données fictives d'historique d'incidents
+    const serviceHistory = {
+      'HTTP': { labels: Array.from({length: 12}, (_, i) => `${i+1}h`), data: [0,0,1,0,0,0,1,0,0,0,0,0] },
+      'FTP': { labels: Array.from({length: 12}, (_, i) => `${i+1}h`), data: [0,1,0,0,0,1,0,0,0,0,0,0] },
+      'SSH': { labels: Array.from({length: 12}, (_, i) => `${i+1}h`), data: [1,1,1,0,0,0,0,0,0,0,0,0] }
+    };
+    let serviceHistoryChart;
+    // Dépendances
+    window.showDepsModal = function(service) {
+      const deps = serviceDeps[service] || [];
+      let html = '<ul>';
+      deps.forEach(dep => { html += `<li>${dep}</li>`; });
+      html += '</ul>';
+      document.getElementById('depsBody').innerHTML = html;
+      document.getElementById('depsModalLabel').textContent = `Dépendances de ${service}`;
+      var modal = new bootstrap.Modal(document.getElementById('depsModal'));
+      modal.show();
+    }
+    // Historique incidents
+    window.showHistoryModal = function(service) {
+      const data = serviceHistory[service];
+      setTimeout(() => {
+        if(serviceHistoryChart) serviceHistoryChart.destroy();
+        const ctx = document.getElementById('serviceHistoryChart').getContext('2d');
+        serviceHistoryChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Incidents',
+              data: data.data,
+              backgroundColor: data.data.map(v => v > 0 ? '#e74c3c' : '#2ecc71'),
+              borderRadius: 4
+            }]
+          },
+          options: { plugins: { legend: { display: false } }, scales: { x: { display: true }, y: { beginAtZero: true, stepSize: 1 } } }
+        });
+      }, 200);
+      document.getElementById('historyModalLabel').textContent = `Historique des incidents - ${service}`;
+      var modal = new bootstrap.Modal(document.getElementById('historyModal'));
+      modal.show();
+    }
+    // Actions rapides
+    let currentAction = null;
+    let currentService = null;
+    window.showActionModal = function(action, service) {
+      currentService = service;
+      currentAction = action;
+      document.getElementById('actionBody').innerHTML = `Confirmer l'action <b>${currentAction}</b> sur le service <b>${currentService}</b> ?`;
+      var modal = new bootstrap.Modal(document.getElementById('actionModal'));
+      modal.show();
+    }
+    document.getElementById('confirmActionBtn').addEventListener('click', function() {
+      // Simule l'action (affiche un message de succès)
+      document.getElementById('actionBody').innerHTML = `<span style='color:#2ecc71;'>Action ${currentAction} effectuée sur ${currentService} !</span>`;
+      setTimeout(() => {
+        var modal = bootstrap.Modal.getInstance(document.getElementById('actionModal'));
+        modal.hide();
+      }, 1200);
+    });
+

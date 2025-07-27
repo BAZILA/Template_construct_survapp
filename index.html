@@ -777,6 +777,120 @@
               </div>
             </div>
           </div>
+           <div id="services" class="page-section d-none">
+            <h4 class="mb-4 d-flex align-items-center">
+             <i class="bi bi-hdd-network me-2 fs-4"></i> Services
+            </h4>
+             <div class="service-card">
+        <div class="service-info">
+          <i class="fa-solid fa-globe service-icon"></i>
+          <div>
+            <span class="service-title">HTTP</span>
+            <span class="service-host">web-server-01</span>
+            <span class="service-status status-ok">OK</span>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#" onclick="showActionModal('Redémarrer', 'HTTP')"><i class="fa fa-sync-alt"></i> Redémarrer</a></li>
+            <li><a class="dropdown-item" href="#" onclick="showActionModal('Maintenance', 'HTTP')"><i class="fa fa-wrench"></i> Maintenance</a></li>
+          </ul>
+          <button class="btn-link" onclick="showDepsModal('HTTP')"><i class="fa fa-link"></i> Dépendances</button>
+          <button class="btn-link" onclick="showHistoryModal('HTTP')"><i class="fa fa-chart-bar"></i> Historique</button>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-info">
+          <i class="fa-solid fa-file-arrow-up service-icon"></i>
+          <div>
+            <span class="service-title">FTP</span>
+            <span class="service-host">web-server-01</span>
+            <span class="service-status status-warning">Warning</span>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#" onclick="showActionModal('Redémarrer', 'FTP')"><i class="fa fa-sync-alt"></i> Redémarrer</a></li>
+            <li><a class="dropdown-item" href="#" onclick="showActionModal('Maintenance', 'FTP')"><i class="fa fa-wrench"></i> Maintenance</a></li>
+          </ul>
+          <button class="btn-link" onclick="showDepsModal('FTP')"><i class="fa fa-link"></i> Dépendances</button>
+          <button class="btn-link" onclick="showHistoryModal('FTP')"><i class="fa fa-chart-bar"></i> Historique</button>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-info">
+          <i class="fa-solid fa-lock service-icon"></i>
+          <div>
+            <span class="service-title">SSH</span>
+            <span class="service-host">db-server-01</span>
+            <span class="service-status status-down">Down</span>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#" onclick="showActionModal('Redémarrer', 'SSH')"><i class="fa fa-sync-alt"></i> Redémarrer</a></li>
+            <li><a class="dropdown-item" href="#" onclick="showActionModal('Maintenance', 'SSH')"><i class="fa fa-wrench"></i> Maintenance</a></li>
+          </ul>
+          <button class="btn-link" onclick="showDepsModal('SSH')"><i class="fa fa-link"></i> Dépendances</button>
+          <button class="btn-link" onclick="showHistoryModal('SSH')"><i class="fa fa-chart-bar"></i> Historique</button>
+        </div>
+      </div>
+      <!-- Modal Dépendances -->
+      <div class="modal fade" id="depsModal" tabindex="-1" aria-labelledby="depsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="background:#28293d; color:#fff;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="depsModalLabel">Dépendances du service</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="depsBody">
+              <!-- Liste des dépendances -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Historique incidents -->
+      <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="background:#28293d; color:#fff;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="historyModalLabel">Historique des incidents</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <canvas id="serviceHistoryChart" height="100"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Confirmation Action -->
+      <div class="modal fade" id="actionModal" tabindex="-1" aria-labelledby="actionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="background:#28293d; color:#fff;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="actionModalLabel">Action rapide</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="actionBody">
+              <!-- Message de confirmation -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+              <button type="button" class="btn btn-primary" id="confirmActionBtn">Confirmer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
 
         </main>
       </div>

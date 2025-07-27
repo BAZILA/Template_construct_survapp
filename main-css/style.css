@@ -200,3 +200,45 @@ genre dans les interfaces ..;*/
   color: var(--card-text);
   border: none;
 }
+/*====== css pour service  =====*/
+.service-card {
+      background: #28293d;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 24px 28px 18px 28px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .service-info {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .service-icon {
+      font-size: 2.2em;
+      margin-right: 10px;
+    }
+    .service-status {
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 1em;
+      font-weight: bold;
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .status-ok { background: #2ecc71; color: #fff; }
+    .status-warning { background: #f1c40f; color: #23232e; }
+    .status-down { background: #e74c3c; color: #fff; }
+    .dropdown-toggle { background: #35354a; color: #fff; border: none; border-radius: 8px; padding: 6px 18px; }
+    .dropdown-toggle:hover, .dropdown-menu .dropdown-item:hover { background: #44445a; color: #fff; }
+    .btn-link { color: #3498db; background: none; border: none; padding: 0; margin-left: 10px; text-decoration: underline; font-size: 1em; }
+    .btn-link:hover { color: #217dbb; }
+    .service-title { font-size: 1.2em; font-weight: bold; }
+    .service-host { color: #bfc9db; font-size: 1em; margin-left: 8px; }
+    @media (max-width: 700px) {
+      .service-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
