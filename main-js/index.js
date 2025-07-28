@@ -189,84 +189,51 @@ document.getElementById('roleForm').addEventListener('submit', function (e) {
 });
 
 /* =============Js pour mes services   =======================*/
- // Données fictives de dépendances
-    const serviceDeps = {
-      'HTTP': ['web-server-01', 'web-server-02'],
-      'FTP': ['web-server-01', 'backup-server'],
-      'SSH': ['db-server-01', 'db-server-02']
-    };
-    // Données fictives d'historique d'incidents
-    const serviceHistory = {
-      'HTTP': { labels: Array.from({length: 12}, (_, i) => `${i+1}h`), data: [0,0,1,0,0,0,1,0,0,0,0,0] },
-      'FTP': { labels: Array.from({length: 12}, (_, i) => `${i+1}h`), data: [0,1,0,0,0,1,0,0,0,0,0,0] },
-      'SSH': { labels: Array.from({length: 12}, (_, i) => `${i+1}h`), data: [1,1,1,0,0,0,0,0,0,0,0,0] }
-    };
-    let serviceHistoryChart;
-    // Dépendances
-    window.showDepsModal = function(service) {
-      const deps = serviceDeps[service] || [];
-      let html = '<ul>';
-      deps.forEach(dep => { html += `<li>${dep}</li>`; });
-      html += '</ul>';
-      document.getElementById('depsBody').innerHTML = html;
-      document.getElementById('depsModalLabel').textContent = `Dépendances de ${service}`;
-      var modal = new bootstrap.Modal(document.getElementById('depsModal'));
-      modal.show();
-    }
-    // Historique incidents
-    window.showHistoryModal = function(service) {
-      const data = serviceHistory[service];
-      setTimeout(() => {
-        if(serviceHistoryChart) serviceHistoryChart.destroy();
-        const ctx = document.getElementById('serviceHistoryChart').getContext('2d');
-        serviceHistoryChart = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: data.labels,
-            datasets: [{
-              label: 'Incidents',
-              data: data.data,
-              backgroundColor: data.data.map(v => v > 0 ? '#e74c3c' : '#2ecc71'),
-              borderRadius: 4
-            }]
-          },
-          options: { plugins: { legend: { display: false } }, scales: { x: { display: true }, y: { beginAtZero: true, stepSize: 1 } } }
+document.addEventListener('DOMContentLoaded', function() {
+    // Filtrage des services
+    function filterServices() {
+        const status = document.getElementById('filterStatus').value;
+        const server = document.getElementById('filterServer').value;
+        
+        document.querySelectorAll('.service-card').forEach(card => {
+            const cardStatus = card.querySelector('.badge').className.includes('bg-success') ? 'ok' : 
+                              card.querySelector('.badge').className.includes('bg-warning') ? 'warning' : 
+                              card.querySelector('.badge').className.includes('bg-danger') ? 'error' : 'maintenance';
+            
+            const cardServer = card.querySelector('.text-muted').textContent;
+            
+            const statusMatch = !status || cardStatus === status;
+            const serverMatch = !server || cardServer === server;
+            
+            card.parentElement.style.display = statusMatch && serverMatch ? 'block' : 'none';
         });
-      }, 200);
-      document.getElementById('historyModalLabel').textContent = `Historique des incidents - ${service}`;
-      var modal = new bootstrap.Modal(document.getElementById('historyModal'));
-      modal.show();
     }
-    // Actions rapides
-    let currentAction = null;
-    let currentService = null;
-    window.showActionModal = function(action, service) {
-      currentService = service;
-      currentAction = action;
-      document.getElementById('actionBody').innerHTML = `Confirmer l'action <b>${currentAction}</b> sur le service <b>${currentService}</b> ?`;
-      var modal = new bootstrap.Modal(document.getElementById('actionModal'));
-      modal.show();
-    }
-    document.getElementById('confirmActionBtn').addEventListener('click', function() {
-      // Simule l'action (affiche un message de succès)
-      document.getElementById('actionBody').innerHTML = `<span style='color:#2ecc71;'>Action ${currentAction} effectuée sur ${currentService} !</span>`;
-      setTimeout(() => {
-        var modal = bootstrap.Modal.getInstance(document.getElementById('actionModal'));
-        modal.hide();
-      }, 1200);
+    
+    // Réinitialisation des filtres
+    document.getElementById('resetFilters').addEventListener('click', function() {
+        document.getElementById('filterStatus').value = '';
+        document.getElementById('filterServer').value = '';
+        filterServices();
     });
-
-    /* =============Js pour mes rapports  =======================*/
-
-    document.querySelectorAll('.btn-action[data-bs-toggle="modal"]').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const title = this.getAttribute('data-title');
-        const content = this.getAttribute('data-content');
-        document.getElementById('rapportModalLabel').textContent = title;
-        document.getElementById('rapportPreviewBody').textContent = content;
-      });
+    
+    // Écouteurs d'événements pour les filtres
+    document.getElementById('filterStatus').addEventListener('change', filterServices);
+    document.getElementById('filterServer').addEventListener('change', filterServices);
+    
+    // Simulation d'actualisation
+    document.querySelector('.btn-refresh').addEventListener('click', function() {
+        const btn = this;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Actualisation...';
+        
+        setTimeout(() => {
+            btn.innerHTML = '<i class="bi bi-arrow-clockwise"></i> Actualiser';
+            // Ici vous pourriez ajouter une requête AJAX pour actualiser les données
+        }, 1500);
     });
-
+    
+    // Initialisation
+    filterServices();
+});
     /* =============Js pour mes logs  =======================*/
 
     
@@ -464,65 +431,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* =============Js pour mes alerte =======================*/
 
+// Fonctions JavaScript pour les fonctionnalités
+function filterTable() {
+    // Implémentation du filtrage
+}
 
-     function acquitter(btn) {
-        const row = btn.closest('tr');
-        row.classList.add('table-success');
-        setTimeout(() => row.remove(), 1000);
-    }
+function acquitter(btn) {
+    const row = btn.closest('tr');
+    row.querySelector('.badge.bg-warning').className = 'badge bg-success';
+    row.querySelector('.badge.bg-warning').textContent = 'Acquittée';
+    btn.disabled = true;
+    btn.className = 'btn btn-sm btn-secondary me-1';
+    // Ajouter une notification
+    showToast('Alerte acquittée avec succès', 'success');
+}
 
-    function filterTable() {
-        const filter = document.getElementById('severityFilter').value.toLowerCase();
-        const rows = document.querySelectorAll('#alertesTable tbody tr');
-        rows.forEach(row => {
-            const severity = row.cells[1].textContent.trim().toLowerCase();
-            row.style.display = !filter || severity.includes(filter) ? '' : 'none';
-        });
-    }
+function showDetails(btn) {
+    // Afficher les détails de l'alerte
+    const row = btn.closest('tr');
+    const type = row.cells[0].textContent;
+    const severity = row.cells[1].textContent;
+    const time = row.cells[2].textContent;
+    const desc = row.cells[3].textContent;
+    
+    // Afficher dans un modal
+    alert(`Détails de l'alerte:\n\nType: ${type}\nGravité: ${severity}\nHeure: ${time}\nDescription: ${desc}`);
+}
 
-    document.getElementById('searchInput').addEventListener('input', function () {
-        const search = this.value.toLowerCase();
-        document.querySelectorAll('#alertesTable tbody tr').forEach(row => {
-            row.style.display = row.innerText.toLowerCase().includes(search) ? '' : 'none';
-        });
-    });
+function refreshAlerts() {
+    // Simuler un rafraîchissement
+    showToast('Alertes actualisées', 'info');
+}
 
-    function exportCSV() {
-        let csv = "Type,Gravité,Heure,Description\n";
-        document.querySelectorAll('#alertesTable tbody tr').forEach(row => {
-            if (row.style.display !== 'none') {
-                const cols = row.querySelectorAll('td');
-                csv += `${cols[0].innerText},${cols[1].innerText},${cols[2].innerText},${cols[3].innerText}\n`;
-            }
-        });
-        const blob = new Blob([csv], {type: "text/csv;charset=utf-8;"});
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "alertes.csv";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
+function clearFilters() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('severityFilter').value = '';
+    document.getElementById('typeFilter').value = '';
+    document.getElementById('dateFilter').value = '';
+    filterTable();
+}
 
-    // Données du graphique
-    new Chart(document.getElementById('chart'), {
-        type: 'bar',
-        data: {
-            labels: ['Critique', 'Majeure', 'Mineure'],
-            datasets: [{
-                label: 'Nombre d\'alertes',
-                data: [1, 1, 1],
-                backgroundColor: ['#dc3545', '#ffc107', '#0d6efd']
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { display: false },
-                title: { display: true, text: 'Répartition des alertes' }
-            }
-        }
-    });
+function showToast(message, type) {
+    // Implémenter un système de toast (notification)
+    console.log(`${type.toUpperCase()}: ${message}`);
+}
+
+// Gestion du modal de rapport
+document.getElementById('rapportModal').addEventListener('show.bs.modal', function(event) {
+    const button = event.relatedTarget;
+    const title = button.getAttribute('data-title');
+    document.getElementById('reportPreviewTitle').textContent = title;
+});
 
 
 
@@ -591,10 +550,578 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
 /* =============Js pour mes configuration  =======================*/
+// Scripts améliorés
+document.addEventListener('DOMContentLoaded', function() {
+    // Configuration Form Validation
+    const configForm = document.getElementById('configForm');
+    if (configForm) {
+        configForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            // Validate CPU Threshold
+            const cpuThreshold = document.getElementById('cpuThreshold');
+            if (cpuThreshold.value < 1 || cpuThreshold.value > 100) {
+                cpuThreshold.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                cpuThreshold.classList.remove('is-invalid');
+            }
+            
+            // Validate RAM Threshold
+            const ramThreshold = document.getElementById('ramThreshold');
+            if (ramThreshold.value < 1 || ramThreshold.value > 100) {
+                ramThreshold.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                ramThreshold.classList.remove('is-invalid');
+            }
+            
+            // Validate Email
+            const emailNotif = document.getElementById('emailNotif');
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailNotif.value)) {
+                emailNotif.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                emailNotif.classList.remove('is-invalid');
+            }
+            
+            // Validate Slack Webhook
+            const slackWebhook = document.getElementById('slackWebhook');
+            if (!slackWebhook.value.startsWith('https://')) {
+                slackWebhook.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                slackWebhook.classList.remove('is-invalid');
+            }
+            
+            if (isValid) {
+                // Simulate save action
+                document.getElementById('notifResult').innerHTML = `
+                    <div class="alert alert-success">
+                        <i class="bi bi-check-circle me-2"></i> Configuration enregistrée avec succès
+                    </div>
+                `;
+                
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('notifResult').innerHTML = '';
+                }, 3000);
+            }
+        });
+        
+        // Test Notification Button
+        document.getElementById('testNotifBtn').addEventListener('click', function() {
+            document.getElementById('notifResult').innerHTML = `
+                <div class="alert alert-info">
+                    <i class="bi bi-envelope-check me-2"></i> Notification test envoyée à ${document.getElementById('emailNotif').value}
+                </div>
+            `;
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                document.getElementById('notifResult').innerHTML = '';
+            }, 3000);
+        });
+    }
+    
+    // Network Topology
+    if (document.getElementById('topoSvg')) {
+        initNetworkTopology();
+    }
+    
+    // Logs Table
+    if (document.getElementById('logsTable')) {
+        initLogsTable();
+        setupLogsFilters();
+    }
+});
 
-    document.getElementById('testNotifBtn').addEventListener('click', function() {
-      // Simulation d'envoi de notification
-      const resultDiv = document.getElementById('notifResult');
-      resultDiv.innerHTML = '<span style="color:#2ecc71;font-weight:bold;">Notification envoyée avec succès !</span>';
-      setTimeout(() => { resultDiv.innerHTML = ''; }, 3000);
+// Network Topology Functions
+function initNetworkTopology() {
+    const svg = d3.select("#topoSvg");
+    const width = 800;
+    const height = 500;
+    
+    // Sample network data
+    const nodes = [
+        { id: "firewall", name: "Firewall", type: "router", x: 100, y: 250, status: "up" },
+        { id: "core-switch", name: "Core Switch", type: "switch", x: 300, y: 250, status: "up" },
+        { id: "web1", name: "Web Server 1", type: "server", x: 500, y: 150, status: "up" },
+        { id: "web2", name: "Web Server 2", type: "server", x: 500, y: 250, status: "up" },
+        { id: "db1", name: "Database 1", type: "server", x: 500, y: 350, status: "down" },
+        { id: "backup", name: "Backup", type: "server", x: 700, y: 250, status: "up" }
+    ];
+    
+    const links = [
+        { source: "firewall", target: "core-switch" },
+        { source: "core-switch", target: "web1" },
+        { source: "core-switch", target: "web2" },
+        { source: "core-switch", target: "db1" },
+        { source: "core-switch", target: "backup" }
+    ];
+    
+    // Draw links
+    svg.selectAll(".link")
+        .data(links)
+        .enter()
+        .append("line")
+        .attr("class", "link")
+        .attr("x1", d => nodes.find(n => n.id === d.source).x)
+        .attr("y1", d => nodes.find(n => n.id === d.source).y)
+        .attr("x2", d => nodes.find(n => n.id === d.target).x)
+        .attr("y2", d => nodes.find(n => n.id === d.target).y);
+    
+    // Draw nodes
+    const nodeGroups = svg.selectAll(".node")
+        .data(nodes)
+        .enter()
+        .append("g")
+        .attr("class", "node")
+        .attr("transform", d => `translate(${d.x},${d.y})`)
+        .on("click", function(event, d) {
+            showHostDetails(d);
+        });
+    
+    // Add circles for nodes
+    nodeGroups.append("circle")
+        .attr("r", 20)
+        .attr("fill", d => {
+            if (d.status === "down") return "#7f7f7f";
+            return d.type === "server" ? "#4e79a7" : 
+                   d.type === "switch" ? "#f28e2b" : "#e15759";
+        });
+    
+    // Add text labels
+    nodeGroups.append("text")
+        .attr("dy", 35)
+        .text(d => d.name);
+    
+    // Zoom functionality
+    let zoomLevel = 1;
+    document.getElementById('zoomInBtn').addEventListener('click', function() {
+        zoomLevel += 0.1;
+        document.getElementById('topoSvg').style.transform = `scale(${zoomLevel})`;
     });
+    
+    document.getElementById('zoomOutBtn').addEventListener('click', function() {
+        if (zoomLevel > 0.5) {
+            zoomLevel -= 0.1;
+            document.getElementById('topoSvg').style.transform = `scale(${zoomLevel})`;
+        }
+    });
+    
+    document.getElementById('resetZoomBtn').addEventListener('click', function() {
+        zoomLevel = 1;
+        document.getElementById('topoSvg').style.transform = `scale(${zoomLevel})`;
+    });
+    
+    // Search functionality
+    document.getElementById('topoSearch').addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        svg.selectAll(".node")
+            .each(function(d) {
+                const node = d3.select(this);
+                if (d.name.toLowerCase().includes(searchTerm)) {
+                    node.style("opacity", 1);
+                    node.select("circle").attr("r", 25); // Highlight
+                } else {
+                    node.style("opacity", 0.3);
+                    node.select("circle").attr("r", 20);
+                }
+            });
+    });
+}
+
+function showHostDetails(host) {
+    document.getElementById('host-name').textContent = host.name;
+    document.getElementById('host-ip').textContent = "192.168.1." + Math.floor(Math.random() * 100);
+    document.getElementById('host-type').textContent = host.type === "server" ? "Serveur" : 
+                                                   host.type === "switch" ? "Switch" : "Routeur";
+    document.getElementById('host-status').innerHTML = host.status === "up" ? 
+        '<span class="badge bg-success">En ligne</span>' : 
+        '<span class="badge bg-danger">Hors ligne</span>';
+    
+    // Generate random services
+    const services = [
+        { name: "Apache", status: "running" },
+        { name: "MySQL", status: Math.random() > 0.3 ? "running" : "stopped" },
+        { name: "SSH", status: "running" },
+        { name: "Nginx", status: Math.random() > 0.7 ? "running" : "stopped" },
+        { name: "Docker", status: "running" }
+    ];
+    
+    const servicesHtml = services.map(service => `
+        <div class="service-item ${service.status}">
+            <i class="bi bi-${service.status === 'running' ? 'check-circle' : 'x-circle'} me-2"></i>
+            ${service.name}
+        </div>
+    `).join('');
+    
+    document.getElementById('host-services').innerHTML = servicesHtml;
+    
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('hostModal'));
+    modal.show();
+}
+
+// Logs Table Functions
+function initLogsTable() {
+    const logsData = [
+        { 
+            id: 1,
+            datetime: "04/04/2024 13:55:12",
+            type: "Info",
+            user: "Jean Dupont",
+            message: "Connexion réussie depuis l'adresse IP 192.168.1.45",
+            details: "Connexion réussie depuis l'adresse IP 192.168.1.45 avec le navigateur Chrome sur Windows 10",
+            tags: ["authentification", "succès"]
+        },
+        { 
+            id: 2,
+            datetime: "04/04/2024 13:50:34",
+            type: "Warning",
+            user: "Marie Martin",
+            message: "Utilisation RAM élevée sur le serveur web-01 (92%)",
+            details: "Utilisation mémoire anormalement élevée sur le serveur web-01. Détails: RAM totale: 16GB, Utilisée: 14.7GB, Processus principal: apache2 (3.2GB)",
+            tags: ["performance", "alerte"]
+        },
+        { 
+            id: 3,
+            datetime: "04/04/2024 13:45:56",
+            type: "Erreur",
+            user: "Jean Dupont",
+            message: "Échec de la sauvegarde automatique de la base de données",
+            details: "Échec de la sauvegarde MySQL sur db-01. Erreur: 'Disk full'. Espace disponible: 120MB sur 50GB. Le script de sauvegarde a été interrompu.",
+            tags: ["sauvegarde", "erreur"]
+        },
+        { 
+            id: 4,
+            datetime: "03/04/2024 09:22:18",
+            type: "Info",
+            user: "Paul Durand",
+            message: "Mise à jour de la configuration du pare-feu appliquée",
+            details: "Nouvelle règle de pare-feu ajoutée: BLOCK 192.168.1.100/32 sur les ports 22,80,443. Appliqué par Paul Durand à 09:22:18.",
+            tags: ["sécurité", "pare-feu"]
+        },
+        { 
+            id: 5,
+            datetime: "02/04/2024 16:30:45",
+            type: "Warning",
+            user: "Marie Martin",
+            message: "Latence élevée sur le lien WAN principal",
+            details: "Latence moyenne de 450ms détectée sur le lien WAN vers le datacenter. Seuil normal: <100ms.",
+            tags: ["réseau", "performance"]
+        },
+        { 
+            id: 6,
+            datetime: "02/04/2024 10:15:22",
+            type: "Erreur",
+            user: "Jean Dupont",
+            message: "Échec de connexion SSH depuis 192.168.1.100",
+            details: "5 tentatives de connexion SSH infructueuses depuis 192.168.1.100 (user: root). Adresse IP bloquée dans le pare-feu.",
+            tags: ["sécurité", "ssh"]
+        }
+    ];
+    
+    // Store logs in localStorage for demo purposes
+    localStorage.setItem('logsData', JSON.stringify(logsData));
+    
+    // Render logs
+    renderLogs(logsData);
+    
+    // Setup pagination
+    setupPagination(logsData, 1, 5);
+}
+
+function renderLogs(logs) {
+    const tbody = document.getElementById('logsTableBody');
+    tbody.innerHTML = '';
+    
+    logs.forEach(log => {
+        const badgeClass = log.type === "Info" ? "bg-info" : 
+                         log.type === "Warning" ? "bg-warning" : "bg-danger";
+        
+        const row = document.createElement('tr');
+        row.setAttribute('data-type', log.type);
+        row.setAttribute('data-user', log.user);
+        row.setAttribute('data-date', log.datetime.split(' ')[0]);
+        
+        row.innerHTML = `
+            <td>${log.datetime}</td>
+            <td><span class="badge ${badgeClass} text-light">${log.type}</span></td>
+            <td>${log.user}</td>
+            <td>${log.message}</td>
+            <td>
+                <button class="btn btn-sm btn-outline-light btn-log-details" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#logModal"
+                        data-id="${log.id}">
+                    <i class="bi bi-eye"></i> Détails
+                </button>
+            </td>
+        `;
+        
+        tbody.appendChild(row);
+    });
+    
+    // Add event listeners to detail buttons
+    document.querySelectorAll('.btn-log-details').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const logId = parseInt(this.getAttribute('data-id'));
+            showLogDetails(logId);
+        });
+    });
+}
+
+function showLogDetails(logId) {
+    const logsData = JSON.parse(localStorage.getItem('logsData'));
+    const log = logsData.find(l => l.id === logId);
+    
+    if (!log) return;
+    
+    // Update modal content
+    document.getElementById('logModalLabel').textContent = `Détails de l'événement #${log.id}`;
+    document.getElementById('logModalType').textContent = log.type;
+    document.getElementById('logModalType').className = `badge ${log.type === "Info" ? "bg-info" : 
+                                                      log.type === "Warning" ? "bg-warning" : "bg-danger"} fs-6`;
+    document.getElementById('logModalDate').textContent = log.datetime;
+    document.getElementById('logModalUser').textContent = log.user;
+    document.getElementById('logModalMessage').textContent = log.details;
+    
+    // Update tags
+    const tagsHtml = log.tags.map(tag => `<span class="badge bg-secondary me-1">${tag}</span>`).join('');
+    document.getElementById('logModalTags').innerHTML = tagsHtml;
+    
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('logModal'));
+    modal.show();
+}
+
+function setupLogsFilters() {
+    document.getElementById('logTypeFilter').addEventListener('change', filterLogs);
+    document.getElementById('logUserFilter').addEventListener('change', filterLogs);
+    document.getElementById('logDateFilter').addEventListener('change', filterLogs);
+    document.getElementById('logSearchBtn').addEventListener('click', filterLogs);
+    
+    // Also filter when pressing Enter in search field
+    document.getElementById('logSearch').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            filterLogs();
+        }
+    });
+}
+
+function filterLogs() {
+    const typeFilter = document.getElementById('logTypeFilter').value;
+    const userFilter = document.getElementById('logUserFilter').value;
+    const dateFilter = document.getElementById('logDateFilter').value;
+    const searchFilter = document.getElementById('logSearch').value.toLowerCase();
+    
+    const logsData = JSON.parse(localStorage.getItem('logsData'));
+    
+    const filteredLogs = logsData.filter(log => {
+        // Type filter
+        if (typeFilter && log.type !== typeFilter) return false;
+        
+        // User filter
+        if (userFilter && log.user !== userFilter) return false;
+        
+        // Date filter
+        if (dateFilter) {
+            const logDate = log.datetime.split(' ')[0].split('/').reverse().join('-');
+            if (logDate !== dateFilter) return false;
+        }
+        
+        // Search filter
+        if (searchFilter) {
+            const searchText = `${log.type} ${log.user} ${log.message} ${log.details}`.toLowerCase();
+            if (!searchText.includes(searchFilter)) return false;
+        }
+        
+        return true;
+    });
+    
+    renderLogs(filteredLogs);
+    setupPagination(filteredLogs, 1, 5);
+}
+
+function setupPagination(logs, currentPage, itemsPerPage) {
+    const pagination = document.getElementById('logsPagination');
+    pagination.innerHTML = '';
+    
+    const pageCount = Math.ceil(logs.length / itemsPerPage);
+    
+    if (pageCount <= 1) return;
+    
+    // Previous button
+    const prevLi = document.createElement('li');
+    prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+    prevLi.innerHTML = `<a class="page-link" href="#">Précédent</a>`;
+    prevLi.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (currentPage > 1) {
+            paginateLogs(logs, currentPage - 1, itemsPerPage);
+        }
+    });
+    pagination.appendChild(prevLi);
+    
+    // Page numbers
+    for (let i = 1; i <= pageCount; i++) {
+        const pageLi = document.createElement('li');
+        pageLi.className = `page-item ${i === currentPage ? 'active' : ''}`;
+        pageLi.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+        pageLi.addEventListener('click', (e) => {
+            e.preventDefault();
+            paginateLogs(logs, i, itemsPerPage);
+        });
+        pagination.appendChild(pageLi);
+    }
+    
+    // Next button
+    const nextLi = document.createElement('li');
+    nextLi.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
+    nextLi.innerHTML = `<a class="page-link" href="#">Suivant</a>`;
+    nextLi.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (currentPage < pageCount) {
+            paginateLogs(logs, currentPage + 1, itemsPerPage);
+        }
+    });
+    pagination.appendChild(nextLi);
+    
+    // Paginate initial view
+    paginateLogs(logs, currentPage, itemsPerPage);
+}
+
+function paginateLogs(logs, page, itemsPerPage) {
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const paginatedLogs = logs.slice(start, end);
+    
+    renderLogs(paginatedLogs);
+    setupPagination(logs, page, itemsPerPage);
+}
+
+
+/* =============Js 2 pour mes configuration   =======================*/
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestion de la visibilité des heures personnalisées
+    const workingHoursSelect = document.getElementById('workingHours');
+    const customHoursContainer = document.getElementById('customHoursContainer');
+    
+    workingHoursSelect.addEventListener('change', function() {
+        customHoursContainer.style.display = this.value === 'custom' ? 'block' : 'none';
+    });
+
+    // Validation du formulaire
+    const configForm = document.getElementById('configForm');
+    
+    configForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        
+        // Validation des champs
+        const validateField = (field, condition, errorMsg) => {
+            if (!condition) {
+                field.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                field.classList.remove('is-invalid');
+            }
+        };
+        
+        // Validation des seuils
+        validateField(
+            document.getElementById('cpuThreshold'),
+            document.getElementById('cpuThreshold').value >= 1 && 
+            document.getElementById('cpuThreshold').value <= 100,
+            'Doit être entre 1 et 100'
+        );
+        
+        validateField(
+            document.getElementById('ramThreshold'),
+            document.getElementById('ramThreshold').value >= 1 && 
+            document.getElementById('ramThreshold').value <= 100,
+            'Doit être entre 1 et 100'
+        );
+        
+        validateField(
+            document.getElementById('diskThreshold'),
+            document.getElementById('diskThreshold').value >= 1 && 
+            document.getElementById('diskThreshold').value <= 100,
+            'Doit être entre 1 et 100'
+        );
+        
+        // Validation email
+        validateField(
+            document.getElementById('emailNotif'),
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('emailNotif').value),
+            'Adresse email invalide'
+        );
+        
+        // Validation Slack webhook
+        validateField(
+            document.getElementById('slackWebhook'),
+            document.getElementById('slackWebhook').value.startsWith('https://'),
+            'URL doit commencer par https://'
+        );
+        
+        // Si tout est valide, afficher un message de succès
+        if (isValid) {
+            showNotification('success', '<i class="bi bi-check-circle-fill"></i> Configuration enregistrée avec succès');
+            
+            // Simuler un enregistrement (remplacer par un appel API réel)
+            setTimeout(() => {
+                // Réinitialiser les états de validation
+                configForm.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+            }, 3000);
+        }
+    });
+    
+    // Boutons de test
+    document.getElementById('testEmailBtn').addEventListener('click', function() {
+        const email = document.getElementById('emailNotif').value;
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showNotification('info', `<i class="bi bi-envelope-check"></i> Email test envoyé à ${email}`);
+        } else {
+            showNotification('danger', '<i class="bi bi-exclamation-triangle"></i> Adresse email invalide');
+            document.getElementById('emailNotif').classList.add('is-invalid');
+        }
+    });
+    
+    document.getElementById('testSlackBtn').addEventListener('click', function() {
+        const webhook = document.getElementById('slackWebhook').value;
+        if (webhook.startsWith('https://')) {
+            showNotification('info', '<i class="bi bi-slack"></i> Notification test envoyée sur Slack');
+        } else {
+            showNotification('danger', '<i class="bi bi-exclamation-triangle"></i> URL Slack invalide');
+            document.getElementById('slackWebhook').classList.add('is-invalid');
+        }
+    });
+    
+    // Fonction pour afficher les notifications
+    function showNotification(type, message) {
+        const notifResult = document.getElementById('notifResult');
+        const alertClass = type === 'success' ? 'alert-success' : 
+                         type === 'info' ? 'alert-info' : 'alert-danger';
+        
+        notifResult.innerHTML = `
+            <div class="alert ${alertClass} alert-dismissible fade show">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        
+        // Fermer automatiquement après 5 secondes
+        setTimeout(() => {
+            const alert = notifResult.querySelector('.alert');
+            if (alert) {
+                const bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            }
+        }, 5000);
+    }
+});

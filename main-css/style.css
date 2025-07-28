@@ -201,48 +201,69 @@ genre dans les interfaces ..;*/
   border: none;
 }
 /*====== css pour service  =====*/
-.service-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      padding: 24px 28px 18px 28px;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
+    /* Styles personnalisés */
+    .gradient-text {
+        background: linear-gradient(90deg, #3498db, #9b59b6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
     }
-    .service-info {
-      display: flex;
-      align-items: center;
-      gap: 18px;
+    
+    .service-card {
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.1);
     }
+    
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
     .service-icon {
-      font-size: 2.2em;
-      margin-right: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
     }
-    .service-status {
-      border-radius: 20px;
-      padding: 4px 16px;
-      font-size: 1em;
-      font-weight: bold;
-      display: inline-block;
-      margin-left: 10px;
+    
+    .service-icon-lg {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
     }
-    .status-ok { background: #2ecc71; color: #fff; }
-    .status-warning { background: #f1c40f; color: #23232e; }
-    .status-down { background: #e74c3c; color: #fff; }
-    .dropdown-toggle { background: #35354a; color: #fff; border: none; border-radius: 8px; padding: 6px 18px; }
-    .dropdown-toggle:hover, .dropdown-menu .dropdown-item:hover { background: #44445a; color: #fff; }
-    .btn-link { color: #3498db; background: none; border: none; padding: 0; margin-left: 10px; text-decoration: underline; font-size: 1em; }
-    .btn-link:hover { color: #217dbb; }
-    .service-title { font-size: 1.2em; font-weight: bold; }
-    .service-host { color: #bfc9db; font-size: 1em; margin-left: 8px; }
-    @media (max-width: 700px) {
-      .service-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+    
+    .section-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #7f8c8d;
+        margin-bottom: 0.5rem;
     }
-
+    
+    .btn-refresh {
+        transition: transform 0.3s;
+    }
+    
+    .btn-refresh:hover {
+        transform: rotate(90deg);
+    }
+    
+    .progress {
+        border-radius: 3px;
+        background-color: #f0f0f0;
+    }
+    
+    .progress-bar {
+        border-radius: 3px;
+    }
    /*====== css pour raporrts  =====*/
 
     .card-block {
@@ -389,5 +410,78 @@ genre dans les interfaces ..;*/
 
 
     /*====== css pour configuration  =====*/
-    btn-action { background: #35354a; color: #fff; border: none; border-radius: 8px; padding: 6px 16px; transition: background 0.2s; }
-    .btn-action:hover { background: #44445a; }
+/* Styles personnalisés pour la section de configuration */
+#configuration .card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#configuration .card-header {
+    border-radius: 0 !important;
+}
+
+#configuration .form-floating {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#configuration .form-floating label {
+    color: #495057;
+    transition: all 0.2s;
+}
+
+#configuration .form-floating .form-control:focus ~ label,
+#configuration .form-floating .form-control:not(:placeholder-shown) ~ label {
+    color: #0d6efd;
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+#configuration .form-text {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+#configuration .btn-action {
+    transition: all 0.2s;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+}
+
+#configuration .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+#configuration .btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+#configuration .btn-outline-secondary {
+    border-color: #dee2e6;
+    color: #495057;
+}
+
+#configuration .btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+/* Animation pour les champs invalides */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+#configuration .is-invalid {
+    border-color: #dc3545;
+    animation: shake 0.5s ease-in-out;
+}
+
+#configuration .invalid-feedback {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
