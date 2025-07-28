@@ -451,7 +451,6 @@
                     </div>
                   </div>
                 </div>
-                <<<<<<< HEAD
                 <!-- --===================le modal prend fin ici (modal d'ajout d'équipement biensur )--=====================-->
               </div>
             </div>
@@ -2369,7 +2368,7 @@
                           <pre class="m-0 p-3" id="logModalStackTrace"
                             style="max-height: 200px; overflow: auto;">
                                     <code class="language-plaintext">
-Chargement de la stack trace...
+                                Chargement de la stack trace...
                                     </code>
                                 </pre>
                         </div>
@@ -2774,7 +2773,6 @@ Chargement de la stack trace...
                     complets</button>
                 </div>
               </div>
-              <<<<<<< Updated upstream
             </div>
 
             <div class="table-responsive">
@@ -2878,224 +2876,230 @@ Chargement de la stack trace...
                 </li>
               </ul>
             </nav>
+          </div>
 
-            <!-- Modal Détail Log -->
-            <div class="modal fade" id="logModal" tabindex="-1"
-              aria-labelledby="logModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content" style="background: var(--card-bg);">
-                  <div class="modal-header border-bottom-0">
-                    <h5 class="modal-title" id="logModalLabel">
-                      <i class="bi bi-journal-text me-2"></i>Détails de
-                      l'événement
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white"
-                      data-bs-dismiss="modal" aria-label="Close"></button>
+          <!-- Modal Détail Log -->
+          <div class="modal fade" id="logModal" tabindex="-1"
+            aria-labelledby="logModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content" style="background: var(--card-bg);">
+                <div class="modal-header border-bottom-0">
+                  <h5 class="modal-title" id="logModalLabel">
+                    <i class="bi bi-journal-text me-2"></i>Détails de
+                    l'événement
+                  </h5>
+                  <button type="button" class="btn-close btn-close-white"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="me-3">
+                          <span class="badge bg-info fs-6"
+                            id="logModalType">Info</span>
+                        </div>
+                        <div>
+                          <h6 class="mb-0" id="logModalDate">04/04/2024
+                            13:55:12</h6>
+                          <small class="text-muted" id="logModalUser">Jean
+                            Dupont</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="bg-dark p-3 rounded">
+                        <h6><i class="bi bi-tags me-2"></i>Tags</h6>
+                        <div id="logModalTags">
+                          <span
+                            class="badge bg-secondary me-1">authentification</span>
+                          <span class="badge bg-secondary">succès</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="modal-body">
-                    <div class="row mb-3">
-                      <div class="col-md-6">
-                        <div class="d-flex align-items-center mb-3">
-                          <div class="me-3">
-                            <span class="badge bg-info fs-6"
-                              id="logModalType">Info</span>
-                          </div>
-                          <div>
-                            <h6 class="mb-0" id="logModalDate">04/04/2024
-                              13:55:12</h6>
-                            <small class="text-muted" id="logModalUser">Jean
-                              Dupont</small>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="bg-dark p-3 rounded">
-                          <h6><i class="bi bi-tags me-2"></i>Tags</h6>
-                          <div id="logModalTags">
-                            <span
-                              class="badge bg-secondary me-1">authentification</span>
-                            <span class="badge bg-secondary">succès</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div class="mb-4">
-                      <h6><i class="bi bi-chat-square-text me-2"></i>Message
-                        complet</h6>
-                      <div class="bg-dark p-3 rounded" id="logModalMessage">
-                        Chargement...
-                      </div>
+                  <div class="mb-4">
+                    <h6><i class="bi bi-chat-square-text me-2"></i>Message
+                      complet</h6>
+                    <div class="bg-dark p-3 rounded" id="logModalMessage">
+                      Chargement...
                     </div>
+                  </div>
 
-                    <div class="mb-3">
-                      <h6><i class="bi bi-diagram-3 me-2"></i>Ressources
-                        concernées</h6>
-                      <div class="table-responsive">
-                        <table class="table table-sm table-dark">
-                          <thead>
-                            <tr>
-                              <th>Type</th>
-                              <th>Nom</th>
-                              <th>IP</th>
-                              <th>Statut</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Serveur</td>
-                              <td>web-01</td>
-                              <td>192.168.1.10</td>
-                              <td><span class="badge bg-success">En
-                                  ligne</span></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
+                  <div class="mb-3">
+                    <h6><i class="bi bi-diagram-3 me-2"></i>Ressources
+                      concernées</h6>
+                    <div class="table-responsive">
+                      <table class="table table-sm table-dark">
+                        <thead>
+                          <tr>
+                            <th>Type</th>
+                            <th>Nom</th>
+                            <th>IP</th>
+                            <th>Statut</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Serveur</td>
+                            <td>web-01</td>
+                            <td>192.168.1.10</td>
+                            <td><span class="badge bg-success">En
+                                ligne</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
+                  </div>
 
-                    <div
-                      class="d-flex justify-content-between align-items-center">
-                      <button class="btn btn-outline-secondary">
-                        <i class="bi bi-download me-1"></i> Exporter cet
-                        événement
+                  <div
+                    class="d-flex justify-content-between align-items-center">
+                    <button class="btn btn-outline-secondary">
+                      <i class="bi bi-download me-1"></i> Exporter cet
+                      événement
+                    </button>
+                    <div>
+                      <button class="btn btn-success me-2">
+                        <i class="bi bi-check-circle me-1"></i> Marquer comme
+                        résolu
                       </button>
-                      <div>
-                        <button class="btn btn-success me-2">
-                          <i class="bi bi-check-circle me-1"></i> Marquer comme
-                          résolu
-                        </button>
-                        <button class="btn btn-primary">
-                          <i class="bi bi-ticket-detailed me-1"></i> Créer un
-                          ticket
-                        </button>
-                      </div>
+                      <button class="btn btn-primary">
+                        <i class="bi bi-ticket-detailed me-1"></i> Créer un
+                        ticket
+                      </button>
                     </div>
                   </div>
-
-                  <div class="modal fade" id="logModal" tabindex="-1"
-                    aria-labelledby="logModalLabel" aria-hidden="true">
-                    <!-- Le modal de log existant amélioré -->
-                  </div>
-                  <!-----Modal de performance des equipemments-------->
-
-                  <div class="modal fade" id="graphieModal" tabindex="-1"
-                    role="dialog" aria-labelledby="graphiqueModallabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">
-                            Equipements de web-server-01
-                          </h5>
-                          <button type="button" class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Fermer"></button>
-                        </div>
-                        <strong
-                          class="px-3 text-primary bg-body-tertiary py-2"><i
-                            class="bi bi-ethernet"> eth0 <span
-                              class=" text-primary-emphasis">(Interface
-                              réseau)</span></i></strong>
-                        <strong class="px-3"><i class="bi bi-ethernet"> sda1
-                            <span class=" text-primary-emphasis">(Disque)</span>
-                          </i></strong>
-                        <div class="modal-body">
-                          <h4 class=" text-primary"> eth0 (Interface
-                            réseau)</h4>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <canvas id="graphe1"
-                                class=" bg-body-tertiary m-2 rounded-2"></canvas>
-                            </div>
-                            <div class="col-md-6">
-                              <canvas id="graphe2"
-                                class=" bg-body-tertiary m-2 rounded-2"></canvas>
-                            </div>
-                            <div class="col-md-6">
-                              <canvas id="graphe3"
-                                class=" bg-body-tertiary m-2 rounded-2"></canvas>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-----------===============Modal de suppression================---------->
-
-                  <div class="modal fade" id="deleteModal" tabindex="-1"
-                    aria-labelledby="deleteModal"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-sm modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">
-                            Confirmer la suppression
-                          </h5>
-                          <button type="button" class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Fermer"></button>
-                        </div>
-                        <div class="modal-body">
-                          <h4 class="text-bold">Voulez-vous vraiment supprimer
-                            l'hôte "web-server-01"</h4>
-                        </div>
-
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Annuler</button>
-                          <button type="submit"
-                            class="btn btn-danger">Confirmer</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-----=============================Detail Modal==================-->
-
-                  <div class="modal fade" id="detailModal" tabindex="-1"
-                    role="dialog" aria-labelledby="graphiqueModallabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">
-                            Détails de l'hôtes
-                          </h5>
-                          <button type="button" class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Fermer"></button>
-                        </div>
-                        <div class="modal-body">
-                          <div class>
-                            Nom : <strong>web-server-01</strong> <br>
-                            IP : <strong>192.168.1.10</strong> <br>
-                            Etat : <strong> Up</strong> <br>
-                            CPU : <strong>15%</strong> <br>
-                            Memoire : <strong>4GB</strong> <br>
-                            Disque : <strong>80%</strong> <br>
-                            Service : <strong>HTTP,SSH</strong> <br>
-                            Logs recents:
-                            <ul>
-                              <li>CPU OK</li>
-                              <li>DisK OK</li>
-                            </ul>
-                            <button class=" bg-primary btn px-2 py-1"><i
-                                class="bi bi-diagram-3"></i> Voir
-                              Equipements</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                  </main>
                 </div>
               </div>
-              <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-              <script src="node_modules/chart.js/dist/chart.umd.js"></script>
-              <script src="main-js/index.js" defer></script>
-              <script>
+
+              <div class="modal fade" id="logModal" tabindex="-1"
+                aria-labelledby="logModalLabel" aria-hidden="true">
+                <!-- Le modal de log existant amélioré -->
+              </div>
+            </div>
+          </div>
+
+          <!-----Modal de performance des equipemments-------->
+
+          <div class="modal fade" id="graphieModal" tabindex="-1"
+            role="dialog" aria-labelledby="graphiqueModallabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    Equipements de web-server-01
+                  </h5>
+                  <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Fermer"></button>
+                </div>
+                <strong
+                  class="px-3 text-primary bg-body-tertiary py-2"><i
+                    class="bi bi-ethernet"> eth0 <span
+                      class=" text-primary-emphasis">(Interface
+                      réseau)</span></i></strong>
+                <strong class="px-3"><i class="bi bi-ethernet"> sda1
+                    <span class=" text-primary-emphasis">(Disque)</span>
+                  </i></strong>
+                <div class="modal-body">
+                  <h4 class=" text-primary"> eth0 (Interface
+                    réseau)</h4>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <canvas id="graphe1"
+                        class=" bg-body-tertiary m-2 rounded-2"></canvas>
+                    </div>
+                    <div class="col-md-6">
+                      <canvas id="graphe2"
+                        class=" bg-body-tertiary m-2 rounded-2"></canvas>
+                    </div>
+                    <div class="col-md-6">
+                      <canvas id="graphe3"
+                        class=" bg-body-tertiary m-2 rounded-2"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-----------===============Modal de suppression================---------->
+
+          <div class="modal fade" id="deleteModal" tabindex="-1"
+            aria-labelledby="deleteModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    Confirmer la suppression
+                  </h5>
+                  <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                  <h4 class="text-bold">Voulez-vous vraiment supprimer
+                    l'hôte "web-server-01"</h4>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Annuler</button>
+                  <button type="submit"
+                    class="btn btn-danger">Confirmer</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-----=============================Detail Modal==================-->
+
+          <div class="modal fade" id="detailModal" tabindex="-1"
+            role="dialog" aria-labelledby="graphiqueModallabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    Détails de l'hôtes
+                  </h5>
+                  <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                  <div class>
+                    Nom : <strong>web-server-01</strong> <br>
+                    IP : <strong>192.168.1.10</strong> <br>
+                    Etat : <strong> Up</strong> <br>
+                    CPU : <strong>15%</strong> <br>
+                    Memoire : <strong>4GB</strong> <br>
+                    Disque : <strong>80%</strong> <br>
+                    Service : <strong>HTTP,SSH</strong> <br>
+                    Logs recents:
+                    <ul>
+                      <li>CPU OK</li>
+                      <li>DisK OK</li>
+                    </ul>
+                    <button class=" bg-primary btn px-2 py-1"><i
+                        class="bi bi-diagram-3"></i> Voir
+                      Equipements</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+    <script src="main-js/index.js" defer></script>
+    <script>
     const themeSwitch = document.getElementById('themeSwitch');
     const html = document.querySelector('html');
 
@@ -3113,6 +3117,6 @@ Chargement de la stack trace...
     });
   </script>
 
-            </body>
+  </body>
 
-          </html>
+</html>
