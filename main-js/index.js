@@ -269,37 +269,198 @@ document.getElementById('roleForm').addEventListener('submit', function (e) {
 
     /* =============Js pour mes logs  =======================*/
 
-    // Filtres
-    function filterLogs() {
-      const type = document.getElementById('filterType').value;
-      const user = document.getElementById('filterUser').value;
-      const date = document.getElementById('filterDate').value;
-      document.querySelectorAll('#logsTable tbody tr').forEach(tr => {
-        let show = true;
-        if(type && tr.getAttribute('data-type') !== type) show = false;
-        if(user && tr.getAttribute('data-user') !== user) show = false;
-        if(date && tr.getAttribute('data-date') !== date) show = false;
-        tr.style.display = show ? '' : 'none';
-      });
+    
+document.addEventListener('DOMContentLoaded', function() {
+    // Données de démonstration
+    const logData = {
+        "log-001": {
+            "date": "04/04/2024 13:55:12",
+            "type": "Info",
+            "user": {
+                "name": "Jean Dupont",
+                "email": "jean.dupont@example.com",
+                "initials": "JD"
+            },
+            "source": "API",
+            "message": "Connexion API réussie - Token généré\n\nDétails supplémentaires:\n- Méthode: POST /api/auth/login\n- IP: 192.168.1.45\n- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36\n- Durée: 142ms",
+            "tags": ["authentification", "api", "succès"],
+            "metrics": {
+                "httpStatus": 200,
+                "responseTime": 142,
+                "serverLoad": 72
+            },
+            "stackTrace": null
+        },
+        "log-002": {
+            "date": "04/04/2024 13:50:34",
+            "type": "Warning",
+            "user": {
+                "name": "Marie Martin",
+                "email": "marie.martin@example.com",
+                "initials": "MM"
+            },
+            "source": "Backend",
+            "message": "Utilisation mémoire élevée (92%) - Serveur backend-01\n\nDétails:\n- Mémoire totale: 16GB\n- Mémoire utilisée: 14.7GB\n- Processus principal: node (3.2GB)\n- Recommandation: Vérifier les fuites mémoire ou augmenter la capacité",
+            "tags": ["performance", "mémoire", "warning"],
+            "metrics": {
+                "httpStatus": null,
+                "responseTime": null,
+                "serverLoad": 92
+            },
+            "stackTrace": "Warning: mémoire insuffisante détectée\n    at MemoryMonitor.checkUsage (/app/src/utils/monitoring.js:45:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+        },
+        "log-003": {
+            "date": "04/04/2024 13:45:56",
+            "type": "Error",
+            "user": {
+                "name": "Jean Dupont",
+                "email": "jean.dupont@example.com",
+                "initials": "JD"
+            },
+            "source": "Database",
+            "message": "Échec sauvegarde base de données - Espace disque insuffisant\n\nDétails de l'erreur:\n- Base de données: mysql_prod\n- Taille requise: 12GB\n- Espace disponible: 120MB\n- Script: /scripts/backup_db.sh\n\nAction requise: Libérer de l'espace disque ou étendre le volume",
+            "tags": ["base-de-données", "sauvegarde", "erreur"],
+            "metrics": {
+                "httpStatus": 500,
+                "responseTime": null,
+                "serverLoad": 68
+            },
+            "stackTrace": "Error: Espace disque insuffisant\n    at DatabaseBackup.execute (/app/src/services/db/backup.js:127:23)\n    at async main (/scripts/backup_db.js:15:20)"
+        },
+        "log-004": {
+            "date": "03/04/2024 22:15:42",
+            "type": "Critical",
+            "user": {
+                "name": "System",
+                "email": null,
+                "initials": "S"
+            },
+            "source": "Backend",
+            "message": "Crash application - Exception non gérée dans le module payment\n\nImpact:\n- Service payment indisponible\n- 42 transactions interrompues\n- Temps d'indisponibilité: 8 minutes\n\nCause racine: Référence null dans PaymentProcessor.validateCard()",
+            "tags": ["crash", "payment", "critique"],
+            "metrics": {
+                "httpStatus": null,
+                "responseTime": null,
+                "serverLoad": null
+            },
+            "stackTrace": "CriticalError: Cannot read properties of null (reading 'cardNumber')\n    at PaymentProcessor.validateCard (/app/src/services/payment/processor.js:215:32)\n    at PaymentController.process (/app/src/controllers/payment.js:89:28)\n    at async Router.execute (/app/src/router.js:156:20)\n    at async Server.handleRequest (/app/src/server.js:45:17)"
+        }
+    };
+
+    // Filtrage avancé des logs
+    function applyFilters() {
+        const type = document.getElementById('filterType').value;
+        const user = document.getElementById('filterUser').value;
+        const dateStart = document.getElementById('filterDateStart').value;
+        const dateEnd = document.getElementById('filterDateEnd').value;
+        const source = document.getElementById('filterSource').value;
+
+        document.querySelectorAll('#logsTable tbody tr').forEach(tr => {
+            const trType = tr.getAttribute('data-type');
+            const trUser = tr.getAttribute('data-user');
+            const trDate = tr.getAttribute('data-date');
+            const trSource = tr.getAttribute('data-source');
+
+            const typeMatch = !type || trType === type;
+            const userMatch = !user || trUser === user;
+            const dateMatch = (!dateStart || trDate >= dateStart) && (!dateEnd || trDate <= dateEnd);
+            const sourceMatch = !source || trSource === source;
+
+            tr.style.display = typeMatch && userMatch && dateMatch && sourceMatch ? '' : 'none';
+        });
     }
-    document.getElementById('filterType').addEventListener('change', filterLogs);
-    document.getElementById('filterUser').addEventListener('change', filterLogs);
-    document.getElementById('filterDate').addEventListener('change', filterLogs);
-    // Détail log
-    document.querySelectorAll('.btn-log-details').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const date = this.getAttribute('data-date');
-        const type = this.getAttribute('data-type');
-        const user = this.getAttribute('data-user');
-        const message = this.getAttribute('data-message');
-        document.getElementById('logDetailBody').innerHTML = `
-          <p><strong>Date :</strong> ${date}</p>
-          <p><strong>Type :</strong> ${type}</p>
-          <p><strong>Utilisateur :</strong> ${user}</p>
-          <p><strong>Message :</strong> ${message}</p>
-        `;
-      });
+
+    // Réinitialisation des filtres
+    document.getElementById('resetFilters').addEventListener('click', function() {
+        document.getElementById('filterType').value = '';
+        document.getElementById('filterUser').value = '';
+        document.getElementById('filterDateStart').value = '';
+        document.getElementById('filterDateEnd').value = '';
+        document.getElementById('filterSource').value = '';
+        applyFilters();
     });
+
+    // Écouteurs d'événements pour les filtres
+    document.querySelectorAll('#filterType, #filterUser, #filterDateStart, #filterDateEnd, #filterSource').forEach(el => {
+        el.addEventListener('change', applyFilters);
+    });
+
+    // Gestion du modal de détails
+    const logModal = document.getElementById('logModal');
+    if (logModal) {
+        logModal.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const logId = button.getAttribute('data-log-id');
+            const log = logData[logId];
+
+            if (!log) return;
+
+            // Mise à jour des informations de base
+            document.getElementById('logModalType').textContent = log.type;
+            document.getElementById('logModalType').className = `badge fs-6 ${
+                log.type === 'Info' ? 'bg-log-info text-info' : 
+                log.type === 'Warning' ? 'bg-log-warning text-warning' : 
+                log.type === 'Error' ? 'bg-log-error text-danger' : 'bg-log-critical text-white'
+            }`;
+            
+            document.getElementById('logModalDate').textContent = log.date;
+            document.getElementById('logModalSource').textContent = `Source: ${log.source}`;
+            
+            // Mise à jour des informations utilisateur
+            const userElement = document.getElementById('logModalUser');
+            userElement.innerHTML = `
+                <div class="avatar me-3">
+                    <div class="avatar-title ${!log.user.email ? 'bg-secondary' : 'bg-primary'} rounded-circle">
+                        ${log.user.initials}
+                    </div>
+                </div>
+                <div>
+                    <div>${log.user.name}</div>
+                    ${log.user.email ? `<small class="text-muted">${log.user.email}</small>` : ''}
+                </div>
+            `;
+            
+            // Mise à jour des tags
+            const tagsContainer = document.getElementById('logModalTags');
+            tagsContainer.innerHTML = log.tags.map(tag => 
+                `<span class="badge bg-secondary me-1 mb-1">${tag}</span>`
+            ).join('');
+            
+            // Mise à jour du message
+            document.getElementById('logModalMessage').textContent = log.message;
+            
+            // Mise à jour de la stack trace
+            const stackTraceElement = document.getElementById('logModalStackTrace');
+            stackTraceElement.innerHTML = log.stackTrace ? 
+                `<code class="language-plaintext">${log.stackTrace}</code>` : 
+                '<em class="text-muted">Aucune stack trace disponible</em>';
+            
+            // Mise à jour des métriques (simulée)
+            // Dans une vraie application, vous utiliseriez les données réelles de log.metrics
+        });
+    }
+
+    // Simulation d'actualisation
+    document.querySelector('.btn-refresh').addEventListener('click', function() {
+        const btn = this;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Actualisation...';
+        
+        setTimeout(() => {
+            btn.innerHTML = '<i class="bi bi-arrow-clockwise"></i> Actualiser';
+            document.getElementById('lastUpdateTime').textContent = new Date().toLocaleTimeString();
+            
+            // Ici vous pourriez ajouter une requête AJAX pour actualiser les données
+            // Pour cette démo, nous simulons juste un changement visuel
+            const randomLogs = Math.floor(Math.random() * 50) + 200;
+            document.getElementById('totalLogs').textContent = randomLogs;
+        }, 1500);
+    });
+
+    // Initialisation
+    applyFilters();
+    document.getElementById('lastUpdateTime').textContent = new Date().toLocaleTimeString();
+});
+
 
 /* =============Js pour mes alerte =======================*/
 
@@ -362,5 +523,78 @@ document.getElementById('roleForm').addEventListener('submit', function (e) {
             }
         }
     });
-  
 
+
+
+/* =============Js pour mes carte reaux  =======================*/
+
+    const hosts = [
+      { name: 'web-server-01', x: 100, y: 100, status: 'up', ip: '192.168.1.10', os: 'Linux' },
+      { name: 'db-server-01', x: 500, y: 100, status: 'down', ip: '192.168.1.20', os: 'Windows' },
+      { name: 'backup-server', x: 300, y: 250, status: 'unreachable', ip: '192.168.1.30', os: 'Linux' }
+    ];
+    const links = [
+      { from: 0, to: 1 },
+      { from: 0, to: 2 },
+      { from: 1, to: 2 }
+    ];
+    const statusColor = { up: '#2ecc71', down: '#e74c3c', unreachable: '#f1c40f' };
+    // Dessin du schéma
+    const svg = document.getElementById('topoSvg');
+    // Lignes (liens)
+    links.forEach(link => {
+      const h1 = hosts[link.from];
+      const h2 = hosts[link.to];
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', h1.x);
+      line.setAttribute('y1', h1.y);
+      line.setAttribute('x2', h2.x);
+      line.setAttribute('y2', h2.y);
+      line.setAttribute('stroke', '#bfc9db');
+      line.setAttribute('stroke-width', '3');
+      svg.appendChild(line);
+    });
+    // Nœuds (hôtes)
+    hosts.forEach((host, i) => {
+      const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      group.classList.add('topo-node');
+      group.setAttribute('data-host', host.name);
+      // Cercle
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', host.x);
+      circle.setAttribute('cy', host.y);
+      circle.setAttribute('r', 32);
+      circle.setAttribute('fill', statusColor[host.status]);
+      circle.setAttribute('stroke', '#23232e');
+      circle.setAttribute('stroke-width', '4');
+      group.appendChild(circle);
+      // Label
+      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', host.x);
+      label.setAttribute('y', host.y + 50);
+      label.setAttribute('class', 'topo-label');
+      label.textContent = host.name;
+      svg.appendChild(group);
+      svg.appendChild(label);
+      // Clic sur le nœud
+      group.addEventListener('click', function() {
+        document.getElementById('hostDetailBody').innerHTML = `
+          <p><strong>Nom :</strong> ${host.name}</p>
+          <p><strong>Adresse IP :</strong> ${host.ip}</p>
+          <p><strong>OS :</strong> ${host.os}</p>
+          <p><strong>Statut :</strong> <span style='color:${statusColor[host.status]};font-weight:bold;'>${host.status.toUpperCase()}</span></p>
+        `;
+        document.getElementById('hostModalLabel').textContent = `Détail de ${host.name}`;
+        var modal = new bootstrap.Modal(document.getElementById('hostModal'));
+        modal.show();
+      });
+    });
+  
+/* =============Js pour mes configuration  =======================*/
+
+    document.getElementById('testNotifBtn').addEventListener('click', function() {
+      // Simulation d'envoi de notification
+      const resultDiv = document.getElementById('notifResult');
+      resultDiv.innerHTML = '<span style="color:#2ecc71;font-weight:bold;">Notification envoyée avec succès !</span>';
+      setTimeout(() => { resultDiv.innerHTML = ''; }, 3000);
+    });

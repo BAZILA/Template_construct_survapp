@@ -281,9 +281,91 @@ genre dans les interfaces ..;*/
     }
 
    /*====== css pour logs  =====*/
-.log-info { color: #3498db; }
-    .log-warning { color: #f1c40f; }
-    .log-error { color: #e74c3c; }
+
+    .gradient-text {
+        background: linear-gradient(90deg, #3498db, #9b59b6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    .stat-card {
+        border: none;
+        border-radius: 10px;
+        transition: transform 0.3s;
+        height: 100%;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .bg-log-info {
+        background-color: var(--bg-log-info);
+        border-left: 4px solid #3498db;
+    }
+    
+    .bg-log-warning {
+        background-color: var(--bg-log-warning);
+        border-left: 4px solid #f1c40f;
+    }
+    
+    .bg-log-error {
+        background-color: var(--bg-log-error);
+        border-left: 4px solid #e74c3c;
+    }
+    
+    .bg-log-critical {
+        background-color: var(--bg-log-critical);
+        border-left: 4px solid #c0392b;
+    }
+    
+    .table-head-custom th {
+        background-color: #2c3e50;
+        color: white;
+        font-weight: 500;
+        padding: 12px 15px;
+    }
+    
+    .section-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #7f8c8d;
+        margin-bottom: 0.5rem;
+    }
+    
+    .avatar {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .avatar-sm {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+    
+    .btn-refresh {
+        transition: transform 0.3s;
+    }
+    
+    .btn-refresh:hover {
+        transform: rotate(90deg);
+    }
+    
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.85rem;
+    }
 
 /*====== css pour alerte  =====*/
 
@@ -292,4 +374,20 @@ genre dans les interfaces ..;*/
         .badge-majeure { background-color: #ffc107; color: #000; }
         .badge-mineure { background-color: #0d6efd; }
         .table td, .table th { vertical-align: middle; }
-    
+
+    /*====== css pour carte reseaux  =====*/
+
+    .iface-status { border-radius: 20px; padding: 4px 16px; font-size: 0.9em; font-weight: bold; display: inline-block; }
+    .status-up { background: #2ecc71; color: #fff; }
+    .status-down { background: #e74c3c; color: #fff; }
+    .status-unreachable { background: #f1c40f; color: #23232e; }
+    tr.iface-row { cursor: pointer; }
+    .topo-svg { background: #23232e; border-radius: 16px; margin: 24px 0; display: block; margin-left: auto; margin-right: auto; }
+    .topo-node { cursor: pointer; transition: filter 0.2s; }
+    .topo-node:hover { filter: brightness(1.3); }
+    .topo-label { font-size: 1em; fill: #bfc9db; text-anchor: middle; }
+
+
+    /*====== css pour configuration  =====*/
+    btn-action { background: #35354a; color: #fff; border: none; border-radius: 8px; padding: 6px 16px; transition: background 0.2s; }
+    .btn-action:hover { background: #44445a; }
