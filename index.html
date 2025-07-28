@@ -678,7 +678,7 @@
                           data-bs-toggle="modal" data-bs-target="#roleModal">
                           <i class="bi bi-pencil"></i>
                         </button>
-                        <button class="btn btn-sm btn-danger">
+                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deletePermisionModal"> 
                           <i class="bi bi-trash"></i>
                         </button>
                       </td>
@@ -795,6 +795,31 @@
                       </div>
                       <div class="modal-body">
                         <h3 class="h3"> Etes-vous sur de vouloir supprimer l'utilsateur  "Jean Dupont"</h3>
+                      </div>
+                      <div class="modal-footer">
+                        <button class=" btn text-bg-light">Anuler</button>
+                        <button  id="buttondeleteUser"  class="btn text-bg-primary">Confirmer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+        <!--------------------------------Modal delete Permision----------------->
+        <div class="modal fade" id="deletePermisionModal" tabindex="-1"
+                  role="dialog" aria-labelledby="deleteUserModallabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        
+                          <strong>Confirmer la suppression </strong>
+                          <button type="button" class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Fermer"></button>
+
+                      </div>
+                      <div class="modal-body">
+                        <h3 class="h3"> Etes-vous sur de vouloir supprimer " l'adminitrateur "</h3>
                       </div>
                       <div class="modal-footer">
                         <button class=" btn text-bg-light">Anuler</button>
