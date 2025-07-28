@@ -179,3 +179,7 @@ genre dans les interfaces ..;*/
   background-color: #b2cdf3;
   color: white;
 }
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
