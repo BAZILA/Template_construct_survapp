@@ -201,44 +201,287 @@ genre dans les interfaces ..;*/
   border: none;
 }
 /*====== css pour service  =====*/
-.service-card {
+    /* Styles personnalisés */
+    .gradient-text {
+        background: linear-gradient(90deg, #3498db, #9b59b6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    .service-card {
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .service-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+    
+    .service-icon-lg {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #7f8c8d;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-refresh {
+        transition: transform 0.3s;
+    }
+    
+    .btn-refresh:hover {
+        transform: rotate(90deg);
+    }
+    
+    .progress {
+        border-radius: 3px;
+        background-color: #f0f0f0;
+    }
+    
+    .progress-bar {
+        border-radius: 3px;
+    }
+   /*====== css pour raporrts  =====*/
+
+    .card-block {
       background: var(--card-bg);
       border-radius: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       padding: 24px 28px 18px 28px;
       margin-bottom: 28px;
+    }
+    .report-list {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
       flex-wrap: wrap;
+      gap: 24px;
     }
-    .service-info {
+    .report-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 20px 24px 16px 24px;
+      min-width: 260px;
+      max-width: 320px;
+      flex: 1 1 260px;
       display: flex;
-      align-items: center;
-      gap: 18px;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 0;
     }
-    .service-icon {
-      font-size: 2.2em;
-      margin-right: 10px;
-    }
-    .service-status {
-      border-radius: 20px;
-      padding: 4px 16px;
-      font-size: 1em;
-      font-weight: bold;
-      display: inline-block;
-      margin-left: 10px;
-    }
-    .status-ok { background: #2ecc71; color: #fff; }
-    .status-warning { background: #f1c40f; color: #23232e; }
-    .status-down { background: #e74c3c; color: #fff; }
-    .dropdown-toggle { background: #35354a; color: #fff; border: none; border-radius: 8px; padding: 6px 18px; }
-    .dropdown-toggle:hover, .dropdown-menu .dropdown-item:hover { background: #44445a; color: #fff; }
-    .btn-link { color: #3498db; background: none; border: none; padding: 0; margin-left: 10px; text-decoration: underline; font-size: 1em; }
-    .btn-link:hover { color: #217dbb; }
-    .service-title { font-size: 1.2em; font-weight: bold; }
-    .service-host { color: #bfc9db; font-size: 1em; margin-left: 8px; }
+    .report-title { font-size: 1.1em; font-weight: bold; margin-bottom: 4px; }
+    .report-actions { display: flex; gap: 10px; margin-top: 8px; }
+    .btn-action { background: #35354a; color: #fff; border: none; border-radius: 8px; padding: 6px 16px; transition: background 0.2s; font-size: 1em; }
+    .btn-action:hover { background: #44445a; }
+    .form-label { color: #bfc9db; }
     @media (max-width: 700px) {
-      .service-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .report-list { flex-direction: column; gap: 16px; }
+      .report-card { min-width: 0; max-width: 100%; }
     }
+
+   /*====== css pour logs  =====*/
+
+    .gradient-text {
+        background: linear-gradient(90deg, #3498db, #9b59b6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    .stat-card {
+        border: none;
+        border-radius: 10px;
+        transition: transform 0.3s;
+        height: 100%;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .bg-log-info {
+        background-color: var(--bg-log-info);
+        border-left: 4px solid #3498db;
+    }
+    
+    .bg-log-warning {
+        background-color: var(--bg-log-warning);
+        border-left: 4px solid #f1c40f;
+    }
+    
+    .bg-log-error {
+        background-color: var(--bg-log-error);
+        border-left: 4px solid #e74c3c;
+    }
+    
+    .bg-log-critical {
+        background-color: var(--bg-log-critical);
+        border-left: 4px solid #c0392b;
+    }
+    
+    .table-head-custom th {
+        background-color: #2c3e50;
+        color: white;
+        font-weight: 500;
+        padding: 12px 15px;
+    }
+    
+    .section-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #7f8c8d;
+        margin-bottom: 0.5rem;
+    }
+    
+    .avatar {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .avatar-sm {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+    
+    .btn-refresh {
+        transition: transform 0.3s;
+    }
+    
+    .btn-refresh:hover {
+        transform: rotate(90deg);
+    }
+    
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.85rem;
+    }
+
+/*====== css pour alerte  =====*/
+
+
+    .badge-critique { background-color: #dc3545; }
+        .badge-majeure { background-color: #ffc107; color: #000; }
+        .badge-mineure { background-color: #0d6efd; }
+        .table td, .table th { vertical-align: middle; }
+
+    /*====== css pour carte reseaux  =====*/
+
+    .iface-status { border-radius: 20px; padding: 4px 16px; font-size: 0.9em; font-weight: bold; display: inline-block; }
+    .status-up { background: #2ecc71; color: #fff; }
+    .status-down { background: #e74c3c; color: #fff; }
+    .status-unreachable { background: #f1c40f; color: #23232e; }
+    tr.iface-row { cursor: pointer; }
+    .topo-svg { background: #23232e; border-radius: 16px; margin: 24px 0; display: block; margin-left: auto; margin-right: auto; }
+    .topo-node { cursor: pointer; transition: filter 0.2s; }
+    .topo-node:hover { filter: brightness(1.3); }
+    .topo-label { font-size: 1em; fill: #bfc9db; text-anchor: middle; }
+
+
+    /*====== css pour configuration  =====*/
+/* Styles personnalisés pour la section de configuration */
+#configuration .card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#configuration .card-header {
+    border-radius: 0 !important;
+}
+
+#configuration .form-floating {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#configuration .form-floating label {
+    color: #495057;
+    transition: all 0.2s;
+}
+
+#configuration .form-floating .form-control:focus ~ label,
+#configuration .form-floating .form-control:not(:placeholder-shown) ~ label {
+    color: #0d6efd;
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+#configuration .form-text {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+#configuration .btn-action {
+    transition: all 0.2s;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+}
+
+#configuration .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+#configuration .btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+#configuration .btn-outline-secondary {
+    border-color: #dee2e6;
+    color: #495057;
+}
+
+#configuration .btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+/* Animation pour les champs invalides */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+#configuration .is-invalid {
+    border-color: #dc3545;
+    animation: shake 0.5s ease-in-out;
+}
+
+#configuration .invalid-feedback {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
