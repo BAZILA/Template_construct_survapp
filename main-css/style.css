@@ -202,7 +202,7 @@ genre dans les interfaces ..;*/
 }
 /*====== css pour service  =====*/
 .service-card {
-      background: #28293d;
+      background: var(--card-bg);
       border-radius: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       padding: 24px 28px 18px 28px;
