@@ -365,8 +365,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Mise à jour des informations de base
             document.getElementById('logModalType').textContent = log.type;
             document.getElementById('logModalType').className = `badge fs-6 ${log.type === 'Info' ? 'bg-log-info text-info' :
-                    log.type === 'Warning' ? 'bg-log-warning text-warning' :
-                        log.type === 'Error' ? 'bg-log-error text-danger' : 'bg-log-critical text-white'
+                log.type === 'Warning' ? 'bg-log-warning text-warning' :
+                    log.type === 'Error' ? 'bg-log-error text-danger' : 'bg-log-critical text-white'
                 }`;
 
             document.getElementById('logModalDate').textContent = log.date;
@@ -485,68 +485,160 @@ document.getElementById('rapportModal').addEventListener('show.bs.modal', functi
 
 
 /* =============Js pour mes carte reaux  =======================*/
+// Initialisation de la topologie
+document.addEventListener('DOMContentLoaded', function () {
+    // Simuler le chargement
+    const loadingOverlay = document.getElementById('topologyLoading');
+    const svgContainer = document.getElementById('networkSvg');
+    const networkElements = document.getElementById('networkElements');
 
-const hosts = [
-    { name: 'web-server-01', x: 100, y: 100, status: 'up', ip: '192.168.1.10', os: 'Linux' },
-    { name: 'db-server-01', x: 500, y: 100, status: 'down', ip: '192.168.1.20', os: 'Windows' },
-    { name: 'backup-server', x: 300, y: 250, status: 'unreachable', ip: '192.168.1.30', os: 'Linux' }
-];
-const links = [
-    { from: 0, to: 1 },
-    { from: 0, to: 2 },
-    { from: 1, to: 2 }
-];
-const statusColor = { up: '#2ecc71', down: '#e74c3c', unreachable: '#f1c40f' };
-// Dessin du schéma
-const svg = document.getElementById('topoSvg');
-// Lignes (liens)
-links.forEach(link => {
-    const h1 = hosts[link.from];
-    const h2 = hosts[link.to];
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', h1.x);
-    line.setAttribute('y1', h1.y);
-    line.setAttribute('x2', h2.x);
-    line.setAttribute('y2', h2.y);
-    line.setAttribute('stroke', '#bfc9db');
-    line.setAttribute('stroke-width', '3');
-    svg.appendChild(line);
+    // Afficher le chargement
+    loadingOverlay.style.display = 'flex';
+
+    // Simuler un chargement asynchrone
+    setTimeout(() => {
+        // Générer une topologie de démonstration
+        generateSampleTopology();
+
+        // Masquer le chargement
+        loadingOverlay.style.display = 'none';
+
+        // Mettre à jour le statut
+        document.getElementById('lastUpdateTime').textContent = new Date().toLocaleTimeString();
+    }, 1500);
+
+    // Gestion des boutons
+    document.getElementById('refreshBtn').addEventListener('click', refreshTopology);
+    document.getElementById('toggleGridBtn').addEventListener('click', toggleGrid);
+    document.getElementById('fitViewBtn').addEventListener('click', fitView);
+    document.getElementById('closeInfoPanel').addEventListener('click', closeInfoPanel);
 });
-// Nœuds (hôtes)
-hosts.forEach((host, i) => {
-    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    group.classList.add('topo-node');
-    group.setAttribute('data-host', host.name);
-    // Cercle
-    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('cx', host.x);
-    circle.setAttribute('cy', host.y);
-    circle.setAttribute('r', 32);
-    circle.setAttribute('fill', statusColor[host.status]);
-    circle.setAttribute('stroke', '#23232e');
-    circle.setAttribute('stroke-width', '4');
-    group.appendChild(circle);
-    // Label
-    const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    label.setAttribute('x', host.x);
-    label.setAttribute('y', host.y + 50);
-    label.setAttribute('class', 'topo-label');
-    label.textContent = host.name;
-    svg.appendChild(group);
-    svg.appendChild(label);
-    // Clic sur le nœud
-    group.addEventListener('click', function () {
-        document.getElementById('hostDetailBody').innerHTML = `
-          <p><strong>Nom :</strong> ${host.name}</p>
-          <p><strong>Adresse IP :</strong> ${host.ip}</p>
-          <p><strong>OS :</strong> ${host.os}</p>
-          <p><strong>Statut :</strong> <span style='color:${statusColor[host.status]};font-weight:bold;'>${host.status.toUpperCase()}</span></p>
-        `;
-        document.getElementById('hostModalLabel').textContent = `Détail de ${host.name}`;
-        var modal = new bootstrap.Modal(document.getElementById('hostModal'));
-        modal.show();
+
+function generateSampleTopology() {
+    const svgNS = "http://www.w3.org/2000/svg";
+    const networkElements = document.getElementById('networkElements');
+
+    // Nettoyer les éléments existants
+    networkElements.innerHTML = '';
+
+    // Créer des éléments de démonstration
+    const devices = [
+        { id: 'r1', type: 'router', x: 200, y: 100, name: 'Routeur Principal' },
+        { id: 'sw1', type: 'switch', x: 100, y: 200, name: 'Switch Étage 1' },
+        { id: 'sw2', type: 'switch', x: 300, y: 200, name: 'Switch Étage 2' },
+        { id: 'srv1', type: 'server', x: 50, y: 300, name: 'Serveur Web' },
+        { id: 'srv2', type: 'server', x: 200, y: 300, name: 'Serveur DB' },
+        { id: 'srv3', type: 'server', x: 350, y: 300, name: 'Serveur Backup' }
+    ];
+
+    // Créer les connexions
+    const connections = [
+        { from: 'r1', to: 'sw1' },
+        { from: 'r1', to: 'sw2' },
+        { from: 'sw1', to: 'srv1' },
+        { from: 'sw2', to: 'srv2' },
+        { from: 'sw2', to: 'srv3' }
+    ];
+
+    // Ajouter les connexions
+    connections.forEach(conn => {
+        const fromDevice = devices.find(d => d.id === conn.from);
+        const toDevice = devices.find(d => d.id === conn.to);
+
+        if (fromDevice && toDevice) {
+            const line = document.createElementNS(svgNS, 'line');
+            line.setAttribute('x1', fromDevice.x + 30);
+            line.setAttribute('y1', fromDevice.y + 20);
+            line.setAttribute('x2', toDevice.x + 30);
+            line.setAttribute('y2', toDevice.y + 20);
+            line.setAttribute('class', 'connection-line');
+            networkElements.appendChild(line);
+        }
     });
-});
+
+    // Ajouter les appareils
+    devices.forEach(device => {
+        // Créer le rectangle de l'appareil
+        const rect = document.createElementNS(svgNS, 'rect');
+        rect.setAttribute('x', device.x);
+        rect.setAttribute('y', device.y);
+        rect.setAttribute('width', '60');
+        rect.setAttribute('height', '40');
+        rect.setAttribute('rx', '5');
+        rect.setAttribute('class', `network-device device-${device.type}`);
+        rect.setAttribute('data-device-id', device.id);
+        rect.addEventListener('click', () => showDeviceDetails(device));
+        networkElements.appendChild(rect);
+
+        // Ajouter le label
+        const text = document.createElementNS(svgNS, 'text');
+        text.setAttribute('x', device.x + 30);
+        text.setAttribute('y', device.y + 25);
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('class', 'device-label');
+        text.setAttribute('fill', 'white');
+        text.textContent = device.name.split(' ')[0];
+        networkElements.appendChild(text);
+    });
+}
+
+function showDeviceDetails(device) {
+    const infoPanel = document.getElementById('infoPanel');
+    const deviceDetails = document.getElementById('deviceDetails');
+
+    // Remplir les détails
+    deviceDetails.innerHTML = `
+            <h5>${device.name}</h5>
+            <p><strong>Type:</strong> ${device.type === 'router' ? 'Routeur' :
+            device.type === 'switch' ? 'Switch' : 'Serveur'}</p>
+            <p><strong>Statut:</strong> <span class="badge bg-success">En ligne</span></p>
+            <hr>
+            <h6>Statistiques</h6>
+            <div class="mb-2">
+                <small>CPU: 45%</small>
+                <div class="progress" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 45%"></div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <small>Mémoire: 68%</small>
+                <div class="progress" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 68%"></div>
+                </div>
+            </div>
+        `;
+
+    // Afficher le panneau
+    infoPanel.classList.add('show');
+}
+
+function closeInfoPanel() {
+    document.getElementById('infoPanel').classList.remove('show');
+}
+
+function refreshTopology() {
+    const loadingOverlay = document.getElementById('topologyLoading');
+    loadingOverlay.style.display = 'flex';
+
+    setTimeout(() => {
+        generateSampleTopology();
+        loadingOverlay.style.display = 'none';
+        document.getElementById('lastUpdateTime').textContent = new Date().toLocaleTimeString();
+
+        // Mettre à jour le statut avec une valeur aléatoire pour la démo
+        const availability = 95 + Math.floor(Math.random() * 5);
+        document.getElementById('statusText').textContent = `${availability}% Opérationnel`;
+        document.querySelector('.badge.bg-success').style.width = `${availability}%`;
+    }, 1000);
+}
+
+function toggleGrid() {
+    document.getElementById('gridRect').classList.toggle('grid-visible');
+}
+
+function fitView() {
+    alert("Fonctionnalité d'ajustement de la vue - À implémenter");
+}
 
 /* =============Js pour mes configuration  =======================*/
 // Scripts améliorés

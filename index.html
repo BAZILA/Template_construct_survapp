@@ -506,7 +506,7 @@
               <!-- Tableau des user ...disons même que c'est un commentaire inutiles haha -->
               <div class="table-responsive">
                 <table
-                  class="table table-hover table-dark align-middle text-nowrap">
+                  class="table table-dark align-middle text-nowrap">
                   <thead class="table-hote">
                     <tr>
                       <th>Nom</th>
@@ -1413,117 +1413,6 @@
               </div>
             </div>
 
-            <!-- Tableau d'alertes amélioré -->
-            <div class="table-responsive rounded-3 shadow-sm">
-              <table class="table table-hover align-middle" id="alertesTable">
-                <thead class="table-dark">
-                  <tr>
-                    <th style="width: 120px;">Type</th>
-                    <th style="width: 100px;">Gravité</th>
-                    <th style="width: 150px;">Heure</th>
-                    <th>Description</th>
-                    <th style="width: 150px;">Statut</th>
-                    <th style="width: 120px;">Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="alertesBody">
-                  <tr class="alert-row" data-severity="Critique"
-                    data-type="Routeur" data-date="2025-07-27">
-                    <td><i class="bi bi-router me-2"></i>Routeur</td>
-                    <td><span class="badge bg-danger">Critique</span></td>
-                    <td>2025-07-27 09:45</td>
-                    <td>Connexion perdue avec R1 (192.168.1.1)</td>
-                    <td><span class="badge bg-warning text-dark">Non
-                        acquittée</span></td>
-                    <td>
-                      <button class="btn btn-sm btn-success me-1"
-                        onclick="acquitter(this)" title="Acquitter">
-                        <i class="bi bi-check-circle"></i>
-                      </button>
-                      <button class="btn btn-sm btn-info"
-                        onclick="showDetails(this)" title="Détails">
-                        <i class="bi bi-info-circle"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="alert-row" data-severity="Majeure"
-                    data-type="Switch" data-date="2025-07-27">
-                    <td><i class="bi bi-hdd-stack me-2"></i>Switch</td>
-                    <td><span
-                        class="badge bg-warning text-dark">Majeure</span></td>
-                    <td>2025-07-27 09:50</td>
-                    <td>Température élevée sur Switch2 (72°C)</td>
-                    <td><span class="badge bg-warning text-dark">Non
-                        acquittée</span></td>
-                    <td>
-                      <button class="btn btn-sm btn-success me-1"
-                        onclick="acquitter(this)" title="Acquitter">
-                        <i class="bi bi-check-circle"></i>
-                      </button>
-                      <button class="btn btn-sm btn-info"
-                        onclick="showDetails(this)" title="Détails">
-                        <i class="bi bi-info-circle"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="alert-row" data-severity="Mineure"
-                    data-type="Serveur" data-date="2025-07-27">
-                    <td><i class="bi bi-server me-2"></i>Serveur</td>
-                    <td><span class="badge bg-primary">Mineure</span></td>
-                    <td>2025-07-27 09:52</td>
-                    <td>Disque /var presque plein (92%) sur SRV-DB01</td>
-                    <td><span class="badge bg-warning text-dark">Non
-                        acquittée</span></td>
-                    <td>
-                      <button class="btn btn-sm btn-success me-1"
-                        onclick="acquitter(this)" title="Acquitter">
-                        <i class="bi bi-check-circle"></i>
-                      </button>
-                      <button class="btn btn-sm btn-info"
-                        onclick="showDetails(this)" title="Détails">
-                        <i class="bi bi-info-circle"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="alert-row" data-severity="Information"
-                    data-type="Sécurité" data-date="2025-07-27">
-                    <td><i class="bi bi-shield-lock me-2"></i>Sécurité</td>
-                    <td><span class="badge bg-secondary">Information</span></td>
-                    <td>2025-07-27 10:15</td>
-                    <td>Nouvelle tentative de connexion SSH depuis
-                      103.45.67.89</td>
-                    <td><span class="badge bg-success">Acquittée</span></td>
-                    <td>
-                      <button class="btn btn-sm btn-secondary me-1" disabled
-                        title="Déjà acquittée">
-                        <i class="bi bi-check-circle"></i>
-                      </button>
-                      <button class="btn btn-sm btn-info"
-                        onclick="showDetails(this)" title="Détails">
-                        <i class="bi bi-info-circle"></i>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination -->
-            <nav class="mt-3">
-              <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">Précédent</a>
-                </li>
-                <li class="page-item active"><a class="page-link"
-                    href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Suivant</a>
-                </li>
-              </ul>
-            </nav>
-
             <!-- Statistiques -->
             <div class="row mt-4 g-3">
               <div class="col-md-3">
@@ -1568,6 +1457,118 @@
                   </div>
                 </div>
               </div>
+              <!-- Tableau d'alertes amélioré -->
+              <div class="table-responsive rounded-3 shadow-sm">
+                <table class="table table-hover align-middle" id="alertesTable">
+                  <thead class="table-dark">
+                    <tr>
+                      <th style="width: 120px;">Type</th>
+                      <th style="width: 100px;">Gravité</th>
+                      <th style="width: 150px;">Heure</th>
+                      <th>Description</th>
+                      <th style="width: 150px;">Statut</th>
+                      <th style="width: 120px;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="alertesBody">
+                    <tr class="alert-row" data-severity="Critique"
+                      data-type="Routeur" data-date="2025-07-27">
+                      <td><i class="bi bi-router me-2"></i>Routeur</td>
+                      <td><span class="badge bg-danger">Critique</span></td>
+                      <td>2025-07-27 09:45</td>
+                      <td>Connexion perdue avec R1 (192.168.1.1)</td>
+                      <td><span class="badge bg-warning text-dark">Non
+                          acquittée</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-success me-1"
+                          onclick="acquitter(this)" title="Acquitter">
+                          <i class="bi bi-check-circle"></i>
+                        </button>
+                        <button class="btn btn-sm btn-info"
+                          onclick="showDetails(this)" title="Détails">
+                          <i class="bi bi-info-circle"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="alert-row" data-severity="Majeure"
+                      data-type="Switch" data-date="2025-07-27">
+                      <td><i class="bi bi-hdd-stack me-2"></i>Switch</td>
+                      <td><span
+                          class="badge bg-warning text-dark">Majeure</span></td>
+                      <td>2025-07-27 09:50</td>
+                      <td>Température élevée sur Switch2 (72°C)</td>
+                      <td><span class="badge bg-warning text-dark">Non
+                          acquittée</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-success me-1"
+                          onclick="acquitter(this)" title="Acquitter">
+                          <i class="bi bi-check-circle"></i>
+                        </button>
+                        <button class="btn btn-sm btn-info"
+                          onclick="showDetails(this)" title="Détails">
+                          <i class="bi bi-info-circle"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="alert-row" data-severity="Mineure"
+                      data-type="Serveur" data-date="2025-07-27">
+                      <td><i class="bi bi-server me-2"></i>Serveur</td>
+                      <td><span class="badge bg-primary">Mineure</span></td>
+                      <td>2025-07-27 09:52</td>
+                      <td>Disque /var presque plein (92%) sur SRV-DB01</td>
+                      <td><span class="badge bg-warning text-dark">Non
+                          acquittée</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-success me-1"
+                          onclick="acquitter(this)" title="Acquitter">
+                          <i class="bi bi-check-circle"></i>
+                        </button>
+                        <button class="btn btn-sm btn-info"
+                          onclick="showDetails(this)" title="Détails">
+                          <i class="bi bi-info-circle"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="alert-row" data-severity="Information"
+                      data-type="Sécurité" data-date="2025-07-27">
+                      <td><i class="bi bi-shield-lock me-2"></i>Sécurité</td>
+                      <td><span
+                          class="badge bg-secondary">Information</span></td>
+                      <td>2025-07-27 10:15</td>
+                      <td>Nouvelle tentative de connexion SSH depuis
+                        103.45.67.89</td>
+                      <td><span class="badge bg-success">Acquittée</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-secondary me-1" disabled
+                          title="Déjà acquittée">
+                          <i class="bi bi-check-circle"></i>
+                        </button>
+                        <button class="btn btn-sm btn-info"
+                          onclick="showDetails(this)" title="Détails">
+                          <i class="bi bi-info-circle"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Pagination -->
+              <nav class="mt-3">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Précédent</a>
+                  </li>
+                  <li class="page-item active"><a class="page-link"
+                      href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Suivant</a>
+                  </li>
+                </ul>
+              </nav>
+
             </div>
           </div>
 
@@ -2368,7 +2369,7 @@
                           <pre class="m-0 p-3" id="logModalStackTrace"
                             style="max-height: 200px; overflow: auto;">
                                     <code class="language-plaintext">
-                                Chargement de la stack trace...
+Chargement de la stack trace...
                                     </code>
                                 </pre>
                         </div>
@@ -2400,7 +2401,8 @@
 
           <div id="configuration" class="page-section d-none">
             <div class="card border-0 shadow-sm">
-              <div class="card-header bg-primary text-white">
+              <!-- Modification de l'en-tête avec une couleur plus subtile -->
+              <div class="card-header bg-dark text-white">
                 <h4 class="mb-0 d-flex align-items-center">
                   <i class="bi bi-toggles me-2 fs-4"></i> Paramètres de
                   surveillance
@@ -2410,10 +2412,12 @@
                 <form id="configForm" class="row g-4">
                   <!-- Section Seuils d'alerte -->
                   <div class="col-12">
-                    <h5 class="mb-3 text-primary">
+                    <!-- Changement de la couleur du titre pour une hiérarchie visuelle -->
+                    <h5 class="mb-3 text-dark">
                       <i class="bi bi-speedometer2 me-2"></i>Seuils d'alerte
                     </h5>
                     <div class="row g-3">
+                      <!-- Les champs de formulaire restent inchangés -->
                       <div class="col-md-6">
                         <div class="form-floating">
                           <input type="number" class="form-control"
@@ -2424,8 +2428,8 @@
                             (%)</label>
                           <div class="invalid-feedback">Doit être entre 1 et
                             100</div>
-                          <div class="form-text">Déclenche une alerte quand
-                            l'utilisation dépasse ce pourcentage</div>
+                          <div class="form-text text-muted">Déclenche une alerte
+                            quand l'utilisation dépasse ce pourcentage</div>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -2438,8 +2442,8 @@
                             (%)</label>
                           <div class="invalid-feedback">Doit être entre 1 et
                             100</div>
-                          <div class="form-text">Déclenche une alerte quand la
-                            mémoire dépasse ce pourcentage</div>
+                          <div class="form-text text-muted">Déclenche une alerte
+                            quand la mémoire dépasse ce pourcentage</div>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -2452,8 +2456,9 @@
                             (%)</label>
                           <div class="invalid-feedback">Doit être entre 1 et
                             100</div>
-                          <div class="form-text">Déclenche une alerte quand
-                            l'espace disque est inférieur à ce pourcentage</div>
+                          <div class="form-text text-muted">Déclenche une alerte
+                            quand l'espace disque est inférieur à ce
+                            pourcentage</div>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -2466,8 +2471,8 @@
                             (Mbps)</label>
                           <div class="invalid-feedback">Doit être entre 1 et
                             1000</div>
-                          <div class="form-text">Déclenche une alerte quand le
-                            débit dépasse cette valeur</div>
+                          <div class="form-text text-muted">Déclenche une alerte
+                            quand le débit dépasse cette valeur</div>
                         </div>
                       </div>
                     </div>
@@ -2475,7 +2480,8 @@
 
                   <!-- Section Notifications -->
                   <div class="col-12 mt-4">
-                    <h5 class="mb-3 text-primary">
+                    <!-- Utilisation de text-dark au lieu de text-primary -->
+                    <h5 class="mb-3 text-dark">
                       <i class="bi bi-bell me-2"></i>Notifications
                     </h5>
                     <div class="row g-3">
@@ -2488,8 +2494,8 @@
                           <label for="emailNotif">Email de notification</label>
                           <div class="invalid-feedback">Adresse email
                             invalide</div>
-                          <div class="form-text">Recevez les alertes par
-                            email</div>
+                          <div class="form-text text-muted">Recevez les alertes
+                            par email</div>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -2502,8 +2508,8 @@
                           <label for="slackWebhook">Webhook Slack</label>
                           <div class="invalid-feedback">URL doit commencer par
                             https://</div>
-                          <div class="form-text">Intégration avec les channels
-                            Slack</div>
+                          <div class="form-text text-muted">Intégration avec les
+                            channels Slack</div>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -2519,8 +2525,8 @@
                           </select>
                           <label for="notificationLevel">Niveau de
                             notification</label>
-                          <div class="form-text">Contrôle la fréquence des
-                            notifications</div>
+                          <div class="form-text text-muted">Contrôle la
+                            fréquence des notifications</div>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -2531,11 +2537,880 @@
                             (optionnel)</label>
                           <div class="invalid-feedback">Format de numéro
                             invalide</div>
-                          <div class="form-text">Recevez les alertes critiques
-                            par SMS</div>
+                          <div class="form-text text-muted">Recevez les alertes
+                            critiques par SMS</div>
                         </div>
                       </div>
                     </div>
+                  </div>
+
+                  <!-- Section Planification -->
+                  <div class="col-12 mt-4">
+                    <h5 class="mb-3 text-dark">
+                      <i class="bi bi-calendar-event me-2"></i>Planification
+                    </h5>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <select class="form-select" id="workingHours">
+                            <option value="9-18">9h - 18h (Heures de
+                              bureau)</option>
+                            <option value="24/7" selected>24h/24 7j/7</option>
+                            <option value="custom">Personnalisé</option>
+                          </select>
+                          <label for="workingHours">Période de
+                            surveillance</label>
+                          <div class="form-text text-muted">Définissez quand le
+                            système doit être surveillé</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6" id="customHoursContainer"
+                        style="display:none;">
+                        <div class="form-floating">
+                          <input type="text" class="form-control"
+                            id="customHours"
+                            placeholder="Ex: 8-17">
+                          <label for="customHours">Heures personnalisées</label>
+                          <div class="invalid-feedback">Format: HH-HH (ex:
+                            8-17)</div>
+                          <div class="form-text text-muted">Ex: 8-17 pour 8h du
+                            matin à 17h</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 mt-4">
+                    <div
+                      class="d-flex justify-content-between align-items-center">
+                      <!-- Bouton principal avec une couleur plus sobre -->
+                      <button class="btn btn-dark px-4" type="submit">
+                        <i class="bi bi-save me-2"></i>Enregistrer les
+                        modifications
+                      </button>
+                      <div>
+                        <button class="btn btn-outline-dark me-2" type="button"
+                          id="testEmailBtn">
+                          <i class="bi bi-envelope me-2"></i>Tester email
+                        </button>
+                        <button class="btn btn-outline-dark" type="button"
+                          id="testSlackBtn">
+                          <i class="bi bi-slack me-2"></i>Tester Slack
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <div id="notifResult" class="mt-4"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Topologie réseau améliorée -->
+          <div id="reseau" class="page-section">
+            <!-- En-tête amélioré -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h4 class="mb-0 d-flex align-items-center">
+                  <i class="bi bi-diagram-3 me-2 fs-4 text-primary"></i>
+                  Topologie réseau
+                </h4>
+                <small class="text-muted">Visualisation temps réel de
+                  l'infrastructure</small>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="me-3">
+                  <span class="badge bg-success">
+                    <i class="bi bi-check-circle-fill me-1"></i> <span
+                      id="statusText">97% Opérationnel</span>
+                  </span>
+                </div>
+                <button id="refreshBtn" class="btn btn-sm btn-outline-primary">
+                  <i class="bi bi-arrow-clockwise"></i> Actualiser
+                </button>
+              </div>
+            </div>
+
+            <!-- Barre de contrôle avancée -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <div class="input-group">
+                  <span class="input-group-text bg-white">
+                    <i class="bi bi-search text-secondary"></i>
+                  </span>
+                  <input type="text" id="searchInput" class="form-control"
+                    placeholder="Rechercher un équipement...">
+                  <button id="clearSearchBtn" class="btn btn-outline-secondary"
+                    type="button">
+                    <i class="bi bi-x"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex justify-content-end gap-2">
+                  <div class="btn-group">
+                    <button id="zoomInBtn"
+                      class="btn btn-sm btn-outline-primary" title="Zoom avant">
+                      <i class="bi bi-zoom-in"></i>
+                    </button>
+                    <button id="zoomOutBtn"
+                      class="btn btn-sm btn-outline-primary"
+                      title="Zoom arrière">
+                      <i class="bi bi-zoom-out"></i>
+                    </button>
+                    <button id="fitViewBtn"
+                      class="btn btn-sm btn-outline-primary"
+                      title="Ajuster la vue">
+                      <i class="bi bi-fullscreen"></i>
+                    </button>
+                  </div>
+                  <div class="btn-group">
+                    <button id="toggleLabelsBtn"
+                      class="btn btn-sm btn-outline-primary"
+                      title="Afficher/Masquer les étiquettes">
+                      <i class="bi bi-tags"></i>
+                    </button>
+                    <button id="toggleGridBtn"
+                      class="btn btn-sm btn-outline-primary"
+                      title="Afficher la grille">
+                      <i class="bi bi-grid-3x3"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conteneur de visualisation amélioré -->
+            <div
+              class="topology-container bg-white rounded-3 shadow-sm border p-2 mb-3">
+              <div id="topologyLoading" class="loading-overlay">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Chargement...</span>
+                </div>
+                <p class="mt-2 text-primary">Chargement de la topologie...</p>
+              </div>
+              <svg id="networkSvg" width="100%" height="600"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- Fond avec grille optionnelle -->
+                <pattern id="gridPattern" patternUnits="userSpaceOnUse"
+                  width="50" height="50">
+                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e0e0e0"
+                    stroke-width="0.5" />
+                </pattern>
+                <rect id="gridRect" width="100%" height="100%"
+                  fill="url(#gridPattern)" opacity="0" class="grid-bg" />
+
+                <!-- Les éléments réseau seront injectés ici dynamiquement -->
+                <g id="networkElements"></g>
+              </svg>
+            </div>
+
+            <!-- Panneau d'informations contextuelles -->
+            <div id="infoPanel" class="info-panel collapse">
+              <div class="card border-0 shadow-sm">
+                <div
+                  class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                  <h6 class="mb-0">Détails de l'équipement</h6>
+                  <button id="closeInfoPanel" class="btn btn-sm btn-light">
+                    <i class="bi bi-x"></i>
+                  </button>
+                </div>
+                <div class="card-body" id="deviceDetails">
+                  <!-- Les détails seront injectés ici -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Légende et statistiques -->
+            <div class="row mt-3 g-3">
+              <div class="col-md-8">
+                <div class="legend-card card border-0 shadow-sm">
+                  <div class="card-body">
+                    <h6 class="card-title mb-3">Légende</h6>
+                    <div class="row g-3">
+                      <div class="col-6 col-md-3">
+                        <div class="d-flex align-items-center">
+                          <div class="legend-icon bg-primary">
+                            <i class="bi bi-router"></i>
+                          </div>
+                          <div class="ms-2">
+                            <div>Routeurs</div>
+                            <small class="text-muted"><span
+                                id="routerCount">3</span> actifs</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-3">
+                        <div class="d-flex align-items-center">
+                          <div class="legend-icon bg-warning">
+                            <i class="bi bi-hdd-stack"></i>
+                          </div>
+                          <div class="ms-2">
+                            <div>Switches</div>
+                            <small class="text-muted"><span
+                                id="switchCount">8</span> actifs</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-3">
+                        <div class="d-flex align-items-center">
+                          <div class="legend-icon bg-success">
+                            <i class="bi bi-server"></i>
+                          </div>
+                          <div class="ms-2">
+                            <div>Serveurs</div>
+                            <small class="text-muted"><span
+                                id="serverCount">12</span> actifs</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-3">
+                        <div class="d-flex align-items-center">
+                          <div class="legend-icon bg-danger">
+                            <i class="bi bi-plug"></i>
+                          </div>
+                          <div class="ms-2">
+                            <div>Hors ligne</div>
+                            <small class="text-muted"><span
+                                id="offlineCount">1</span> appareil</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-body">
+                    <h6 class="card-title mb-3">Statut global</h6>
+                    <div
+                      class="d-flex justify-content-between align-items-center mb-2">
+                      <small>Disponibilité:</small>
+                      <div class="badge bg-success">97%</div>
+                    </div>
+                    <div class="progress mb-3" style="height: 6px;">
+                      <div class="progress-bar bg-success" role="progressbar"
+                        style="width: 97%"></div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between align-items-center mb-2">
+                      <small>Performance:</small>
+                      <div class="badge bg-info">89%</div>
+                    </div>
+                    <div class="progress mb-3" style="height: 6px;">
+                      <div class="progress-bar bg-info" role="progressbar"
+                        style="width: 89%"></div>
+                    </div>
+                    <div class="text-end">
+                      <small class="text-muted">Mis à jour: <span
+                          id="lastUpdateTime">à l'instant</span></small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Logs  -->
+          <div id="logs" class="page-section">
+            <h4 class="mb-4 d-flex align-items-center">
+              <i class="bi bi-journal-text me-2 fs-4"></i> Journal des
+              événements
+            </h4>
+
+            <div class="row mb-4">
+              <div class="col-md-3">
+                <select class="form-select" id="logTypeFilter">
+                  <option value>Tous les types</option>
+                  <option value="Info">Information</option>
+                  <option value="Warning">Avertissement</option>
+                  <option value="Erreur">Erreur</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select class="form-select" id="logUserFilter">
+                  <option value>Tous les utilisateurs</option>
+                  <option value="Jean Dupont">Jean Dupont</option>
+                  <option value="Marie Martin">Marie Martin</option>
+                  <option value="Paul Durand">Paul Durand</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <input type="date" class="form-control" id="logDateFilter">
+              </div>
+              <div class="col-md-3">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="logSearch"
+                    placeholder="Recherche...">
+                  <button class="btn btn-outline-light" type="button"
+                    id="logSearchBtn"><i class="bi bi-search"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-dark table-hover align-middle"
+                id="logsTable">
+                <thead>
+                  <tr>
+                    <th style="width: 160px;" class="sortable">Date/Heure <i
+                        class="bi bi-arrow-down-up"></i></th>
+                    <th style="width: 100px;" class="sortable">Type <i
+                        class="bi bi-arrow-down-up"></i></th>
+                    <th style="width: 180px;" class="sortable">Utilisateur <i
+                        class="bi bi-arrow-down-up"></i></th>
+                    <th class="sortable">Message <i
+                        class="bi bi-arrow-down-up"></i></th>
+                    <th style="width: 100px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="logsTableBody">
+                  <!-- Les logs seront chargés dynamiquement -->
+                </tbody>
+              </table>
+            </div>
+
+            <nav aria-label="Page navigation" class="mt-4">
+              <ul class="pagination justify-content-center" id="logsPagination">
+                <!-- La pagination sera générée dynamiquement -->
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Modals -->
+          <div class="modal fade" id="hostModal" tabindex="-1"
+            aria-labelledby="hostModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content"
+                style="background:#28293d; color:#fff;">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="hostModalLabel">Détail de
+                    l'hôte</h5>
+                  <button type="button" class="btn-close btn-close-white"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="hostDetailBody">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <h6><i class="bi bi-pc-display me-2"></i> Informations
+                          générales</h6>
+                        <table class="table table-sm table-dark">
+                          <tr>
+                            <td>Nom</td>
+                            <td id="host-name">-</td>
+                          </tr>
+                          <tr>
+                            <td>Adresse IP</td>
+                            <td id="host-ip">-</td>
+                          </tr>
+                          <tr>
+                            <td>Type</td>
+                            <td id="host-type">-</td>
+                          </tr>
+                          <tr>
+                            <td>Statut</td>
+                            <td id="host-status">-</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <h6><i class="bi bi-graph-up me-2"></i> Métriques</h6>
+                        <div class="metrics-chart">
+                          <canvas id="hostMetricsChart" height="200"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <h6><i class="bi bi-list-check me-2"></i> Services</h6>
+                    <div id="host-services" class="services-list">
+                      <!-- Services will be loaded here -->
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Fermer</button>
+                  <button type="button" class="btn btn-primary">Voir les détails
+                    complets</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-dark table-hover align-middle"
+                id="logsTable">
+                <thead>
+                  <tr>
+                    <th style="width: 160px;">Date/Heure</th>
+                    <th style="width: 100px;">Type</th>
+                    <th style="width: 180px;">Utilisateur</th>
+                    <th>Message</th>
+                    <th style="width: 100px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-type="Info" data-user="Jean Dupont"
+                    data-date="2024-04-04">
+                    <td>04/04/2024 13:55:12</td>
+                    <td><span
+                        class="badge bg-info log-info text-light">Infos</span></td>
+                    <td>Jean Dupont</td>
+                    <td>Connexion réussie depuis l'adresse IP 192.168.1.45</td>
+                    <td>
+                      <button
+                        class="btn btn-sm btn-outline-light btn-log-details"
+                        data-bs-toggle="modal"
+                        data-bs-target="#logModal"
+                        data-details="Connexion réussie depuis l'adresse IP 192.168.1.45 avec le navigateur Chrome sur Windows 10">
+                        <i class="bi bi-eye"></i> Détails
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="Warning" data-user="Marie Martin"
+                    data-date="2024-04-04">
+                    <td>04/04/2024 13:50:34</td>
+                    <td><span
+                        class="badge bg-warning log-warning text-light">Warning</span></td>
+                    <td>Marie Martin</td>
+                    <td>Utilisation RAM élevée sur le serveur web-01 (92%)</td>
+                    <td>
+                      <button
+                        class="btn btn-sm btn-outline-light btn-log-details"
+                        data-bs-toggle="modal"
+                        data-bs-target="#logModal"
+                        data-details="Utilisation mémoire anormalement élevée sur le serveur web-01. Détails: RAM totale: 16GB, Utilisée: 14.7GB, Processus principal: apache2 (3.2GB)">
+                        <i class="bi bi-eye"></i> Détails
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="Erreur" data-user="Jean Dupont"
+                    data-date="2024-04-04">
+                    <td>04/04/2024 13:45:56</td>
+                    <td><span
+                        class="badge bg-danger log-error text-light">Erreur</span></td>
+                    <td>Jean Dupont</td>
+                    <td>Échec de la sauvegarde automatique de la base de
+                      données</td>
+                    <td>
+                      <button
+                        class="btn btn-sm btn-outline-light btn-log-details"
+                        data-bs-toggle="modal"
+                        data-bs-target="#logModal"
+                        data-details="Échec de la sauvegarde MySQL sur db-01. Erreur: 'Disk full'. Espace disponible: 120MB sur 50GB. Le script de sauvegarde a été interrompu.">
+                        <i class="bi bi-eye"></i> Détails
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-type="Info" data-user="Paul Durand"
+                    data-date="2024-04-03">
+                    <td>03/04/2024 09:22:18</td>
+                    <td><span
+                        class="badge bg-info log-info text-light">Info</span></td>
+                    <td>Paul Durand</td>
+                    <td>Mise à jour de la configuration du pare-feu
+                      appliquée</td>
+                    <td>
+                      <button
+                        class="btn btn-sm btn-outline-light btn-log-details"
+                        data-bs-toggle="modal"
+                        data-bs-target="#logModal"
+                        data-details="Nouvelle règle de pare-feu ajoutée: BLOCK 192.168.1.100/32 sur les ports 22,80,443. Appliqué par Paul Durand à 09:22:18.">
+                        <i class="bi bi-eye"></i> Détails
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <nav aria-label="Page navigation" class="mt-4">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Précédent</a>
+                </li>
+                <li class="page-item active"><a class="page-link"
+                    href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Suivant</a>
+                </li>
+              </ul>
+            </nav>
+
+            <!-- Modal Détail Log -->
+            <div class="modal fade" id="logModal" tabindex="-1"
+              aria-labelledby="logModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="background: var(--card-bg);">
+                  <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="logModalLabel">
+                      <i class="bi bi-journal-text me-2"></i>Détails de
+                      l'événement
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white"
+                      data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-3">
+                          <div class="me-3">
+                            <span class="badge bg-info fs-6"
+                              id="logModalType">Info</span>
+                          </div>
+                          <div>
+                            <h6 class="mb-0" id="logModalDate">04/04/2024
+                              13:55:12</h6>
+                            <small class="text-muted" id="logModalUser">Jean
+                              Dupont</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="bg-dark p-3 rounded">
+                          <h6><i class="bi bi-tags me-2"></i>Tags</h6>
+                          <div id="logModalTags">
+                            <span
+                              class="badge bg-secondary me-1">authentification</span>
+                            <span class="badge bg-secondary">succès</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tableau des logs -->
+                  <div class="card border-0 shadow-sm">
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0"
+                          id="logsTable">
+                          <thead class="table-head-custom">
+                            <tr>
+                              <th width="160">Date/Heure</th>
+                              <th width="100">Type</th>
+                              <th width="150">Utilisateur</th>
+                              <th>Message</th>
+                              <th width="120">Source</th>
+                              <th width="130">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr data-type="Info" data-user="Jean Dupont"
+                              data-date="2024-04-04" data-source="API">
+                              <td>
+                                <div class="d-flex flex-column">
+                                  <span>04/04/2024</span>
+                                  <small class="text-muted">13:55:12</small>
+                                </div>
+                              </td>
+                              <td><span
+                                  class="badge bg-log-info">Info</span></td>
+                              <td>
+                                <div class="d-flex align-items-center">
+                                  <div class="avatar-sm me-2">
+                                    <div
+                                      class="avatar-title bg-primary rounded-circle">JD</div>
+                                  </div>
+                                  Jean Dupont
+                                </div>
+                              </td>
+                              <td>Connexion API réussie - Token généré</td>
+                              <td>API</td>
+                              <td>
+                                <button
+                                  class="btn btn-sm btn-outline-light btn-log-details"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#logModal"
+                                  data-log-id="log-001">
+                                  <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr data-type="Warning" data-user="Marie Martin"
+                              data-date="2024-04-04" data-source="Backend">
+                              <td>
+                                <div class="d-flex flex-column">
+                                  <span>04/04/2024</span>
+                                  <small class="text-muted">13:50:34</small>
+                                </div>
+                              </td>
+                              <td><span
+                                  class="badge bg-log-warning">Warning</span></td>
+                              <td>
+                                <div class="d-flex align-items-center">
+                                  <div class="avatar-sm me-2">
+                                    <div
+                                      class="avatar-title bg-success rounded-circle">MM</div>
+                                  </div>
+                                  Marie Martin
+                                </div>
+                              </td>
+                              <td>Utilisation mémoire élevée (92%) - Serveur
+                                backend-01</td>
+                              <td>Backend</td>
+                              <td>
+                                <button
+                                  class="btn btn-sm btn-outline-light btn-log-details"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#logModal"
+                                  data-log-id="log-002">
+                                  <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr data-type="Error" data-user="Jean Dupont"
+                              data-date="2024-04-04" data-source="Database">
+                              <td>
+                                <div class="d-flex flex-column">
+                                  <span>04/04/2024</span>
+                                  <small class="text-muted">13:45:56</small>
+                                </div>
+                              </td>
+                              <td><span
+                                  class="badge bg-log-error">Error</span></td>
+                              <td>
+                                <div class="d-flex align-items-center">
+                                  <div class="avatar-sm me-2">
+                                    <div
+                                      class="avatar-title bg-primary rounded-circle">JD</div>
+                                  </div>
+                                  Jean Dupont
+                                </div>
+                              </td>
+                              <td>Échec sauvegarde base de données - Espace
+                                disque
+                                insuffisant</td>
+                              <td>Database</td>
+                              <td>
+                                <button
+                                  class="btn btn-sm btn-outline-light btn-log-details"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#logModal"
+                                  data-log-id="log-003">
+                                  <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr data-type="Critical" data-user="System"
+                              data-date="2024-04-03" data-source="Backend">
+                              <td>
+                                <div class="d-flex flex-column">
+                                  <span>03/04/2024</span>
+                                  <small class="text-muted">22:15:42</small>
+                                </div>
+                              </td>
+                              <td><span
+                                  class="badge bg-log-critical">Critical</span></td>
+                              <td>
+                                <div class="d-flex align-items-center">
+                                  <div class="avatar-sm me-2">
+                                    <div
+                                      class="avatar-title bg-secondary rounded-circle">S</div>
+                                  </div>
+                                  System
+                                </div>
+                              </td>
+                              <td>Crash application - Exception non gérée dans
+                                le
+                                module payment</td>
+                              <td>Backend</td>
+                              <td>
+                                <button
+                                  class="btn btn-sm btn-outline-light btn-log-details"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#logModal"
+                                  data-log-id="log-004">
+                                  <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Pagination -->
+                  <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">
+                          <i class="bi bi-chevron-left"></i>
+                        </a>
+                      </li>
+                      <li class="page-item active"><a class="page-link"
+                          href="#">1</a></li>
+                      <li class="page-item"><a class="page-link"
+                          href="#">2</a></li>
+                      <li class="page-item"><a class="page-link"
+                          href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">
+                          <i class="bi bi-chevron-right"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+
+                  <!-- Modal Détail Log -->
+                  <div class="modal fade" id="logModal" tabindex="-1"
+                    aria-labelledby="logModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      <div class="modal-content border-0">
+                        <div class="modal-header bg-dark text-white">
+                          <h5 class="modal-title" id="logModalLabel">
+                            <i class="bi bi-journal-text me-2"></i>Détails du
+                            log
+                          </h5>
+                          <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row mb-4">
+                            <div class="col-md-6">
+                              <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                  <span class="badge bg-log-info fs-6"
+                                    id="logModalType">Info</span>
+                                </div>
+                                <div>
+                                  <h6 class="mb-0" id="logModalDate">04/04/2024
+                                    13:55:12</h6>
+                                  <small class="text-muted"
+                                    id="logModalSource">Source: API</small>
+                                </div>
+                              </div>
+
+                              <div class="mb-3">
+                                <h6 class="section-title">Utilisateur</h6>
+                                <div class="d-flex align-items-center"
+                                  id="logModalUser">
+                                  <div class="avatar me-3">
+                                    <div
+                                      class="avatar-title bg-primary rounded-circle">JD</div>
+                                  </div>
+                                  <div>
+                                    <div>Jean Dupont</div>
+                                    <small
+                                      class="text-muted">admin@example.com</small>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="mb-3">
+                                <h6 class="section-title">Tags</h6>
+                                <div id="logModalTags">
+                                  <span
+                                    class="badge bg-secondary me-1 mb-1">authentification</span>
+                                  <span
+                                    class="badge bg-secondary me-1 mb-1">api</span>
+                                  <span
+                                    class="badge bg-success me-1 mb-1">succès</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="card h-100">
+                                <div class="card-body">
+                                  <h6 class="section-title">Métriques
+                                    associées</h6>
+                                  <div class="mb-3">
+                                    <small class="text-muted">Statut
+                                      HTTP</small>
+                                    <div class="d-flex align-items-center">
+                                      <div class="progress flex-grow-1 me-2"
+                                        style="height: 6px;">
+                                        <div class="progress-bar bg-success"
+                                          style="width: 100%"></div>
+                                      </div>
+                                      <span>200</span>
+                                    </div>
+                                  </div>
+                                  <div class="mb-3">
+                                    <small class="text-muted">Temps de
+                                      réponse</small>
+                                    <div class="d-flex align-items-center">
+                                      <div class="progress flex-grow-1 me-2"
+                                        style="height: 6px;">
+                                        <div class="progress-bar bg-info"
+                                          style="width: 45%"></div>
+                                      </div>
+                                      <span>142ms</span>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <small class="text-muted">Charge
+                                      serveur</small>
+                                    <div class="d-flex align-items-center">
+                                      <div class="progress flex-grow-1 me-2"
+                                        style="height: 6px;">
+                                        <div class="progress-bar bg-warning"
+                                          style="width: 72%"></div>
+                                      </div>
+                                      <span>72%</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="mb-4">
+                            <h6 class="section-title">Message complet</h6>
+                            <div class="card bg-light">
+                              <div class="card-body">
+                                <pre class="mb-0"
+                                  id="logModalMessage">Chargement du message...</pre>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="mb-4">
+                            <h6 class="section-title">StackTrace</h6>
+                            <div class="card bg-dark text-white">
+                              <div class="card-body p-0">
+                                <pre class="m-0 p-3" id="logModalStackTrace"
+                                  style="max-height: 200px; overflow: auto;">
+                                    <code class="language-plaintext">
+                                Chargement de la stack trace...
+                                    </code>
+                                </pre>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div
+                            class="d-flex justify-content-between align-items-center">
+                            <button class="btn btn-outline-secondary">
+                              <i class="bi bi-download me-1"></i> Télécharger
+                            </button>
+                            <div>
+                              <button class="btn btn-success me-2">
+                                <i class="bi bi-check-circle me-1"></i> Résoudre
+                              </button>
+                              <button class="btn btn-primary">
+                                <i class="bi bi-ticket-detailed me-1"></i> Créer
+                                ticket
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="logModal" tabindex="-1"
+                    aria-labelledby="logModalLabel" aria-hidden="true">
+                    <!-- Le modal de log existant amélioré -->
                   </div>
 
                   <!-- Section Planification -->
