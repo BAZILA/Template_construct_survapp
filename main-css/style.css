@@ -489,8 +489,8 @@ genre dans les interfaces ..;*/
     /*====== css pour configuration  =====*/
   
     
-    /#configuration {
-      background-color: #f8f9fa;
+    #configuration {
+      background-color: var(--bg-color);
       padding: 2rem 1rem;
       min-height: 100vh;
     }
@@ -503,7 +503,7 @@ genre dans les interfaces ..;*/
     
     /* Header général */
     #configuration .card-header {
-      background-color: #343a40;
+      background-color: var(--bg-color);
       border-radius: 12px 12px 0 0;
       padding: 1rem 1.5rem;
       font-weight: 600;
