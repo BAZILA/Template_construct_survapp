@@ -1312,3 +1312,70 @@ if (graphe3Ctx) {
         }
     })
 }
+
+
+
+
+/* =============Js pour Vérification de l'authentification   =======================*/
+
+// Gestion de la navigation
+document.addEventListener('DOMContentLoaded', function () {
+    // Fonction pour changer de section
+    function showSection(sectionId) {
+        // Cache toutes les sections
+        document.querySelectorAll('.page-section').forEach(section => {
+            section.classList.add('d-none');
+        });
+
+        // Affiche la section demandée
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.classList.remove('d-none');
+        }
+    }
+
+    // Gestion des clics dans la sidebar
+    document.querySelectorAll('.sidebar a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = this.getAttribute('data-target');
+            if (target) {
+                showSection(target);
+            }
+        });
+    });
+
+    // Compte à rebours pour le renvoi de code
+    function startCountdown() {
+        let seconds = 30;
+        const countdownElement = document.getElementById('countdown');
+        const resendBtn = document.getElementById('resendBtn');
+
+        if (!countdownElement || !resendBtn) return;
+
+        resendBtn.disabled = true;
+        countdownElement.textContent = `(${seconds}s)`;
+
+        const timer = setInterval(() => {
+            seconds--;
+            countdownElement.textContent = `(${seconds}s)`;
+
+            if (seconds <= 0) {
+                clearInterval(timer);
+                resendBtn.disabled = false;
+                countdownElement.textContent = '';
+            }
+        }, 1000);
+    }
+
+    // Démarrer le compte à rebours si la section est visible
+    if (document.getElementById('auth-verification')) {
+        startCountdown();
+
+        document.getElementById('resendBtn').addEventListener('click', function () {
+            startCountdown();
+            // Ici vous pourriez ajouter un appel API pour renvoyer le code
+        });
+    }
+});
+

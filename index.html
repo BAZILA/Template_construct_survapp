@@ -74,6 +74,15 @@
             <a href="#" data-target="log">
               <i class="bi bi-journal-text me-2"></i> Logs
             </a>
+
+            <a href="#" data-target="auth-verification">
+                <i class="bi bi-envelope-check me-2"></i> Vérification de l'authentification
+              </a>
+              
+              <a href="#" data-target="Code_de_vérification">
+                <i class="bi bi-patch-check me-2"></i> Code de vérification
+              </a>
+
           </div>
         </nav>
         <!-- Main content -->
@@ -3967,6 +3976,71 @@ Chargement de la stack trace...
               </div>
             </div>
           </div>
+
+
+<!-- Vérification de l'authentification -->
+<div id="auth-verification" class="page-section d-none">
+    <div class="container-fluid d-flex align-items-center justify-content-center py-5">
+      <div class="card shadow-lg" style="width: 100%; max-width: 500px;">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0 text-center">
+            <i class="bi bi-shield-lock me-2"></i> Vérification de l'authentification
+          </h5>
+        </div>
+        <div class="card-body">
+          <p class="text-muted mb-4">
+            Nous avons envoyé un code de vérification à votre adresse e-mail.
+            Veuillez le saisir ci-dessous pour continuer.
+          </p>
+          
+          <form id="authForm">
+            <div class="mb-3">
+              <input type="text" class="form-control form-control-lg text-center" 
+                     placeholder="Code à 6 chiffres" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-2">
+              <i class="bi bi-check-circle me-2"></i> Vérifier
+            </button>
+          </form>
+          
+          <div class="text-center mt-3">
+            <button id="resendBtn" class="btn btn-link text-decoration-none" disabled>
+              <small>Renvoyer le code <span id="countdown">(30s)</span></small>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Code de vérification -->
+  <div id="Code_de_vérification" class="page-section d-none">
+    <div class="container-fluid d-flex align-items-center justify-content-center py-5">
+      <div class="card shadow-lg" style="width: 100%; max-width: 500px;">
+        <div class="card-header bg-success text-white">
+          <h5 class="mb-0 text-center">
+            <i class="bi bi-patch-check me-2"></i> Code de vérification
+          </h5>
+        </div>
+        <div class="card-body text-center">
+          <div class="mb-4">
+            <i class="bi bi-shield-check text-success" style="font-size: 3rem;"></i>
+          </div>
+          
+          <div class="alert alert-info">
+            <p class="mb-2">Votre code de vérification est :</p>
+            <h2 class="text-monospace mb-0">8 2 5 4 3 9</h2>
+          </div>
+          
+          <p class="text-muted small mt-4">
+            Ce code est valable pendant 10 minutes.<br>
+            Ne le partagez avec personne.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
         </main>
       </div>
