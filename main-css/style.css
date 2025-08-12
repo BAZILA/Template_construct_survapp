@@ -304,7 +304,7 @@ genre dans les interfaces ..;*/
    /*====== css pour logs  =====*/
 
     .gradient-text {
-        background: linear-gradient(90deg, #faf5f5, #f8f4f4);
+        background: var(--text-color);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -507,16 +507,15 @@ genre dans les interfaces ..;*/
 }
 
 /* ===== Titres des cartes ===== */
-#configuration .card-header {
+.gradient-text {
   font-size: 1.8rem;
   font-weight: bold;
   background: linear-gradient(90deg, #2196f3, #9c27b0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-block; /* important pour que le background-clip fonctionne bien */
 }
+
 
 #configuration .card-header i {
   font-size: 1.6rem;

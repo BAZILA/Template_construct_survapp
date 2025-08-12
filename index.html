@@ -1844,146 +1844,129 @@
             </div>
 
             <!-- Modal Aperçu Rapport amélioré -->
-            <div class="modal fade" id="rapportModal" tabindex="-1"
-              aria-labelledby="rapportModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                  <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title" id="rapportModalLabel">Aperçu du
-                      rapport</h5>
-                    <div>
-                      <button type="button"
-                        class="btn btn-sm btn-outline-light me-2">
-                        <i class="bi bi-download"></i> Télécharger
-                      </button>
-                      <button type="button"
-                        class="btn btn-sm btn-outline-light me-2">
-                        <i class="bi bi-printer"></i> Imprimer
-                      </button>
-                      <button type="button" class="btn-close btn-close-white"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                    </div>
-                  </div>
-                  <div class="modal-body">
-                    <div class="text-center py-4 border-bottom mb-4">
-                      <h3 id="reportPreviewTitle">Rapport Résumé Quotidien</h3>
-                      <p class="text-muted">Généré le <span
-                          id="reportPreviewDate">27/07/2025 à 08:15</span></p>
-                    </div>
-
-                    <div class="row mb-4">
-                      <div class="col-md-6">
-                        <h5><i class="bi bi-graph-up text-primary"></i>
-                          Statistiques clés</h5>
-                        <div class="table-responsive">
-                          <table class="table table-sm">
-                            <tbody>
-                              <tr>
-                                <th>Alertes critiques</th>
-                                <td>12</td>
-                                <td><span class="badge bg-danger">+2 depuis
-                                    hier</span></td>
-                              </tr>
-                              <tr>
-                                <th>Alertes majeures</th>
-                                <td>24</td>
-                                <td><span class="badge bg-warning text-dark">-5
-                                    depuis hier</span></td>
-                              </tr>
-                              <tr>
-                                <th>Taux de résolution</th>
-                                <td>83%</td>
-                                <td><span
-                                    class="badge bg-success">Stable</span></td>
-                              </tr>
-                              <tr>
-                                <th>Temps moyen de réponse</th>
-                                <td>47 min</td>
-                                <td><span
-                                    class="badge bg-success">-12%</span></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <h5><i class="bi bi-pie-chart text-info"></i>
-                          Répartition des alertes</h5>
-                        <div class="text-center">
-                          <img
-                            src="https://via.placeholder.com/300x150?text=Graphique+de+répartition"
-                            class="img-fluid border rounded" alt="Graphique">
-                        </div>
-                      </div>
-                    </div>
-
-                    <h5><i class="bi bi-list-check text-success"></i> Incidents
-                      majeurs</h5>
-                    <div class="table-responsive mb-4">
-                      <table class="table table-sm table-hover">
-                        <thead>
-                          <tr>
-                            <th>Heure</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                            <th>Statut</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>27/07 09:45</td>
-                            <td><span
-                                class="badge bg-danger">Critique</span></td>
-                            <td>Connexion perdue avec R1 (192.168.1.1)</td>
-                            <td><span
-                                class="badge bg-success">Résolu</span></td>
-                          </tr>
-                          <tr>
-                            <td>27/07 09:50</td>
-                            <td><span
-                                class="badge bg-warning text-dark">Majeure</span></td>
-                            <td>Température élevée sur Switch2 (72°C)</td>
-                            <td><span class="badge bg-warning text-dark">En
-                                cours</span></td>
-                          </tr>
-                          <tr>
-                            <td>27/07 10:15</td>
-                            <td><span
-                                class="badge bg-primary">Mineure</span></td>
-                            <td>Disque /var presque plein (92%) sur
-                              SRV-DB01</td>
-                            <td><span
-                                class="badge bg-success">Résolu</span></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-
-                    <h5><i class="bi bi-lightbulb text-warning"></i>
-                      Recommandations</h5>
-                    <div class="alert alert-warning">
-                      <ul class="mb-0">
-                        <li>Vérifier la configuration de refroidissement du
-                          Switch2</li>
-                        <li>Planifier une maintenance préventive pour les
-                          disques sur SRV-DB01</li>
-                        <li>Mettre à jour les règles du firewall pour bloquer
-                          les tentatives SSH répétées</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
-                      data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Exporter en
-                      PDF</button>
-                  </div>
-                </div>
+            <!-- MODAL RAPPORT -->
+<div class="modal fade" id="rapportModal" tabindex="-1" aria-labelledby="rapportModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+  
+        <!-- HEADER -->
+        <div class="modal-header bg-dark text-white d-flex align-items-center">
+          <!-- Titre -->
+          <h5 class="modal-title" id="rapportModalLabel">Aperçu du rapport</h5>
+  
+          <!-- Boutons à droite -->
+          <div class="ms-auto d-flex align-items-center">
+            <button type="button" class="btn btn-sm btn-primary me-2">
+              <i class="bi bi-download text-white"></i> Télécharger
+            </button>
+            <button type="button" class="btn btn-sm btn-primary me-2">
+              <i class="bi bi-printer text-white"></i> Imprimer
+            </button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+  
+        <!-- BODY -->
+        <div class="modal-body">
+          <div class="text-center py-4 border-bottom mb-4">
+            <h3 id="reportPreviewTitle">Rapport Résumé Quotidien</h3>
+            <p class="text-muted">Généré le <span id="reportPreviewDate">27/07/2025 à 08:15</span></p>
+          </div>
+  
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <h5><i class="bi bi-graph-up text-primary"></i> Statistiques clés</h5>
+              <div class="table-responsive">
+                <table class="table table-sm">
+                  <tbody>
+                    <tr>
+                      <th>Alertes critiques</th>
+                      <td>12</td>
+                      <td><span class="badge bg-danger">+2 depuis hier</span></td>
+                    </tr>
+                    <tr>
+                      <th>Alertes majeures</th>
+                      <td>24</td>
+                      <td><span class="badge bg-warning text-dark">-5 depuis hier</span></td>
+                    </tr>
+                    <tr>
+                      <th>Taux de résolution</th>
+                      <td>83%</td>
+                      <td><span class="badge bg-success">Stable</span></td>
+                    </tr>
+                    <tr>
+                      <th>Temps moyen de réponse</th>
+                      <td>47 min</td>
+                      <td><span class="badge bg-success">-12%</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+  
+            <div class="col-md-6">
+              <h5><i class="bi bi-pie-chart text-info"></i> Répartition des alertes</h5>
+              <div class="text-center">
+                <img src="https://via.placeholder.com/300x150?text=Graphique+de+répartition"
+                     class="img-fluid border rounded" alt="Graphique">
               </div>
             </div>
           </div>
+  
+          <h5><i class="bi bi-list-check text-success"></i> Incidents majeurs</h5>
+          <div class="table-responsive mb-4">
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Heure</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>27/07 09:45</td>
+                  <td><span class="badge bg-danger">Critique</span></td>
+                  <td>Connexion perdue avec R1 (192.168.1.1)</td>
+                  <td><span class="badge bg-success">Résolu</span></td>
+                </tr>
+                <tr>
+                  <td>27/07 09:50</td>
+                  <td><span class="badge bg-warning text-dark">Majeure</span></td>
+                  <td>Température élevée sur Switch2 (72°C)</td>
+                  <td><span class="badge bg-warning text-dark">En cours</span></td>
+                </tr>
+                <tr>
+                  <td>27/07 10:15</td>
+                  <td><span class="badge bg-primary">Mineure</span></td>
+                  <td>Disque /var presque plein (92%) sur SRV-DB01</td>
+                  <td><span class="badge bg-success">Résolu</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+          <h5><i class="bi bi-lightbulb text-warning"></i> Recommandations</h5>
+          <div class="alert alert-warning">
+            <ul class="mb-0">
+              <li>Vérifier la configuration de refroidissement du Switch2</li>
+              <li>Planifier une maintenance préventive pour les disques sur SRV-DB01</li>
+              <li>Mettre à jour les règles du firewall pour bloquer les tentatives SSH répétées</li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- FOOTER -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary">Exporter en PDF</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
 
           <!--log -->
 
@@ -1996,6 +1979,7 @@
                     <i class="bi bi-journal-text me-2 fs-4" style="color: green;"></i>
                     <span class="gradient-text">Journal des Événements</span>
                   </h2>
+                  
                   
                 <div class="d-flex gap-3 mt-2">
                   <span class="text-muted">
@@ -2461,9 +2445,10 @@ Chargement de la stack trace...
               <!-- Modification de l'en-tête avec une couleur plus subtile -->
               <div class="card-header bg-dark text-white">
                 <h4 class="mb-4 d-flex align-items-center">
-                  <i class="bi bi-toggles me-2 fs-4"></i> Paramètres de
-                  surveillance
-                </h4>
+                    <i class="bi bi-sliders me-2 fs-4" style="color: green;"></i>
+                    Paramètres de surveillance
+                  </h4>
+                  
               </div>
               <div class="card-body">
                 <form id="configForm" class="row g-4">
@@ -2666,7 +2651,6 @@ Chargement de la stack trace...
                     <i class="bi bi-diagram-3 me-2 fs-4" style="color: green;"></i>
                     Topologie réseau
                   </h4>
-                  
                 <small class="text-muted">Visualisation temps réel de
                   l'infrastructure</small>
               </div>
