@@ -1379,3 +1379,35 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+/* le profil */
+document.querySelectorAll('.dropdown-item[data-target]').forEach(item => {
+    item.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelectorAll('.page-section').forEach(section => {
+            section.classList.add('d-none');
+        });
+        const targetId = this.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.classList.remove('d-none');
+        }
+    });
+});
+// Gestion des onglets
+document.querySelectorAll('#profile-tabs .nav-link').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        document.querySelectorAll('#profile-tabs .nav-link').forEach(link => link.classList.remove('active'));
+        tab.classList.add('active');
+
+        document.querySelectorAll('.profile-tab-content').forEach(content => content.classList.add('d-none'));
+        document.getElementById(tab.dataset.profileTarget).classList.remove('d-none');
+    });
+});
+
+document.getElementById('profile-edit-btn').addEventListener('click', () => {
+    alert("Mode édition activé (simulation, pas de backend pour l’instant).");
+});
+
+
