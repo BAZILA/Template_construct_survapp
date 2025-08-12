@@ -1,3 +1,4 @@
+
 :root[data-bs-theme='dark'] {
   --bg-color: #1e1e2f;
   --sidebar-bg: #2c2f48;
@@ -7,7 +8,6 @@
   --card-bg: #2c2f48;
   --card-text: #ffffff;
 }
-
 :root[data-bs-theme='light'] {
   --bg-color: #f8f9fa;
   --sidebar-bg: #e9ecef;
@@ -449,7 +449,6 @@ genre dans les interfaces ..;*/
         font-size: 12px;
         font-weight: 500;
         pointer-events: none;
-        user-select: none;
     }
     
     .connection-line {
@@ -512,7 +511,6 @@ genre dans les interfaces ..;*/
   font-size: 1.8rem;
   font-weight: bold;
   background: linear-gradient(90deg, #2196f3, #9c27b0);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: flex;
   align-items: center;
