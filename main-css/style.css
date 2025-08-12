@@ -488,241 +488,88 @@ genre dans les interfaces ..;*/
 
     /*====== css pour configuration  =====*/
   
-    
-    #configuration {
-      background-color: var(--bg-color);
-      padding: 2rem 1rem;
-      min-height: 100vh;
-    }
-    
-    #configuration .card {
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgb(0 0 0 / 0.05);
-      border: none;
-    }
-    
-    /* Header général */
-    #configuration .card-header {
-      background-color: var(--bg-color);
-      border-radius: 12px 12px 0 0;
-      padding: 1rem 1.5rem;
-      font-weight: 600;
-      font-size: 1.25rem;
-      color: #f1f1f1;
-      display: flex;
-      align-items: center;
-    }
-    
-    #configuration .card-header i {
-      margin-right: 0.5rem;
-      color: #fff;
-    }
-    
-    /* Titres de section */
-    #configuration h5 {
-      font-weight: 700;
-      padding-bottom: 0.25rem;
-      margin-bottom: 1rem;
-      border-bottom: 3px solid transparent;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1.15rem;
-    }
-    
-    /* Bloc Seuils d'alerte */
-    #configuration #configForm > div.col-12:nth-child(1) {
-      background-color: #fff4e5; /* corail clair très doux */
-      border: 1px solid #ff7f50;
-      border-radius: 10px;
-      padding: 1.5rem 1.5rem 1rem 1.5rem;
-      margin-bottom: 2rem;
-    }
-    #configuration #configForm > div.col-12:nth-child(1) h5 {
-      color: #ff7f50;
-      border-color: #ff7f50;
-    }
-    
-    /* Coloration texte, labels et aides dans Seuils d'alerte */
-    #configuration #configForm > div.col-12:nth-child(1) label,
-    #configuration #configForm > div.col-12:nth-child(1) .form-text {
-      color: #b25026; /* corail foncé */
-      font-weight: 600;
-    }
-    
-    /* Input focus et bordure prennent la couleur du bloc */
-    #configuration #configForm > div.col-12:nth-child(1) .form-control:focus {
-      border-color: #ff7f50 !important;
-      box-shadow: 0 0 8px #ff7f50 !important;
-      outline: none;
-    }
-    
-    /* Boutons dans Seuils d'alerte */
-    #configuration #configForm > div.col-12:nth-child(1) button.btn-dark {
-      background-color: #ff7f50;
-      border: none;
-      color: #fff;
-      font-weight: 700;
-      transition: background-color 0.3s ease;
-      border-radius: 8px;
-    }
-    #configuration #configForm > div.col-12:nth-child(1) button.btn-dark:hover {
-      background-color: #e36b3b;
-      box-shadow: 0 4px 10px rgba(227,107,59,0.6);
-    }
-    
-    /* Boutons secondaires */
-    #configuration #configForm > div.col-12:nth-child(1) button.btn-outline-dark {
-      color: #ff7f50;
-      border-color: #ff7f50;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    #configuration #configForm > div.col-12:nth-child(1) button.btn-outline-dark:hover {
-      background-color: #ff7f50;
-      color: #fff;
-      border-color: #ff7f50;
-      box-shadow: 0 4px 10px rgba(255,127,80,0.6);
-    }
-    
-    /* ------------------ */
-    /* Bloc Notifications */
-    #configuration #configForm > div.col-12:nth-child(2) {
-      background-color: #e8f5e9; /* vert très doux */
-      border: 1px solid #4caf50;
-      border-radius: 10px;
-      padding: 1.5rem 1.5rem 1rem 1.5rem;
-      margin-bottom: 2rem;
-    }
-    #configuration #configForm > div.col-12:nth-child(2) h5 {
-      color: #4caf50;
-      border-color: #4caf50;
-    }
-    
-    /* Coloration texte, labels et aides dans Notifications */
-    #configuration #configForm > div.col-12:nth-child(2) label,
-    #configuration #configForm > div.col-12:nth-child(2) .form-text {
-      color: #2e7d32; /* vert foncé */
-      font-weight: 600;
-    }
-    
-    #configuration #configForm > div.col-12:nth-child(2) .form-control:focus {
-      border-color: #4caf50 !important;
-      box-shadow: 0 0 8px #4caf50 !important;
-      outline: none;
-    }
-    
-    /* Boutons dans Notifications */
-    #configuration #configForm > div.col-12:nth-child(2) button.btn-dark {
-      background-color: #4caf50;
-      border: none;
-      color: #fff;
-      font-weight: 700;
-      transition: background-color 0.3s ease;
-      border-radius: 8px;
-    }
-    #configuration #configForm > div.col-12:nth-child(2) button.btn-dark:hover {
-      background-color: #388e3c;
-      box-shadow: 0 4px 10px rgba(56,142,60,0.6);
-    }
-    
-    /* Boutons secondaires */
-    #configuration #configForm > div.col-12:nth-child(2) button.btn-outline-dark {
-      color: #4caf50;
-      border-color: #4caf50;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    #configuration #configForm > div.col-12:nth-child(2) button.btn-outline-dark:hover {
-      background-color: #4caf50;
-      color: #fff;
-      border-color: #4caf50;
-      box-shadow: 0 4px 10px rgba(76,175,80,0.6);
-    }
-    
-    /* ------------------ */
-    /* Bloc Planification */
-    #configuration #configForm > div.col-12:nth-child(3) {
-      background-color: #e3f2fd; /* bleu très doux */
-      border: 1px solid #2196f3;
-      border-radius: 10px;
-      padding: 1.5rem 1.5rem 1rem 1.5rem;
-      margin-bottom: 2rem;
-    }
-    #configuration #configForm > div.col-12:nth-child(3) h5 {
-      color: #2196f3;
-      border-color: #2196f3;
-    }
-    
-    /* Coloration texte, labels et aides dans Planification */
-    #configuration #configForm > div.col-12:nth-child(3) label,
-    #configuration #configForm > div.col-12:nth-child(3) .form-text {
-      color: #0d47a1; /* bleu foncé */
-      font-weight: 600;
-    }
-    
-    #configuration #configForm > div.col-12:nth-child(3) .form-control:focus {
-      border-color: #2196f3 !important;
-      box-shadow: 0 0 8px #2196f3 !important;
-      outline: none;
-    }
-    
-    /* Boutons dans Planification */
-    #configuration #configForm > div.col-12:nth-child(3) button.btn-dark {
-      background-color: #2196f3;
-      border: none;
-      color: #fff;
-      font-weight: 700;
-      transition: background-color 0.3s ease;
-      border-radius: 8px;
-    }
-    #configuration #configForm > div.col-12:nth-child(3) button.btn-dark:hover {
-      background-color: #1769aa;
-      box-shadow: 0 4px 10px rgba(23,105,170,0.6);
-    }
-    
-    /* Boutons secondaires */
-    #configuration #configForm > div.col-12:nth-child(3) button.btn-outline-dark {
-      color: #2196f3;
-      border-color: #2196f3;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    #configuration #configForm > div.col-12:nth-child(3) button.btn-outline-dark:hover {
-      background-color: #2196f3;
-      color: #fff;
-      border-color: #2196f3;
-      box-shadow: 0 4px 10px rgba(33,150,243,0.6);
-    }
-    
-    /* Texte d’aide sous les inputs */
-    #configuration .form-text {
-      font-size: 0.85rem;
-      color: #6c757d;
-    }
-    
-    /* Invalid feedback */
-    #configuration .invalid-feedback {
-      font-size: 0.85rem;
-      color: #dc3545;
-    }
-    
-    /* Custom hours container */
-    #customHoursContainer {
-      transition: all 0.3s ease;
-    }
-    
-    /* Responsive */
-    @media (max-width: 576px) {
-      #configuration .card-header h4 {
-        font-size: 1.1rem;
-      }
-    
-      #configuration h5 {
-        font-size: 1rem;
-      }
-    }
-    
+    /* ===== Fond général de la page Configuration ===== */
+
+/* ====== Section Configuration ====== */
+#configuration {
+  /* Fond identique au Journal des événements */
+  background: var(--bg-color);
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Style global des cartes ===== */
+#configuration .card {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: none;
+  background-color:var(--bg-color); /* Même ton que les cartes du journal */
+}
+
+/* ===== Titres des cartes ===== */
+#configuration .card-header {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #2196f3, #9c27b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#configuration .card-header i {
+  font-size: 1.6rem;
+  color: #2196f3;
+}
+
+/* ===== Style des boutons principaux ===== */
+#configuration .btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  font-weight: 600;
+}
+#configuration .btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+/* ======= SECTION 1 : Seuils d'alerte ======= */
+#configuration #configForm > div.col-12:nth-child(1) {
+  background-color: rgba(255, 127, 80, 0.1);
+  border: 1px solid #ff7f50;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+#configuration #configForm > div.col-12:nth-child(1) h5 {
+  color: #ff7f50;
+  border-bottom: 3px solid #ff7f50;
+}
+
+/* ======= SECTION 2 : Notifications ======= */
+#configuration #configForm > div.col-12:nth-child(2) {
+  background-color: rgba(76, 175, 80, 0.1);
+  border: 1px solid #4caf50;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+#configuration #configForm > div.col-12:nth-child(2) h5 {
+  color: #4caf50;
+  border-bottom: 3px solid #4caf50;
+}
+
+/* ======= SECTION 3 : Planification ======= */
+#configuration #configForm > div.col-12:nth-child(3) {
+  background-color: rgba(33, 150, 243, 0.1);
+  border: 1px solid #2196f3;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+#configuration #configForm > div.col-12:nth-child(3) h5 {
+  color: #2196f3;
+  border-bottom: 3px solid #2196f3;
+}
