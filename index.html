@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" data-bs-theme="dark">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,8 +51,8 @@
             <!-- Dropdown principal pour les gest... des users et leur perms..-->
             <a href="#"
               class="d-flex align-items-center justify-content-between sidebar-link"
-              data-bs-toggle="collapse" data-bs-target="#userMgmtMenu"
-              aria-expanded="false">
+              data-bs-toggle="collapse"
+              data-bs-target="#userMgmtMenu" aria-expanded="false">
               <span><i class="bi bi-person-gear me-2"></i> User
                 Management</span>
               <i class="bi bi-chevron-down small"></i>
@@ -84,8 +85,8 @@
             </a>
             <a href="#"
               class="d-flex align-items-center justify-content-between sidebar-link"
-              data-bs-toggle="collapse" data-bs-target="#authid"
-              aria-expanded="false">
+              data-bs-toggle="collapse"
+              data-bs-target="#authid" aria-expanded="false">
               <span><i class="bi bi-person-gear me-2"></i>
                 Authentification</span>
               <i class="bi bi-chevron-down small"></i>
@@ -535,8 +536,7 @@
 
               <!-- Tableau des user ...disons même que c'est un commentaire inutiles haha -->
               <div class="table-responsive">
-                <table
-                  class="table table-dark align-middle text-nowrap">
+                <table class="table table-dark align-middle text-nowrap">
                   <thead class="table-hote">
                     <tr>
                       <th>Nom</th>
@@ -594,7 +594,8 @@
                 <!-- Modal d'ajout d'un user excusez de faire du css à l'interieur comme ça c'est pas cool mais on n'a 
                  pas trop le temps ... on paufinera tout ça après  -->
                 <div class="modal fade" id="addUserModal" tabindex="-1"
-                  aria-labelledby="addUserModalLabel" aria-hidden="true">
+                  aria-labelledby="addUserModalLabel"
+                  aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content"
                       style="background-color: var(--card-bg); color: var(--card-text);">
@@ -661,8 +662,7 @@
                         </form>
                       </div>
                       <div class="modal-footer">
-                        <button type="submit"
-                          class="btn btn-primary"
+                        <button type="submit" class="btn btn-primary"
                           form="addUserForm">Enregistrer</button>
                         <button type="button" class="btn btn-secondary"
                           data-bs-dismiss="modal">Annuler</button>
@@ -950,19 +950,23 @@
                       <div class="dropdown">
                         <button
                           class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                          type="button" data-bs-toggle="dropdown">
+                          type="button"
+                          data-bs-toggle="dropdown">
                           Actions
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                           <li><a class="dropdown-item" href="#"
                               data-bs-toggle="modal"
                               data-bs-target="#restartServiceModal"><i
-                                class="bi bi-arrow-repeat me-2"></i>Redémarrer</a></li>
+                                class="bi bi-arrow-repeat me-2"></i>Redémarrer</a>
+                          </li>
                           <li><a class="dropdown-item" href="#"
                               data-bs-toggle="modal"
                               data-bs-target="#maintenanceModal"><i
                                 class="bi bi-tools me-2"></i>Maintenance</a></li>
-                          <li><hr class="dropdown-divider"></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
                           <li><a class="dropdown-item text-danger" href="#"
                               data-bs-toggle="modal"
                               data-bs-target="#deleteServiceModal"><i
@@ -1030,19 +1034,23 @@
                       <div class="dropdown">
                         <button
                           class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                          type="button" data-bs-toggle="dropdown">
+                          type="button"
+                          data-bs-toggle="dropdown">
                           Actions
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                           <li><a class="dropdown-item" href="#"
                               data-bs-toggle="modal"
                               data-bs-target="#restartServiceModal"><i
-                                class="bi bi-arrow-repeat me-2"></i>Redémarrer</a></li>
+                                class="bi bi-arrow-repeat me-2"></i>Redémarrer</a>
+                          </li>
                           <li><a class="dropdown-item" href="#"
                               data-bs-toggle="modal"
                               data-bs-target="#maintenanceModal"><i
                                 class="bi bi-tools me-2"></i>Maintenance</a></li>
-                          <li><hr class="dropdown-divider"></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
                           <li><a class="dropdown-item text-danger" href="#"
                               data-bs-toggle="modal"
                               data-bs-target="#deleteServiceModal"><i
@@ -1110,19 +1118,23 @@
                       <div class="dropdown">
                         <button
                           class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                          type="button" data-bs-toggle="dropdown">
+                          type="button"
+                          data-bs-toggle="dropdown">
                           Actions
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                           <li><a class="dropdown-item" href="#"
                               data-bs-toggle="modal"
                               data-bs-target="#restartServiceModal"><i
-                                class="bi bi-arrow-repeat me-2"></i>Redémarrer</a></li>
+                                class="bi bi-arrow-repeat me-2"></i>Redémarrer</a>
+                          </li>
                           <li><a class="dropdown-item" href="#"
                               data-bs-toggle="modal"
                               data-bs-target="#maintenanceModal"><i
                                 class="bi bi-tools me-2"></i>Maintenance</a></li>
-                          <li><hr class="dropdown-divider"></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
                           <li><a class="dropdown-item text-danger" href="#"
                               data-bs-toggle="modal"
                               data-bs-target="#deleteServiceModal"><i
@@ -1163,7 +1175,8 @@
 
             <!-- Modal Détails Service -->
             <div class="modal fade" id="serviceDetailsModal" tabindex="-1"
-              aria-labelledby="serviceDetailsModalLabel" aria-hidden="true">
+              aria-labelledby="serviceDetailsModalLabel"
+              aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header bg-dark text-white">
@@ -1171,7 +1184,8 @@
                       <i class="bi bi-info-circle me-2"></i>Détails du service
                     </h5>
                     <button type="button" class="btn-close btn-close-white"
-                      data-bs-dismiss="modal" aria-label="Close"></button>
+                      data-bs-dismiss="modal"
+                      aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <div class="row mb-4">
@@ -1286,7 +1300,8 @@
 
             <!-- Modal Ajout Service -->
             <div class="modal fade" id="addServiceModal" tabindex="-1"
-              aria-labelledby="addServiceModalLabel" aria-hidden="true">
+              aria-labelledby="addServiceModalLabel"
+              aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header bg-dark text-white">
@@ -1294,7 +1309,8 @@
                       <i class="bi bi-plus-lg me-2"></i>Ajouter un service
                     </h5>
                     <button type="button" class="btn-close btn-close-white"
-                      data-bs-dismiss="modal" aria-label="Close"></button>
+                      data-bs-dismiss="modal"
+                      aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <form>
@@ -1350,7 +1366,8 @@
 
             <!-- Modal Redémarrer Service -->
             <div class="modal fade" id="restartServiceModal" tabindex="-1"
-              aria-labelledby="restartServiceModalLabel" aria-hidden="true">
+              aria-labelledby="restartServiceModalLabel"
+              aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header bg-warning text-white">
@@ -1359,7 +1376,8 @@
                         class="bi bi-exclamation-triangle me-2"></i>Confirmation
                     </h5>
                     <button type="button" class="btn-close btn-close-white"
-                      data-bs-dismiss="modal" aria-label="Close"></button>
+                      data-bs-dismiss="modal"
+                      aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <p>Êtes-vous sûr de vouloir redémarrer le service
@@ -1613,7 +1631,8 @@
                   
               <div class="dropdown">
                 <button class="btn btn-outline-primary dropdown-toggle"
-                  type="button" id="exportDropdown" data-bs-toggle="dropdown">
+                  type="button" id="exportDropdown"
+                  data-bs-toggle="dropdown">
                   <i class="bi bi-download"></i> Exporter
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -1623,7 +1642,9 @@
                         class="bi bi-filetype-csv"></i> Format CSV</a></li>
                   <li><a class="dropdown-item" href="#"><i
                         class="bi bi-filetype-xlsx"></i> Format Excel</a></li>
-                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
                   <li><a class="dropdown-item" href="#"><i
                         class="bi bi-printer"></i> Imprimer</a></li>
                 </ul>
@@ -1713,7 +1734,8 @@
                   <div class="card-body">
                     <div class="list-group list-group-flush">
                       <a href="#" class="list-group-item list-group-item-action"
-                        data-bs-toggle="modal" data-bs-target="#rapportModal"
+                        data-bs-toggle="modal"
+                        data-bs-target="#rapportModal"
                         data-title="Rapport Résumé Quotidien - 2025-07-27">
                         <div class="d-flex w-100 justify-content-between">
                           <div>
@@ -1734,7 +1756,8 @@
                       </a>
 
                       <a href="#" class="list-group-item list-group-item-action"
-                        data-bs-toggle="modal" data-bs-target="#rapportModal"
+                        data-bs-toggle="modal"
+                        data-bs-target="#rapportModal"
                         data-title="Analyse des Incidents - Semaine 30">
                         <div class="d-flex w-100 justify-content-between">
                           <div>
@@ -1755,7 +1778,8 @@
                       </a>
 
                       <a href="#" class="list-group-item list-group-item-action"
-                        data-bs-toggle="modal" data-bs-target="#rapportModal"
+                        data-bs-toggle="modal"
+                        data-bs-target="#rapportModal"
                         data-title="Audit de Sécurité - Juillet 2025">
                         <div class="d-flex w-100 justify-content-between">
                           <div>
@@ -1776,7 +1800,8 @@
                       </a>
 
                       <a href="#" class="list-group-item list-group-item-action"
-                        data-bs-toggle="modal" data-bs-target="#rapportModal"
+                        data-bs-toggle="modal"
+                        data-bs-target="#rapportModal"
                         data-title="Performances Réseau - Juillet 2025">
                         <div class="d-flex w-100 justify-content-between">
                           <div>
@@ -1820,7 +1845,8 @@
 
             <!-- Modal Aperçu Rapport amélioré -->
             <div class="modal fade" id="rapportModal" tabindex="-1"
-              aria-labelledby="rapportModalLabel" aria-hidden="true">
+              aria-labelledby="rapportModalLabel"
+              aria-hidden="true">
               <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                   <div class="modal-header bg-dark text-white">
@@ -1836,7 +1862,8 @@
                         <i class="bi bi-printer"></i> Imprimer
                       </button>
                       <button type="button" class="btn-close btn-close-white"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                     </div>
                   </div>
                   <div class="modal-body">
@@ -1990,7 +2017,8 @@
                 </button>
                 <div class="dropdown">
                   <button class="btn btn-primary dropdown-toggle" type="button"
-                    id="exportDropdown" data-bs-toggle="dropdown">
+                    id="exportDropdown"
+                    data-bs-toggle="dropdown">
                     <i class="bi bi-download"></i>
                     <span class="d-none d-md-inline">Exporter</span>
                   </button>
@@ -2159,8 +2187,7 @@
                           <button
                             class="btn btn-sm btn-outline-light btn-log-details"
                             data-bs-toggle="modal"
-                            data-bs-target="#logModal"
-                            data-log-id="log-001">
+                            data-bs-target="#logModal" data-log-id="log-001">
                             <i class="bi bi-three-dots-vertical"></i>
                           </button>
                         </td>
@@ -2191,8 +2218,7 @@
                           <button
                             class="btn btn-sm btn-outline-light btn-log-details"
                             data-bs-toggle="modal"
-                            data-bs-target="#logModal"
-                            data-log-id="log-002">
+                            data-bs-target="#logModal" data-log-id="log-002">
                             <i class="bi bi-three-dots-vertical"></i>
                           </button>
                         </td>
@@ -2222,8 +2248,7 @@
                           <button
                             class="btn btn-sm btn-outline-light btn-log-details"
                             data-bs-toggle="modal"
-                            data-bs-target="#logModal"
-                            data-log-id="log-003">
+                            data-bs-target="#logModal" data-log-id="log-003">
                             <i class="bi bi-three-dots-vertical"></i>
                           </button>
                         </td>
@@ -2254,8 +2279,7 @@
                           <button
                             class="btn btn-sm btn-outline-light btn-log-details"
                             data-bs-toggle="modal"
-                            data-bs-target="#logModal"
-                            data-log-id="log-004">
+                            data-bs-target="#logModal" data-log-id="log-004">
                             <i class="bi bi-three-dots-vertical"></i>
                           </button>
                         </td>
@@ -2296,7 +2320,8 @@
                       <i class="bi bi-journal-text me-2"></i>Détails du log
                     </h5>
                     <button type="button" class="btn-close btn-close-white"
-                      data-bs-dismiss="modal" aria-label="Close"></button>
+                      data-bs-dismiss="modal"
+                      aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <div class="row mb-4">
@@ -2453,9 +2478,8 @@ Chargement de la stack trace...
                       <div class="col-md-6">
                         <div class="form-floating">
                           <input type="number" class="form-control"
-                            id="cpuThreshold"
-                            min="1" max="100" value="80" required
-                            placeholder="Seuil CPU">
+                            id="cpuThreshold" min="1" max="100" value="80"
+                            required placeholder="Seuil CPU">
                           <label for="cpuThreshold">Seuil d'alerte CPU
                             (%)</label>
                           <div class="invalid-feedback">Doit être entre 1 et
@@ -2467,9 +2491,8 @@ Chargement de la stack trace...
                       <div class="col-md-6">
                         <div class="form-floating">
                           <input type="number" class="form-control"
-                            id="ramThreshold"
-                            min="1" max="100" value="90" required
-                            placeholder="Seuil RAM">
+                            id="ramThreshold" min="1" max="100" value="90"
+                            required placeholder="Seuil RAM">
                           <label for="ramThreshold">Seuil d'alerte RAM
                             (%)</label>
                           <div class="invalid-feedback">Doit être entre 1 et
@@ -2481,9 +2504,8 @@ Chargement de la stack trace...
                       <div class="col-md-6">
                         <div class="form-floating">
                           <input type="number" class="form-control"
-                            id="diskThreshold"
-                            min="1" max="100" value="85" required
-                            placeholder="Seuil Disque">
+                            id="diskThreshold" min="1" max="100" value="85"
+                            required placeholder="Seuil Disque">
                           <label for="diskThreshold">Seuil d'alerte Disque
                             (%)</label>
                           <div class="invalid-feedback">Doit être entre 1 et
@@ -2496,9 +2518,8 @@ Chargement de la stack trace...
                       <div class="col-md-6">
                         <div class="form-floating">
                           <input type="number" class="form-control"
-                            id="networkThreshold"
-                            min="1" max="1000" value="90" required
-                            placeholder="Seuil Réseau">
+                            id="networkThreshold" min="1" max="1000" value="90"
+                            required placeholder="Seuil Réseau">
                           <label for="networkThreshold">Seuil d'alerte Réseau
                             (Mbps)</label>
                           <div class="invalid-feedback">Doit être entre 1 et
@@ -2520,8 +2541,7 @@ Chargement de la stack trace...
                       <div class="col-md-6">
                         <div class="form-floating">
                           <input type="email" class="form-control"
-                            id="emailNotif"
-                            value="admin@email.com" required
+                            id="emailNotif" value="admin@email.com" required
                             placeholder="Email">
                           <label for="emailNotif">Email de notification</label>
                           <div class="invalid-feedback">Adresse email
@@ -2535,8 +2555,7 @@ Chargement de la stack trace...
                           <input type="text" class="form-control"
                             id="slackWebhook"
                             value="https://hooks.slack.com/services/..."
-                            required
-                            placeholder="Webhook Slack">
+                            required placeholder="Webhook Slack">
                           <label for="slackWebhook">Webhook Slack</label>
                           <div class="invalid-feedback">URL doit commencer par
                             https://</div>
@@ -2600,8 +2619,7 @@ Chargement de la stack trace...
                         style="display:none;">
                         <div class="form-floating">
                           <input type="text" class="form-control"
-                            id="customHours"
-                            placeholder="Ex: 8-17">
+                            id="customHours" placeholder="Ex: 8-17">
                           <label for="customHours">Heures personnalisées</label>
                           <div class="invalid-feedback">Format: HH-HH (ex:
                             8-17)</div>
@@ -2852,7 +2870,8 @@ Chargement de la stack trace...
                         <h5 class="modal-title" id="hostModalLabel">Détail de
                           l'hôte</h5>
                         <button type="button" class="btn-close btn-close-white"
-                          data-bs-dismiss="modal" aria-label="Close"></button>
+                          data-bs-dismiss="modal"
+                          aria-label="Close"></button>
                       </div>
                       <div class="modal-body" id="hostDetailBody">
                         <div class="row">
@@ -3030,7 +3049,8 @@ Chargement de la stack trace...
                           l'événement
                         </h5>
                         <button type="button" class="btn-close btn-close-white"
-                          data-bs-dismiss="modal" aria-label="Close"></button>
+                          data-bs-dismiss="modal"
+                          aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
                         <div class="row mb-3">
@@ -3117,7 +3137,8 @@ Chargement de la stack trace...
                     </div>
 
                     <div class="modal fade" id="logModal" tabindex="-1"
-                      aria-labelledby="logModalLabel" aria-hidden="true">
+                      aria-labelledby="logModalLabel"
+                      aria-hidden="true">
                       <!-- Le modal de log existant amélioré -->
                     </div>
                   </div>
@@ -3126,8 +3147,8 @@ Chargement de la stack trace...
                 <!-----Modal de performance des equipemments-------->
 
                 <div class="modal fade" id="graphieModal" tabindex="-1"
-                  role="dialog" aria-labelledby="graphiqueModallabel"
-                  aria-hidden="true">
+                  role="dialog"
+                  aria-labelledby="graphiqueModallabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -3135,11 +3156,9 @@ Chargement de la stack trace...
                           Equipements de web-server-01
                         </h5>
                         <button type="button" class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Fermer"></button>
+                          data-bs-dismiss="modal" aria-label="Fermer"></button>
                       </div>
-                      <strong
-                        class="px-3 text-primary bg-body-tertiary py-2"><i
+                      <strong class="px-3 text-primary bg-body-tertiary py-2"><i
                           class="bi bi-ethernet"> eth0 <span
                             class=" text-primary-emphasis">(Interface
                             réseau)</span></i></strong>
@@ -3171,8 +3190,7 @@ Chargement de la stack trace...
                 <!-----------===============Modal de suppression================---------->
 
                 <div class="modal fade" id="deleteModal" tabindex="-1"
-                  aria-labelledby="deleteModal"
-                  aria-hidden="true">
+                  aria-labelledby="deleteModal" aria-hidden="true">
                   <div class="modal-dialog modal-sm modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -3180,8 +3198,7 @@ Chargement de la stack trace...
                           Confirmer la suppression
                         </h5>
                         <button type="button" class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Fermer"></button>
+                          data-bs-dismiss="modal" aria-label="Fermer"></button>
                       </div>
                       <div class="modal-body">
                         <h4 class="text-bold">Voulez-vous vraiment supprimer
@@ -3210,8 +3227,7 @@ Chargement de la stack trace...
                           Détails de l'hôtes
                         </h5>
                         <button type="button" class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Fermer"></button>
+                          data-bs-dismiss="modal" aria-label="Fermer"></button>
                       </div>
                       <div class="modal-body">
                         <div class>
@@ -3341,5 +3357,4 @@ Chargement de la stack trace...
   </script>
 
         </body>
-
       </html>
