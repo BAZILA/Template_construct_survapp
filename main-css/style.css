@@ -304,7 +304,7 @@ genre dans les interfaces ..;*/
    /*====== css pour logs  =====*/
 
     .gradient-text {
-        background: linear-gradient(90deg, #3498db, #9b59b6);
+        background: linear-gradient(90deg, #faf5f5, #f8f4f4);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
