@@ -511,6 +511,7 @@ genre dans les interfaces ..;*/
   font-size: 1.8rem;
   font-weight: bold;
   background: linear-gradient(90deg, #2196f3, #9c27b0);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: flex;
   align-items: center;
