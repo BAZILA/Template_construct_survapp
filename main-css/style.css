@@ -7,6 +7,7 @@
   --link-hover-bg: #3d4160;
   --card-bg: #2c2f48;
   --card-text: #ffffff;
+  --gradient-text-color: #ffffff;
 }
 :root[data-bs-theme='light'] {
   --bg-color: #f8f9fa;
@@ -16,6 +17,7 @@
   --link-hover-bg: #dee2e6;
   --card-bg: #ffffff;
   --card-text: #212529;
+  --gradient-text-color: #000000; 
 }
 /* transition entre les onglets et c'est global pour toutes les interfaces  */
 .page-section {
@@ -303,12 +305,15 @@ genre dans les interfaces ..;*/
 
    /*====== css pour logs  =====*/
 
-    .gradient-text {
-        background: var(--text-color);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
+   .gradient-text {
+    background: var(--text-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent; /* pour WebKit/Firefox récents */
+    display: inline-block; /* évite certains soucis d'inline */
+  }
+  
     
     .stat-card {
         border: none;
@@ -570,4 +575,33 @@ genre dans les interfaces ..;*/
 #configuration #configForm > div.col-12:nth-child(3) h5 {
   color: #2196f3;
   border-bottom: 3px solid #2196f3;
+}
+
+/* Valeur par défaut (au cas où) */
+:root { --text-color: #000; }
+
+/* Si le thème est posé sur <html> ou <body>, on couvre les deux */
+html[data-bs-theme='dark'], body[data-bs-theme='dark'] { --text-color: #fff; }
+html[data-bs-theme='light'], body[data-bs-theme='light'] { --text-color: #000; }
+
+/* FORÇAGE propre de la couleur du texte, sans gradient */
+html[data-bs-theme] .gradient-text,
+body[data-bs-theme] .gradient-text {
+  color: var(--text-color) !important;
+  -webkit-text-fill-color: var(--text-color) !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+
+/* Fallback sans variables (au cas où elles ne fonctionnent pas du tout) */
+html[data-bs-theme='dark'] .gradient-text,
+body[data-bs-theme='dark'] .gradient-text {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+html[data-bs-theme='light'] .gradient-text,
+body[data-bs-theme='light'] .gradient-text {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
 }
