@@ -3935,8 +3935,8 @@ Chargement de la stack trace...
 
           <div class="modal fade" id="deleteModal" tabindex="-1"
             aria-labelledby="deleteModal"
-            aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
+            aria-hidden="true" >
+            <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">
@@ -3947,7 +3947,7 @@ Chargement de la stack trace...
                     aria-label="Fermer"></button>
                 </div>
                 <div class="modal-body">
-                  <h4 class="text-bold">Voulez-vous vraiment supprimer
+                  <h4 class="text-info">Voulez-vous vraiment supprimer
                     l'hôte "web-server-01"</h4>
                 </div>
 
@@ -4041,6 +4041,8 @@ Chargement de la stack trace...
             </div>
           </div>
 
+
+
           <!-- Code de vérification -->
           <div id="Code_de_vérification" class="page-section d-none">
             <div
@@ -4071,8 +4073,73 @@ Chargement de la stack trace...
               </div>
             </div>
           </div>
-        <!---------------page de connexion--------------->>
-          <div id="login" class="page-section d-none">
+
+               <!------------RENITIALISATION DU MOTS DE PASSE---------------->
+        <div id="renit" class="page-section d-none">
+          <div
+            class="container-fluid d-flex align-items-center justify-content-center py-5">
+            <div class="card shadow-lg"
+              style="width: 100%; max-width: 500px;">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0 text-center">
+                  <i class="bi bi-people me-2"></i>Renitialisation du Mots de passe
+                </h5>
+              </div>
+              <div class="card-body text-center">
+               <div class="d-flex flex-column w-100 " >
+               <div class="d-flex flex-column gap-1 w-75 mx-auto">
+                <label for="">EMAIL</label>
+                <input class="py-2 rounded-2 btn-outline-none" type="text" placeholder="toto@gmail.com"/>
+               </div>
+               <div class="d-flex flex-column my-1 gap-1">
+                <label for="">NOUVEAU MOTS DE PASSE</label>
+                <input class="rounded-2 py-2 w-75 mx-auto " type="password" placeholder="Nouveau mots de passe"/>
+               </div>
+               <div class="d-flex flex-column my-1 gap-1">
+                <label for="">CONFIRMATION DU MOTS DE PASSE</label>
+                <input class="rounded-2 py-2 w-75 mx-auto" type="password" placeholder="Confirmation du mots de passe"/>
+               </div>
+               <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
+                <button class="btn btn-primary" type="submit">RENITIALISATION</button>
+                <div>
+                  <input type="checkbox" >
+                  <label for="">Se souvenir de moi</label>
+                </div>
+               </div>
+               <a href="#">Mots de passe oublier</a>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+             <!-------Email de confirmation----------------------------------->
+        <div id="oubli" class="page-section d-none">
+        <div
+          class="container-fluid d-flex align-items-center justify-content-center py-5">
+          <div class="card shadow-lg"
+            style="width: 100%; max-width: 500px;">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0 text-center">
+                <i class="bi bi-people me-2"></i>Confirmation de Email
+              </h5>
+            </div>
+            <div class="card-body text-center">
+              <div class="d-flex flex-column w-100" >
+              <div class="d-flex flex-column gap-1 w-75 mx-auto gap">
+              <label class="w-100" for="">VEUILLEZ ENTRER VOTRE EMAIL POUR LA VERIFICATION</label>
+              <input class="py-2 rounded-2 btn-outline-none" type="text" placeholder="toto@gmail.com"/>
+              </div>
+              <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
+              <button class="btn btn-primary" type="submit">VERIFICATION</button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!---------------page de connexion--------------->
+        <div id="login" class="page-section d-none">
             <div
               class="container-fluid d-flex align-items-center justify-content-center py-5">
               <div class="card shadow-lg"
@@ -4090,7 +4157,7 @@ Chargement de la stack trace...
                  </div>
                  <div class="d-flex flex-column gap-1 w-75 mx-auto">
                   <label for="">MOTS DE PASSE</label>
-                  <input class="rounded-2 py-2 " type="password" placeholder="mots de passe"
+                  <input class="rounded-2 py-2 " type="password" placeholder="mots de passe"/>
                  </div>
                  <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
                   <button class="btn btn-primary" type="submit">CONNEXION</button>
@@ -4105,72 +4172,12 @@ Chargement de la stack trace...
               </div>
             </div>
           </div>
-          <div id="oubli" class="page-section d-none">
-            <div
-              class="container-fluid d-flex align-items-center justify-content-center py-5">
-              <div class="card shadow-lg"
-                style="width: 100%; max-width: 500px;">
-                <div class="card-header bg-primary text-white">
-                  <h5 class="mb-0 text-center">
-                    <i class="bi bi-people me-2"></i>Connexion
-                  </h5>
-                </div>
-                <div class="card-body text-center">
-                 <div class="d-flex flex-column w-100 gap-3" >
-                 <div class="d-flex flex-column gap-1 w-75 mx-auto">
-                  <label for="">EMAIL</label>
-                  <input class="py-2 rounded-2 btn-outline-none" type="text" placeholder="toto@gmail.com"
-                 </div>
-                 <div class="d-flex flex-column gap-1 w-75 mx-auto">
-                  <label for="">MOTS DE PASSE</label>
-                  <input class="rounded-2 py-2 " type="password" placeholder="mots de passe"
-                 </div>
-                 <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
-                  <button class="btn btn-primary" type="submit">CONNEXION</button>
-                  <div>
-                    <input type="checkbox" name="" id="">
-                    <label for="">Se souvenir de moi</label>
-                  </div>
-                 </div>
-                 <a href="#">Mots de passe oublier</a>
-                 </div>
-                </div>
-              </div>
-            </div>
+        </div>
+
           </div>
-          <div id="renit" class="page-section d-none">
-            <div
-              class="container-fluid d-flex align-items-center justify-content-center py-5">
-              <div class="card shadow-lg"
-                style="width: 100%; max-width: 500px;">
-                <div class="card-header bg-primary text-white">
-                  <h5 class="mb-0 text-center">
-                    <i class="bi bi-people me-2"></i>Connexion
-                  </h5>
-                </div>
-                <div class="card-body text-center">
-                 <div class="d-flex flex-column w-100 gap-3" >
-                 <div class="d-flex flex-column gap-1 w-75 mx-auto">
-                  <label for="">EMAIL</label>
-                  <input class="py-2 rounded-2 btn-outline-none" type="text" placeholder="toto@gmail.com"
-                 </div>
-                 <div class="d-flex flex-column gap-1 w-75 mx-auto">
-                  <label for="">MOTS DE PASSE</label>
-                  <input class="rounded-2 py-2 " type="password" placeholder="mots de passe"
-                 </div>
-                 <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
-                  <button class="btn btn-primary" type="submit">CONNEXION</button>
-                  <div>
-                    <input type="checkbox" name="" id="">
-                    <label for="">Se souvenir de moi</label>
-                  </div>
-                 </div>
-                 <a href="#">Mots de passe oublier</a>
-                 </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div>    
+      </div>
+      </div>
         </main>
       </div>
     </div>
