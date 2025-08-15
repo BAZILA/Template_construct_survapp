@@ -3801,7 +3801,7 @@
               <div class="card mb-3 profile-card">
                 <div class="card-body text-center">
                   <img src="assets/images/tech.jpeg" class="rounded-circle mb-3"
-                    style="width: 200px; height: 200px; object-fit: cover;">
+                    style="width: 200px; height: 200px; object-fit: cover;" alt="avatar">
                   <h5 class="card-title" id="profile-user-name">Clara JOHSON</h5>
                   <p class="text-muted" id="profile-user-email">johnsonclara@lbcorp.io</p>
                 </div>
@@ -3829,12 +3829,125 @@
               <div id="profile-security" class="profile-tab-content active">
                 <div class="card profile-card">
                   <div class="card-body">
-                    <h5>Paramètres de sécurité</h5>
-                    <p>Gestion du mot de passe, authentification à deux facteurs, etc.</p>
-                    <button class="btn btn-warning" id="profile-change-password">Changer le mot de passe</button>
+                    <h5 class="mb-4">Paramètres de sécurité</h5>
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <div>
+                        <strong>Email</strong>
+                        <p class="mb-0 text-muted" id="user-email">johnsonclara@lbcorp.io</p>
+                      </div>
+                      <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                        data-bs-target="#modalUpdateEmail">
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <div>
+                        <strong>Mot de passe</strong>
+                        <p class="mb-0 text-muted">********************</p>
+                      </div>
+                      <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                        data-bs-target="#modalUpdatePassword">
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div>
+                        <strong>Rôle</strong>
+                        <p class="mb-0 text-muted" id="user-role">Web master</p>
+                      </div>
+                      <button class="btn btn-sm btn-outline-success" data-bs-toggle="modal"
+                        data-bs-target="#modalUpdateRole">
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
+                <!-- Modal Email -->
+                <div class="modal fade" id="modalUpdateEmail" tabindex="-1">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Mise à jour adresse email</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="alert alert-success small">
+                          Une adresse e-mail valide est requise pour compléter la vérification.
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Adresse email *</label>
+                          <input type="email" class="form-control" value="johnsonclara@lbcorp.io">
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button class="btn btn-success">Soumettre</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal Mot de Passe -->
+                <div class="modal fade" id="modalUpdatePassword" tabindex="-1">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Modifier le mot de passe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="mb-3">
+                          <label class="form-label">Mot de passe actuel *</label>
+                          <input type="password" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Nouveau mot de passe *</label>
+                          <input type="password" class="form-control">
+                          <small class="text-muted">Utilisez 8 caractères ou plus avec un mélange de lettres, chiffres
+                            et symboles.</small>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Confirmez le nouveau mot de passe *</label>
+                          <input type="password" class="form-control">
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button class="btn btn-success">Soumettre</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal Rôle -->
+                <div class="modal fade" id="modalUpdateRole" tabindex="-1">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Modifier le rôle utilisateur</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+                      <div class="modal-body">
+                        <label class="form-label">Rôle</label>
+                        <select class="form-select">
+                          <option>Web master</option>
+                          <option>Administrateur</option>
+                          <option>Utilisateur</option>
+                        </select>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button class="btn btn-success">Soumettre</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
+
 
               <div id="profile-logs" class="profile-tab-content d-none">
                 <div class="card profile-card">

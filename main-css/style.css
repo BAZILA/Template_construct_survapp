@@ -45,6 +45,12 @@
     from { opacity: 0; }
     to { opacity: 1; }
 }
+#profile-security .btn-outline-secondary,
+#profile-security .btn-outline-success {
+    border-radius: 50%;
+    padding: 4px 7px;
+}
+
 
 /*-------------  accueil commence ici --------------*/
 
