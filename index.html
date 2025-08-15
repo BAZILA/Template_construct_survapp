@@ -527,9 +527,12 @@
                       <td>Administrateur</td>
                       <td><span class="badge bg-success">ACTIF</span></td>
                       <td>
-                        <button class="btn btn-sm btn-primary me-1"><i class="bi bi-pencil-square"></i></button>
-                        <button class="btn btn-sm btn-warning me-1"><i class="bi bi-bounding-box"></i></button>
-                        <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                        <button class="btn btn-sm btn-primary me-1"><i
+                            class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-sm btn-warning me-1"><i
+                            class="bi bi-bounding-box"></i></button>
+                        <button class="btn btn-sm btn-danger"  data-bs-toggle="modal" data-bs-target="#deleteUser"><i
+                            class="bi bi-trash"></i></button>
                       </td>
                     </tr>
                     <tr>
@@ -1595,8 +1598,10 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Exporter en PDF</button>
+                    <button type="button" class="btn btn-secondary"
+                      data-bs-dismiss="modal"> Fermer </button>
+                    <button type="button" class="btn btn-primary">Exporter en
+                      PDF</button>
                   </div>
                 </div>
               </div>
@@ -2361,6 +2366,107 @@ Chargement de la stack trace...
               </div>
             </div>
           </div>
+
+          <!-----------===============Modal de suppression================---------->
+
+          <div class="modal fade" id="deleteModal" tabindex="-1"
+            aria-labelledby="deleteModal"
+            aria-hidden="true" >
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    Confirmer la suppression
+                  </h5>
+                  <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                  <h4 class="text-info">Voulez-vous vraiment supprimer
+                    l'hôte "web-server-01"</h4>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Annuler</button>
+                  <button type="submit"
+                    class="btn btn-danger">Confirmer</button>
+                </div>
+              </div>
+            </div>
+          </div>
+<!----Modal de suppression de l'utilisateur au niveaux des utlisateurs---->
+
+    <div class="modal fade" id="deleteUser" tabindex="-1"
+            aria-labelledby="deleteModal"
+            aria-hidden="true" >
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    Confirmer la suppression
+                  </h5>
+                  <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                  <h4 class="text-info">Voulez-vous vraiment supprimer  "Dupont jean"</h4>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Annuler</button>
+                  <button type="submit"
+                    class="btn btn-danger">Confirmer</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-----=============================Detail Modal==================-->
+
+          <div class="modal fade" id="detailModal" tabindex="-1"
+            role="dialog" aria-labelledby="graphiqueModallabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    Détails de l'hôtes
+                  </h5>
+                  <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                  <div class>
+                    Nom : <strong>web-server-01</strong> <br>
+                    IP : <strong>192.168.1.10</strong> <br>
+                    Etat : <strong> Up</strong> <br>
+                    CPU : <strong>15%</strong> <br>
+                    Memoire : <strong>4GB</strong> <br>
+                    Disque : <strong>80%</strong> <br>
+                    Service : <strong>HTTP,SSH</strong> <br>
+                    Logs recents:
+                    <ul>
+                      <li>CPU OK</li>
+                      <li>DisK OK</li>
+                    </ul>
+                    <button class=" bg-primary btn px-2 py-1"><i
+                        class="bi bi-diagram-3"></i> Voir
+                      Equipements</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vérification de l'authentification -->
           <div id="auth-verification" class="page-section d-none">
             <!-- Contenu de la section Vérification d'authentification -->
             <div class="container-fluid d-flex align-items-center justify-content-center py-5">
@@ -2416,14 +2522,106 @@ Chargement de la stack trace...
               </div>
             </div>
           </div>
-          <div id="login" class="page-section d-none">
-            <!-- Contenu de la section Login -->
-            <h4 class="mb-4 d-flex align-items-center">
-              <i class="bi bi-people-fill me-2 fs-4">Login</i>
-            </h4>
-          </div>
 
-          
+               <!------------RENITIALISATION DU MOTS DE PASSE---------------->
+        <div id="renit" class="page-section d-none">
+          <div
+            class="container-fluid d-flex align-items-center justify-content-center py-5">
+            <div class="card shadow-lg"
+              style="width: 100%; max-width: 500px;">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0 text-center">
+                  <i class="bi bi-people me-2"></i>Renitialisation du Mots de passe
+                </h5>
+              </div>
+              <div class="card-body text-center">
+               <div class="d-flex flex-column w-100 " >
+               <div class="d-flex flex-column gap-1 w-75 mx-auto">
+                <label for="">EMAIL</label>
+                <input class="py-2 rounded-2 btn-outline-none px-2" type="text" placeholder="toto@gmail.com"/>
+               </div>
+               <div class="d-flex flex-column my-1 gap-1">
+                <label for="">NOUVEAU MOTS DE PASSE</label>
+                <input class="rounded-2 py-2 w-75 mx-auto " type="password" placeholder="Nouveau mots de passe"/>
+               </div>
+               <div class="d-flex flex-column my-1 gap-1">
+                <label for="">CONFIRMATION DU MOTS DE PASSE</label>
+                <input class="rounded-2 py-2 w-75 mx-auto" type="password" placeholder="Confirmation du mots de passe"/>
+               </div>
+               <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
+                <button class="btn btn-primary" type="submit">RENITIALISATION</button>
+               </div>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+             <!-------Email de confirmation----------------------------------->
+        <div id="oubli" class="page-section d-none">
+        <div
+          class="container-fluid d-flex align-items-center justify-content-center py-5">
+          <div class="card shadow-lg"
+            style="width: 100%; max-width: 500px;">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0 text-center">
+                <i class="bi bi-people me-2"></i>Confirmation de Email
+              </h5>
+            </div>
+            <div class="card-body text-center">
+              <div class="d-flex flex-column w-100" >
+              <div class="d-flex flex-column gap-1 w-75 mx-auto gap">
+              <label class="w-100" for="">VEUILLEZ ENTRER VOTRE EMAIL POUR LA VERIFICATION</label>
+              <input class="py-2 rounded-2 btn-outline-none" type="text" placeholder="toto@gmail.com"/>
+              </div>
+              <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
+              <button class="btn btn-primary" type="submit">VERIFICATION</button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!---------------page de connexion--------------->
+        <div id="login" class="page-section d-none">
+            <div
+              class="container-fluid d-flex align-items-center justify-content-center py-5">
+              <div class="card shadow-lg"
+                style="width: 100%; max-width: 500px;">
+                <div class="card-header bg-primary text-white">
+                  <h5 class="mb-0 text-center">
+                    <i class="bi bi-people me-2"></i>Connexion
+                  </h5>
+                </div>
+                <div class="card-body text-center">
+                 <div class="d-flex flex-column w-100 gap-2" >
+                 <div class="d-flex flex-column gap-1 w-75 mx-auto">
+                  <label for="">EMAIL</label>
+                  <input class="py-2 rounded-2 btn-outline-none px-2" type="text" placeholder="toto@gmail.com"/>
+                 </div>
+                 <div class="d-flex flex-column gap-1 w-75 mx-auto">
+                  <label for="">MOTS DE PASSE</label>
+                  <input class="rounded-2 py-2 w-100 px-2" type="password" placeholder="mots de passe"/>
+                 </div>
+                 <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
+                  <button class="btn btn-primary w-100" type="submit">CONNEXION</button>
+                  <div>
+                    <input type="checkbox" name="" id="">
+                    <label for="">Se souvenir de moi</label>
+                  </div>
+                 </div>
+                 <a href="#">Mots de passe oublier</a>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          </div>
+          </div>    
+      </div>
+      </div>
         </main>
       </div>
     </div>
