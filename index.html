@@ -111,7 +111,7 @@
             <h4>Bonjour Madame Clara JOHSON , Bienvenue sur SURVAPP</h4>
             <div class="d-flex align-items-center gap-3">
               <div class="theme-toggle">
-                <input type="checkbox" id="themeSwitch" hidden>
+                <input type="checkbox" id="themeSwitch" hidden />
                 <label for="themeSwitch" class="toggle-label">
                   <i class="bi bi-moon-fill moon-icon"></i>
                   <i class="bi bi-sun-fill sun-icon"></i>
@@ -119,33 +119,23 @@
                 </label>
               </div>
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle d-flex align-items-center gap-2" type="button"
-                  id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="assets/images/tech.jpeg" alt="Avatar" class="rounded-circle"
-                    style="width: 30px; height: 30px; object-fit: cover;">
+                <button class="btn btn-secondary dropdown-toggle d-flex align-items-center gap-2" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="assets/images/tech.jpeg" alt="Avatar" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                   Utilisateur
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="userMenu">
-                  <li>
-                    <a class="dropdown-item" data-target="logsSection" href="#">Mes logs</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" data-target="profilEditContainer" href="#">Modifier mon profil</a>
-                  </li>
-                  <hr class="dropdown-divider">
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">Déconnexion</a>
-                  </li>
+                  <li><a class="dropdown-item" href="#">Mes logs</a></li>
+                  <li><a class="dropdown-item" href="#">Modifier mon profil</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Déconnexion</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div id="accueil" class="page-section">
+            <!-- Contenu de la section Accueil -->
             <div class="row">
-              <h4 class="mb-4">
-                <i class="bi bi-graph-up me-2"></i>Accueil
-              </h4>
+              <h4 class="mb-4"><i class="bi bi-graph-up me-2"></i>Accueil</h4>
               <div class="col-md-6">
                 <div class="card p-3 mb-3">
                   <h5>Utilisation du réseau</h5>
@@ -158,10 +148,7 @@
                     <div class="d-flex align-items-center">
                       <i class="fas fa-users fa-2x me-3 text-light"></i>
                       <div>
-                        <div class="text-light small">
-                          Nombre
-                          d'utilisateurs
-                        </div>
+                        <div class="text-light small">Nombre d'utilisateurs</div>
                         <div class="h4 fw-bold text-primary">156</div>
                       </div>
                     </div>
@@ -170,10 +157,7 @@
                     <div class="d-flex align-items-center">
                       <i class="fas fa-user-check fa-2x me-3 text-light"></i>
                       <div>
-                        <div class="text-light small">
-                          Utilisateurs
-                          connectés
-                        </div>
+                        <div class="text-light small">Utilisateurs connectés</div>
                         <div class="h4 fw-bold text-success">24</div>
                       </div>
                     </div>
@@ -193,212 +177,328 @@
                       <tr>
                         <td>HTTP</td>
                         <td>web-server-01</td>
-                        <td>
-                          <div class="d-flex gap-2">
-                            <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
-                              data-bs-target="#detailModal"><i class="bi bi-eye"></i></button>
-                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal"
-                              data-bs-target="#graphieModal"><i class="bi bi-diagram-3"></i></button>
-                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i
-                                class="bi bi-trash"></i></button>
-                          </div>
-                        </td>
+                        <td><span class="status-box status-ok">OK</span></td>
                       </tr>
                       <tr>
-                        <td>db-server-01 <span class="badge bg-danger ms-1">Alerte</span></td>
-                        <td>192.168.1.20</td>
-                        <td><span class="badge bg-danger">Down</span></td>
-                        <td>0%</td>
-                        <td>N/A</td>
-                        <td>MySQL</td>
-                        <td>
-                          <div class="d-flex gap-2">
-                            <button class="btn btn-sm btn-outline-info"><i class="bi bi-eye"></i></button>
-                            <button class="btn btn-sm btn-outline-light"><i class="bi bi-diagram-3"></i></button>
-                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                          </div>
-                        </td>
+                        <td>SSH</td>
+                        <td>db-server-01</td>
+                        <td><span class="status-box status-ok">OK</span></td>
                       </tr>
                       <tr>
                         <td>FTP</td>
                         <td>file-server-01</td>
-                        <td>
-                          <div class="d-flex gap-2">
-                            <button class="btn btn-sm btn-outline-info"><i class="bi bi-eye"></i></button>
-                            <button class="btn btn-sm btn-outline-light"><i class="bi bi-diagram-3"></i></button>
-                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                          </div>
-                        </td>
+                        <td><span class="status-box status-ok">OK</span></td>
+                      </tr>
+                      <tr>
+                        <td>MySQL</td>
+                        <td>db-server-01</td>
+                        <td><span class="status-box status-critical">Critical</span></td>
                       </tr>
                     </tbody>
                   </table>
-                  <!-- Modal d'ajout d'hôtes -->
-                  <div class="modal fade" id="addHostModal" tabindex="-1" aria-labelledby="addHostModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="addHostModalLabel">
-                            <i class="bi bi-pc-display-horizontal me-2"></i>
-                            Ajouter un hôte
-                          </h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-                        </div>
-                        <div class="modal-body">
-                          <div class="mb-3">
-                            <button id="scanButton" class="btn btn-outline-info">
-                              <i class="bi bi-search"></i> Scanner les hôtes
-                              disponibles
-                            </button>
-                            <div id="host-list" class="list-group mt-3"></div>
-                          </div>
-                          <div id="host-form-zone" class="card p-4 d-none">
-                            <h6 class="mb-3">Configurer l’hôte sélectionné</h6>
-                            <form id="host-form">
-                              <div class="mb-3">
-                                <label for="hostName" class="form-label">Nom de
-                                  l'hôte</label>
-                                <input type="text" class="form-control" id="hostName" readonly>
-                              </div>
-                              <div class="mb-3">
-                                <label for="hostIP" class="form-label">Adresse
-                                  IP</label>
-                                <input type="text" class="form-control" id="hostIP" readonly>
-                              </div>
-                              <div class="mb-3">
-                                <label class="form-label">Services à
-                                  surveiller</label>
-                                <div class="dropdown">
-                                  <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown">
-                                    Choisir les services
-                                  </button>
-                                  <ul class="dropdown-menu p-2" style="min-width: 250px;">
-                                    <li><label class="form-check"><input class="form-check-input" type="checkbox"
-                                          value="HTTP"> HTTP</label></li>
-                                    <li><label class="form-check"><input class="form-check-input" type="checkbox"
-                                          value="SSH"> SSH</label></li>
-                                    <li><label class="form-check"><input class="form-check-input" type="checkbox"
-                                          value="FTP"> FTP</label></li>
-                                    <li><label class="form-check"><input class="form-check-input" type="checkbox"
-                                          value="MySQL"> MySQL</label></li>
-                                  </ul>
-                                </div>
-                              </div>
-                              <div class="mb-3">
-                                <label for="url" class="form-label">URL de
-                                  supervision</label>
-                                <input type="text" class="form-control" id="url"
-                                  placeholder="http://192.168.x.x/survapp/blabla...">
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                          <button type="submit" class="btn btn-success" form="host-form">Enregistrer</button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card p-3 mb-3">
+                  <h5>État des hôtes</h5>
+                  <div class="d-grid gap-2" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="status-box-hote status-ok pt-5">Up<br>32</div>
+                    <div class="status-box-hote status-critical pt-5"><span class="pt-2 d-block">Down</span><strong>1</strong></div>
+                    <div class="status-box-hote status-warning pt-5"><span class="pt-2 d-block">Unreachable</span><strong>13</strong></div>
+                    <div class="status-box-hote status-pending pt-5"><span class="pt-2 d-block">Pending</span><strong>67</strong></div>
+                  </div>
+                </div>
+                <div class="card p-3 mb-3">
+                  <h5>Graphique historique</h5>
+                  <p><strong>Host:</strong> web-server-02 <span class="text-danger">Down</span><br>
+                  <strong>Service:</strong> CPU Load <span class="text-warning">Warning</span><br>
+                  <strong>Disk Space:</strong> 4/4/2024 13:50</p>
+                </div>
+                <div class="card p-3 mb-3">
+                  <h5>Graphique historique</h5>
+                  <canvas id="historiqueChart" height="200"></canvas>
+                </div>
+                <div class="card text-white mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title mb-4">Etat des alertes</h5>
+                    <div class="mb-3 p-3 rounded" style="background-color: #834d34;">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-exclamation-triangle fa-3x me-3"></i>
+                        <div>
+                          <div class="text-light small">Etat critique</div>
+                          <div class="h4 fw-bold text-primary">15</div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-----Modal de performance des equipemments-------->
-
-              <div class="modal fade" id="graphieModal" tabindex="-1" role="dialog" aria-labelledby="graphiqueModallabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">
-                        Equipements de web-server-01
-                      </h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-                    </div>
-                    <strong class="px-3 text-primary bg-body-tertiary py-2"><i class="bi bi-ethernet"> eth0 <span
-                          class=" text-primary-emphasis">(Interface
-                          réseau)</span></i></strong>
-                    <strong class="px-3"><i class="bi bi-ethernet"> sda1
-                        <span class=" text-primary-emphasis">(Disque)</span>
-                      </i></strong>
-                    <div class="modal-body">
-                      <h4 class=" text-primary"> eth0 (Interface
-                        réseau)</h4>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <canvas id="graphe1" class=" bg-body-tertiary m-2 rounded-2"></canvas>
+                    <div class="p-3 rounded" style="background-color: #6699f8;">
+                      <div class="d-flex align-items-center">
+                        <i class="bi fa-3x bi-dash-circle-dotted me-3"></i>
+                        <div>
+                          <div class="text-light small">Etat normal</div>
+                          <div class="h4 fw-bold text-success">2</div>
                         </div>
-                        <div class="col-md-6">
-                          <canvas id="graphe2" class=" bg-body-tertiary m-2 rounded-2"></canvas>
-                        </div>
-                        <div class="col-md-6">
-                          <canvas id="graphe3" class=" bg-body-tertiary m-2 rounded-2"></canvas>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-----------===============Modal de suppression================---------->
-
-              <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
-                <div class="modal-dialog modal-sm modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">
-                        Confirmer la suppression
-                      </h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-                    </div>
-                    <div class="modal-body">
-                      <h4 class="text-bold">Voulez-vous vraiment supprimer
-                        l'hôte "web-server-01"</h4>
-                    </div>
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                      <button type="submit" class="btn btn-danger">Confirmer</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-----=============================Detail Modal==================-->
-
-              <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="graphiqueModallabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">
-                        Détails de l'hôtes
-                      </h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class>
-                        Nom : <strong>web-server-01</strong> <br>
-                        IP : <strong>192.168.1.10</strong> <br>
-                        Etat : <strong> Up</strong> <br>
-                        CPU : <strong>15%</strong> <br>
-                        Memoire : <strong>4GB</strong> <br>
-                        Disque : <strong>80%</strong> <br>
-                        Service : <strong>HTTP,SSH</strong> <br>
-                        Logs recents:
-                        <ul>
-                          <li>CPU OK</li>
-                          <li>DisK OK</li>
-                        </ul>
-                        <button class=" bg-primary btn px-2 py-1"><i class="bi bi-diagram-3"></i> Voir
-                          Equipements</button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div id="hote" class="page-section d-none">
+            <!-- Contenu de la section Hôtes -->
+            <h4 class="mb-4 d-flex align-items-center">
+              <i class="bi bi-pc-display-horizontal me-2 fs-4"></i> Hôtes
+            </h4>
+            <div class="card p-4 mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge bg-dark p-2 px-3">Total hôtes: <strong>3</strong></span>
+                  <span class="badge bg-dark p-2 px-3">Équipements: <strong>7</strong></span>
+                  <span class="badge bg-dark p-2 px-3">Alertes: <strong>1</strong></span>
+                </div>
+                <div class="d-flex gap-2 flex-wrap">
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addHostModal">
+                    <i class="bi bi-plus-circle me-1"></i> Ajouter un hôte
+                  </button>
+                  <button class="btn btn-success">
+                    <i class="bi bi-file-earmark-arrow-down me-1"></i> Exporter
+                  </button>
+                  <input type="text" class="form-control" placeholder="Rechercher un hôte..." style="max-width: 200px;">
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-dark align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>IP</th>
+                      <th>État</th>
+                      <th>CPU</th>
+                      <th>Disque</th>
+                      <th>Services</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>web-server-01</td>
+                      <td>192.168.1.10</td>
+                      <td><span class="badge bg-success">Up</span></td>
+                      <td>15%</td>
+                      <td>80%</td>
+                      <td>HTTP, SSHS</td>
+                      <td>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#detailModal"><i class="bi bi-eye"></i></button>
+                          <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#graphieModal"><i class="bi bi-diagram-3"></i></button>
+                          <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>db-server-01 <span class="badge bg-danger ms-1">Alerte</span></td>
+                      <td>192.168.1.20</td>
+                      <td><span class="badge bg-danger">Down</span></td>
+                      <td>0%</td>
+                      <td>N/A</td>
+                      <td>MySQL</td>
+                      <td>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-outline-info"><i class="bi bi-eye"></i></button>
+                          <button class="btn btn-sm btn-outline-light"><i class="bi bi-diagram-3"></i></button>
+                          <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>file-server-01</td>
+                      <td>192.168.1.30</td>
+                      <td><span class="badge bg-success">Up</span></td>
+                      <td>22%</td>
+                      <td>60%</td>
+                      <td>FTP</td>
+                      <td>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-outline-info"><i class="bi bi-eye"></i></button>
+                          <button class="btn btn-sm btn-outline-light"><i class="bi bi-diagram-3"></i></button>
+                          <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- Modal d'ajout d'hôtes -->
+                <div class="modal fade" id="addHostModal" tabindex="-1" aria-labelledby="addHostModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="addHostModalLabel">
+                          <i class="bi bi-pc-display-horizontal me-2"></i> Ajouter un hôte
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="mb-3">
+                          <button id="scanButton" class="btn btn-outline-info">
+                            <i class="bi bi-search"></i> Scanner les hôtes disponibles
+                          </button>
+                          <div id="host-list" class="list-group mt-3"></div>
+                        </div>
+                        <div id="host-form-zone" class="card p-4 d-none">
+                          <h6 class="mb-3">Configurer l’hôte sélectionné</h6>
+                          <form id="host-form">
+                            <div class="mb-3">
+                              <label for="hostName" class="form-label">Nom de l'hôte</label>
+                              <input type="text" class="form-control" id="hostName" readonly>
+                            </div>
+                            <div class="mb-3">
+                              <label for="hostIP" class="form-label">Adresse IP</label>
+                              <input type="text" class="form-control" id="hostIP" readonly>
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label">Services à surveiller</label>
+                              <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                  Choisir les services
+                                </button>
+                                <ul class="dropdown-menu p-2" style="min-width: 250px;">
+                                  <li><label class="form-check"><input class="form-check-input" type="checkbox" value="HTTP"> HTTP</label></li>
+                                  <li><label class="form-check"><input class="form-check-input" type="checkbox" value="SSH"> SSH</label></li>
+                                  <li><label class="form-check"><input class="form-check-input" type="checkbox" value="FTP"> FTP</label></li>
+                                  <li><label class="form-check"><input class="form-check-input" type="checkbox" value="MySQL"> MySQL</label></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="mb-3">
+                              <label for="url" class="form-label">URL de supervision</label>
+                              <input type="text" class="form-control" id="url" placeholder="http://192.168.x.x/survapp/blabla...">
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-success" form="host-form">Enregistrer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-----Modal de performance des equipemments-------->
+
+          <div class="modal fade" id="graphieModal" tabindex="-1"
+          role="dialog" aria-labelledby="graphiqueModallabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">
+                  Equipements de web-server-01
+                </h5>
+                <button type="button" class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Fermer"></button>
+              </div>
+              <strong
+                class="px-3 text-primary bg-body-tertiary py-2"><i
+                  class="bi bi-ethernet"> eth0 <span
+                    class=" text-primary-emphasis">(Interface
+                    réseau)</span></i></strong>
+              <strong class="px-3"><i class="bi bi-ethernet"> sda1
+                  <span class=" text-primary-emphasis">(Disque)</span>
+                </i></strong>
+              <div class="modal-body">
+                <h4 class=" text-primary"> eth0 (Interface
+                  réseau)</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <canvas id="graphe1"
+                      class=" bg-body-tertiary m-2 rounded-2"></canvas>
+                  </div>
+                  <div class="col-md-6">
+                    <canvas id="graphe2"
+                      class=" bg-body-tertiary m-2 rounded-2"></canvas>
+                  </div>
+                  <div class="col-md-6">
+                    <canvas id="graphe3"
+                      class=" bg-body-tertiary m-2 rounded-2"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-----------===============Modal de suppression================---------->
+
+        <div class="modal fade" id="deleteModal" tabindex="-1"
+          aria-labelledby="deleteModal"
+          aria-hidden="true">
+          <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">
+                  Confirmer la suppression
+                </h5>
+                <button type="button" class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Fermer"></button>
+              </div>
+              <div class="modal-body">
+                <h4 class="text-bold">Voulez-vous vraiment supprimer
+                  l'hôte "web-server-01"</h4>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                  data-bs-dismiss="modal">Annuler</button>
+                <button type="submit"
+                  class="btn btn-danger">Confirmer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-----=============================Detail Modal==================-->
+
+        <div class="modal fade" id="detailModal" tabindex="-1"
+          role="dialog" aria-labelledby="graphiqueModallabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">
+                  Détails de l'hôtes
+                </h5>
+                <button type="button" class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Fermer"></button>
+              </div>
+              <div class="modal-body">
+                <div class>
+                  Nom : <strong>web-server-01</strong> <br>
+                  IP : <strong>192.168.1.10</strong> <br>
+                  Etat : <strong> Up</strong> <br>
+                  CPU : <strong>15%</strong> <br>
+                  Memoire : <strong>4GB</strong> <br>
+                  Disque : <strong>80%</strong> <br>
+                  Service : <strong>HTTP,SSH</strong> <br>
+                  Logs recents:
+                  <ul>
+                    <li>CPU OK</li>
+                    <li>DisK OK</li>
+                  </ul>
+                  <button class=" bg-primary btn px-2 py-1"><i
+                      class="bi bi-diagram-3"></i> Voir
+                    Equipements</button>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
           </div>
           <div id="utilisateurs" class="page-section d-none">
             <!-- Contenu de la section Utilisateurs -->
@@ -408,11 +508,9 @@
             <div class="card p-4 mb-4">
               <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">
-                  <i class="bi bi-person-plus-fill me-1"></i> Ajouter un
-                  utilisateur
+                  <i class="bi bi-person-plus-fill me-1"></i> Ajouter un utilisateur
                 </button>
-                <input type="text" class="form-control" placeholder="Rechercher un utilisateur..."
-                  style="max-width: 220px;">
+                <input type="text" class="form-control" placeholder="Rechercher un utilisateur..." style="max-width: 220px;">
                 <select class="form-select" style="max-width: 180px;">
                   <option>Tous les rôles</option>
                   <option>Administrateur</option>
@@ -456,9 +554,11 @@
                       <td>Administrateur</td>
                       <td><span class="badge bg-success">ACTIF</span></td>
                       <td>
-                        <button class="btn btn-sm btn-primary me-1"><i class="bi bi-pencil-square"></i></button>
-                        <button class="btn btn-sm btn-warning me-1"><i class="bi bi-bounding-box"></i></button>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUser"><i
+                        <button class="btn btn-sm btn-primary me-1"><i
+                            class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-sm btn-warning me-1"><i
+                            class="bi bi-bounding-box"></i></button>
+                        <button class="btn btn-sm btn-danger"  data-bs-toggle="modal" data-bs-target="#deleteUser"><i
                             class="bi bi-trash"></i></button>
                       </td>
                     </tr>
@@ -487,14 +587,12 @@
                   </tbody>
                 </table>
                 <!-- Modal d'ajout d'utilisateur -->
-                <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel"
-                  aria-hidden="true">
+                <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content" style="background-color: var(--card-bg); color: var(--card-text);">
                       <div class="modal-header">
                         <h5 class="modal-title" id="addUserModalLabel">
-                          <i class="bi bi-person-plus-fill me-2"></i> Ajouter un
-                          utilisateur
+                          <i class="bi bi-person-plus-fill me-2"></i> Ajouter un utilisateur
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
                       </div>
@@ -528,18 +626,14 @@
                             </select>
                           </div>
                           <div class="mb-3 position-relative">
-                            <label for="password" class="form-label">Mot de
-                              passe</label>
+                            <label for="password" class="form-label">Mot de passe</label>
                             <input type="password" class="form-control" id="password" placeholder="Mot de passe">
-                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3 mt-3 text-muted password-toggle"
-                              data-target="#password" role="button"></i>
+                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3 mt-3 text-muted password-toggle" data-target="#password" role="button"></i>
                           </div>
                           <div class="mb-3 position-relative">
                             <label for="confirmPassword" class="form-label">Confirmation</label>
-                            <input type="password" class="form-control" id="confirmPassword"
-                              placeholder="Confirmation mot de passe">
-                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3 mt-3 text-muted password-toggle"
-                              data-target="#confirmPassword" role="button"></i>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmation mot de passe">
+                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3 mt-3 text-muted password-toggle" data-target="#confirmPassword" role="button"></i>
                           </div>
                         </form>
                       </div>
@@ -556,8 +650,7 @@
           <div id="roles" class="page-section d-none">
             <!-- Contenu de la section Rôles -->
             <h4 class="mb-4 d-flex align-items-center">
-              <i class="bi bi-shield-lock me-2 fs-4"></i> Gestion des rôles et
-              permissions
+              <i class="bi bi-shield-lock me-2 fs-4"></i> Gestion des rôles et permissions
             </h4>
             <div class="card p-4 mb-4">
               <div class="d-flex justify-content-between mb-3">
@@ -580,8 +673,7 @@
                       <td>Administrateur</td>
                       <td>
                         <span class="badge bg-success">Voir utilisateurs</span>
-                        <span class="badge bg-success">Ajouter
-                          utilisateurs</span>
+                        <span class="badge bg-success">Ajouter utilisateurs</span>
                         <span class="badge bg-success">Modifier rôles</span>
                       </td>
                       <td>
@@ -597,8 +689,7 @@
                       <td>Utilisateur</td>
                       <td>
                         <span class="badge bg-secondary">Voir son profil</span>
-                        <span class="badge bg-secondary">Modifier son mot de
-                          passe</span>
+                        <span class="badge bg-secondary">Modifier son mot de passe</span>
                       </td>
                       <td>
                         <button class="btn btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#roleModal">
@@ -612,8 +703,7 @@
                   </tbody>
                 </table>
                 <!-- Modal d'ajout/modification de rôle -->
-                <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="roleModalLabel"
-                  aria-hidden="true">
+                <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="roleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -623,8 +713,7 @@
                       <form id="roleForm">
                         <div class="modal-body">
                           <div class="mb-3">
-                            <label for="roleName" class="form-label">Nom du
-                              rôle</label>
+                            <label for="roleName" class="form-label">Nom du rôle</label>
                             <input type="text" class="form-control" id="roleName" required>
                           </div>
                           <div class="mb-3">
@@ -675,21 +764,17 @@
             <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
               <div>
                 <h4 class="mb-4 d-flex align-items-center">
-                  <i class="bi bi-gear me-2 fs-4" style="color: green;"></i>
-                  Gestion de service
+                  <i class="bi bi-gear me-2 fs-4" style="color: green;"></i> Gestion de service
                 </h4>
                 <div class="d-flex gap-3 mt-2">
                   <span class="text-muted">
-                    <i class="bi bi-check-circle me-1"></i> Services actifs :
-                    <span class="text-success fw-bold" id="activeServices">12</span>/15
+                    <i class="bi bi-check-circle me-1"></i> Services actifs : <span class="text-success fw-bold" id="activeServices">12</span>/15
                   </span>
                   <span class="text-muted">
-                    <i class="bi bi-exclamation-triangle me-1"></i> Problèmes :
-                    <span class="text-warning fw-bold" id="warningServices">2</span>
+                    <i class="bi bi-exclamation-triangle me-1"></i> Problèmes : <span class="text-warning fw-bold" id="warningServices">2</span>
                   </span>
                   <span class="text-muted">
-                    <i class="bi bi-x-circle me-1"></i> Critiques : <span class="text-danger fw-bold"
-                      id="criticalServices">1</span>
+                    <i class="bi bi-x-circle me-1"></i> Critiques : <span class="text-danger fw-bold" id="criticalServices">1</span>
                   </span>
                 </div>
               </div>
@@ -776,34 +861,25 @@
                       </div>
                     </div>
                     <div class="d-flex justify-content-between">
-                      <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                        data-bs-target="#serviceDetailsModal">
+                      <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#serviceDetailsModal">
                         <i class="bi bi-eye me-1"></i> Détails
                       </button>
                       <div class="dropdown">
-                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
-                          data-bs-toggle="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                           Actions
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                              data-bs-target="#restartServiceModal"><i
-                                class="bi bi-arrow-repeat me-2"></i>Redémarrer</a></li>
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                              data-bs-target="#maintenanceModal"><i class="bi bi-tools me-2"></i>Maintenance</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                          <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal"
-                              data-bs-target="#deleteServiceModal"><i class="bi bi-trash me-2"></i>Supprimer</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#restartServiceModal"><i class="bi bi-arrow-repeat me-2"></i>Redémarrer</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#maintenanceModal"><i class="bi bi-tools me-2"></i>Maintenance</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteServiceModal"><i class="bi bi-trash me-2"></i>Supprimer</a></li>
                         </ul>
                       </div>
                     </div>
                   </div>
                   <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
                     <small class="text-muted">Port: 80/443</small>
-                    <small class="text-muted">Dernière vérification: 2
-                      min</small>
+                    <small class="text-muted">Dernière vérification: 2 min</small>
                   </div>
                 </div>
               </div>
@@ -841,34 +917,25 @@
                       </div>
                     </div>
                     <div class="d-flex justify-content-between">
-                      <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                        data-bs-target="#serviceDetailsModal">
+                      <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#serviceDetailsModal">
                         <i class="bi bi-eye me-1"></i> Détails
                       </button>
                       <div class="dropdown">
-                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
-                          data-bs-toggle="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                           Actions
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                              data-bs-target="#restartServiceModal"><i
-                                class="bi bi-arrow-repeat me-2"></i>Redémarrer</a></li>
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                              data-bs-target="#maintenanceModal"><i class="bi bi-tools me-2"></i>Maintenance</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                          <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal"
-                              data-bs-target="#deleteServiceModal"><i class="bi bi-trash me-2"></i>Supprimer</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#restartServiceModal"><i class="bi bi-arrow-repeat me-2"></i>Redémarrer</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#maintenanceModal"><i class="bi bi-tools me-2"></i>Maintenance</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteServiceModal"><i class="bi bi-trash me-2"></i>Supprimer</a></li>
                         </ul>
                       </div>
                     </div>
                   </div>
                   <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
                     <small class="text-muted">Port: 21</small>
-                    <small class="text-muted">Dernière vérification: 4
-                      min</small>
+                    <small class="text-muted">Dernière vérification: 4 min</small>
                   </div>
                 </div>
               </div>
@@ -906,34 +973,25 @@
                       </div>
                     </div>
                     <div class="d-flex justify-content-between">
-                      <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                        data-bs-target="#serviceDetailsModal">
+                      <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#serviceDetailsModal">
                         <i class="bi bi-eye me-1"></i> Détails
                       </button>
                       <div class="dropdown">
-                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
-                          data-bs-toggle="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                           Actions
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                              data-bs-target="#restartServiceModal"><i
-                                class="bi bi-arrow-repeat me-2"></i>Redémarrer</a></li>
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                              data-bs-target="#maintenanceModal"><i class="bi bi-tools me-2"></i>Maintenance</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                          <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal"
-                              data-bs-target="#deleteServiceModal"><i class="bi bi-trash me-2"></i>Supprimer</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#restartServiceModal"><i class="bi bi-arrow-repeat me-2"></i>Redémarrer</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#maintenanceModal"><i class="bi bi-tools me-2"></i>Maintenance</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteServiceModal"><i class="bi bi-trash me-2"></i>Supprimer</a></li>
                         </ul>
                       </div>
                     </div>
                   </div>
                   <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
                     <small class="text-muted">Port: 22</small>
-                    <small class="text-muted">Dernière vérification: 12
-                      min</small>
+                    <small class="text-muted">Dernière vérification: 12 min</small>
                   </div>
                 </div>
               </div>
@@ -956,16 +1014,14 @@
               </ul>
             </nav>
             <!-- Modal Détails Service -->
-            <div class="modal fade" id="serviceDetailsModal" tabindex="-1" aria-labelledby="serviceDetailsModalLabel"
-              aria-hidden="true">
+            <div class="modal fade" id="serviceDetailsModal" tabindex="-1" aria-labelledby="serviceDetailsModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header bg-dark text-white">
                     <h5 class="modal-title" id="serviceDetailsModalLabel">
                       <i class="bi bi-info-circle me-2"></i>Détails du service
                     </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <div class="row mb-4">
@@ -1058,35 +1114,29 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Voir les
-                      logs</button>
+                    <button type="button" class="btn btn-primary">Voir les logs</button>
                   </div>
                 </div>
               </div>
             </div>
             <!-- Modal Ajout Service -->
-            <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel"
-              aria-hidden="true">
+            <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header bg-dark text-white">
                     <h5 class="modal-title" id="addServiceModalLabel">
                       <i class="bi bi-plus-lg me-2"></i>Ajouter un service
                     </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <form>
                       <div class="mb-3">
-                        <label for="serviceName" class="form-label">Nom du
-                          service</label>
-                        <input type="text" class="form-control" id="serviceName"
-                          placeholder="Ex: HTTP, MySQL, Redis...">
+                        <label for="serviceName" class="form-label">Nom du service</label>
+                        <input type="text" class="form-control" id="serviceName" placeholder="Ex: HTTP, MySQL, Redis...">
                       </div>
                       <div class="mb-3">
-                        <label for="serviceType" class="form-label">Type de
-                          service</label>
+                        <label for="serviceType" class="form-label">Type de service</label>
                         <select class="form-select" id="serviceType">
                           <option value="web">Service Web</option>
                           <option value="database">Base de données</option>
@@ -1095,8 +1145,7 @@
                         </select>
                       </div>
                       <div class="mb-3">
-                        <label for="serviceHost" class="form-label">Serveur
-                          hôte</label>
+                        <label for="serviceHost" class="form-label">Serveur hôte</label>
                         <select class="form-select" id="serviceHost">
                           <option value="web-server-01">web-server-01</option>
                           <option value="db-server-01">db-server-01</option>
@@ -1108,10 +1157,8 @@
                         <input type="text" class="form-control" id="servicePort" placeholder="Ex: 80, 443 ou 3306">
                       </div>
                       <div class="mb-3">
-                        <label for="serviceMonitor" class="form-label">URL de
-                          monitoring</label>
-                        <input type="text" class="form-control" id="serviceMonitor"
-                          placeholder="Ex: http://monitor.example.com/api">
+                        <label for="serviceMonitor" class="form-label">URL de monitoring</label>
+                        <input type="text" class="form-control" id="serviceMonitor" placeholder="Ex: http://monitor.example.com/api">
                       </div>
                     </form>
                   </div>
@@ -1123,30 +1170,24 @@
               </div>
             </div>
             <!-- Modal Redémarrer Service -->
-            <div class="modal fade" id="restartServiceModal" tabindex="-1" aria-labelledby="restartServiceModalLabel"
-              aria-hidden="true">
+            <div class="modal fade" id="restartServiceModal" tabindex="-1" aria-labelledby="restartServiceModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header bg-warning text-white">
                     <h5 class="modal-title" id="restartServiceModalLabel">
                       <i class="bi bi-exclamation-triangle me-2"></i>Confirmation
                     </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <p>Êtes-vous sûr de vouloir redémarrer le service
-                      <strong>HTTP</strong> sur <strong>web-server-01</strong>
-                      ?</p>
+                    <p>Êtes-vous sûr de vouloir redémarrer le service <strong>HTTP</strong> sur <strong>web-server-01</strong> ?</p>
                     <div class="alert alert-warning">
-                      <i class="bi bi-info-circle me-2"></i>Cette opération peut
-                      causer une interruption temporaire du service.
+                      <i class="bi bi-info-circle me-2"></i>Cette opération peut causer une interruption temporaire du service.
                     </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-warning text-white">Confirmer le
-                      redémarrage</button>
+                    <button type="button" class="btn btn-warning text-white">Confirmer le redémarrage</button>
                   </div>
                 </div>
               </div>
@@ -1156,8 +1197,7 @@
             <!-- Contenu de la section Alertes -->
             <div class="d-flex justify-content-between align-items-center mb-4">
               <h4 class="mb-0 d-flex align-items-center">
-                <i class="bi bi-bell-fill me-2 fs-4" style="color: green;"></i>
-                Alertes en temps réel
+                <i class="bi bi-bell-fill me-2 fs-4" style="color: green;"></i> Alertes en temps réel
               </h4>
               <div>
                 <span class="badge bg-danger me-2" id="liveAlertBadge">
@@ -1205,8 +1245,7 @@
               <div class="col-md-3">
                 <div class="card bg-danger bg-opacity-10 border-danger">
                   <div class="card-body">
-                    <h6 class="card-title text-danger"><i class="bi bi-exclamation-triangle-fill"></i> Alertes
-                      critiques</h6>
+                    <h6 class="card-title text-danger"><i class="bi bi-exclamation-triangle-fill"></i> Alertes critiques</h6>
                     <h3 class="mb-0">12</h3>
                     <small class="text-muted">+2 depuis hier</small>
                   </div>
@@ -1215,8 +1254,7 @@
               <div class="col-md-3">
                 <div class="card bg-warning bg-opacity-10 border-warning">
                   <div class="card-body">
-                    <h6 class="card-title text-warning"><i class="bi bi-exclamation-triangle"></i> Alertes
-                      majeures</h6>
+                    <h6 class="card-title text-warning"><i class="bi bi-exclamation-triangle"></i> Alertes majeures</h6>
                     <h3 class="mb-0">24</h3>
                     <small class="text-muted">-5 depuis hier</small>
                   </div>
@@ -1258,8 +1296,7 @@
                       <td><span class="badge bg-danger">Critique</span></td>
                       <td>2025-07-27 09:45</td>
                       <td>Connexion perdue avec R1 (192.168.1.1)</td>
-                      <td><span class="badge bg-warning text-dark">Non
-                          acquittée</span></td>
+                      <td><span class="badge bg-warning text-dark">Non acquittée</span></td>
                       <td>
                         <button class="btn btn-sm btn-success me-1" onclick="acquitter(this)" title="Acquitter">
                           <i class="bi bi-check-circle"></i>
@@ -1274,8 +1311,7 @@
                       <td><span class="badge bg-warning text-dark">Majeure</span></td>
                       <td>2025-07-27 09:50</td>
                       <td>Température élevée sur Switch2 (72°C)</td>
-                      <td><span class="badge bg-warning text-dark">Non
-                          acquittée</span></td>
+                      <td><span class="badge bg-warning text-dark">Non acquittée</span></td>
                       <td>
                         <button class="btn btn-sm btn-success me-1" onclick="acquitter(this)" title="Acquitter">
                           <i class="bi bi-check-circle"></i>
@@ -1290,8 +1326,7 @@
                       <td><span class="badge bg-primary">Mineure</span></td>
                       <td>2025-07-27 09:52</td>
                       <td>Disque /var presque plein (92%) sur SRV-DB01</td>
-                      <td><span class="badge bg-warning text-dark">Non
-                          acquittée</span></td>
+                      <td><span class="badge bg-warning text-dark">Non acquittée</span></td>
                       <td>
                         <button class="btn btn-sm btn-success me-1" onclick="acquitter(this)" title="Acquitter">
                           <i class="bi bi-check-circle"></i>
@@ -1305,8 +1340,7 @@
                       <td><i class="bi bi-shield-lock me-2"></i>Sécurité</td>
                       <td><span class="badge bg-secondary">Information</span></td>
                       <td>2025-07-27 10:15</td>
-                      <td>Nouvelle tentative de connexion SSH depuis
-                        103.45.67.89</td>
+                      <td>Nouvelle tentative de connexion SSH depuis 103.45.67.89</td>
                       <td><span class="badge bg-success">Acquittée</span></td>
                       <td>
                         <button class="btn btn-sm btn-secondary me-1" disabled title="Déjà acquittée">
@@ -1342,17 +1376,14 @@
                 <i class="bi bi-file-text-fill me-2 fs-4" style="color: green;"></i> Gestion des rapports
               </h4>
               <div class="dropdown">
-                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="exportDropdown"
-                  data-bs-toggle="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="exportDropdown" data-bs-toggle="dropdown">
                   <i class="bi bi-download"></i> Exporter
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
                   <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-pdf"></i> Format PDF</a></li>
                   <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-csv"></i> Format CSV</a></li>
                   <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-xlsx"></i> Format Excel</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
+                  <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#"><i class="bi bi-printer"></i> Imprimer</a></li>
                 </ul>
               </div>
@@ -1361,16 +1392,14 @@
               <div class="col-lg-4">
                 <div class="card shadow-sm">
                   <div class="card-header bg-dark text-white">
-                    <h5 class="mb-0"><i class="bi bi-magic"></i> Générer un
-                      rapport</h5>
+                    <h5 class="mb-0"><i class="bi bi-magic"></i> Générer un rapport</h5>
                   </div>
                   <div class="card-body">
                     <form id="reportForm">
                       <div class="mb-3">
                         <label class="form-label">Type de rapport</label>
                         <select class="form-select" required>
-                          <option value selected disabled>Choisir un
-                            type</option>
+                          <option value selected disabled>Choisir un type</option>
                           <option>Résumé quotidien</option>
                           <option>Analyse des incidents</option>
                           <option>Performances réseau</option>
@@ -1413,8 +1442,7 @@
               <div class="col-lg-8">
                 <div class="card shadow-sm">
                   <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0"><i class="bi bi-list-ul"></i> Rapports
-                      récents</h5>
+                    <h5 class="mb-0"><i class="bi bi-list-ul"></i> Rapports récents</h5>
                     <div class="input-group w-auto">
                       <span class="input-group-text"><i class="bi bi-search"></i></span>
                       <input type="text" class="form-control" placeholder="Rechercher...">
@@ -1422,14 +1450,11 @@
                   </div>
                   <div class="card-body">
                     <div class="list-group list-group-flush">
-                      <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                        data-bs-target="#rapportModal" data-title="Rapport Résumé Quotidien - 2025-07-27">
+                      <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#rapportModal" data-title="Rapport Résumé Quotidien - 2025-07-27">
                         <div class="d-flex w-100 justify-content-between">
                           <div>
-                            <h6 class="mb-1"><i class="bi bi-file-earmark-text-fill text-primary me-2"></i>
-                              Rapport Résumé Quotidien</h6>
-                            <small class="text-muted">Généré le 27/07/2025 à
-                              08:15</small>
+                            <h6 class="mb-1"><i class="bi bi-file-earmark-text-fill text-primary me-2"></i> Rapport Résumé Quotidien</h6>
+                            <small class="text-muted">Généré le 27/07/2025 à 08:15</small>
                           </div>
                           <div class="text-end">
                             <span class="badge bg-primary rounded-pill">PDF</span>
@@ -1439,14 +1464,11 @@
                           </div>
                         </div>
                       </a>
-                      <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                        data-bs-target="#rapportModal" data-title="Analyse des Incidents - Semaine 30">
+                      <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#rapportModal" data-title="Analyse des Incidents - Semaine 30">
                         <div class="d-flex w-100 justify-content-between">
                           <div>
-                            <h6 class="mb-1"><i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>
-                              Analyse des Incidents</h6>
-                            <small class="text-muted">Généré le 26/07/2025 à
-                              18:30</small>
+                            <h6 class="mb-1"><i class="bi bi-exclamation-triangle-fill text-danger me-2"></i> Analyse des Incidents</h6>
+                            <small class="text-muted">Généré le 26/07/2025 à 18:30</small>
                           </div>
                           <div class="text-end">
                             <span class="badge bg-danger rounded-pill">PDF</span>
@@ -1456,14 +1478,11 @@
                           </div>
                         </div>
                       </a>
-                      <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                        data-bs-target="#rapportModal" data-title="Audit de Sécurité - Juillet 2025">
+                      <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#rapportModal" data-title="Audit de Sécurité - Juillet 2025">
                         <div class="d-flex w-100 justify-content-between">
                           <div>
-                            <h6 class="mb-1"><i class="bi bi-shield-lock-fill text-success me-2"></i>
-                              Audit de Sécurité</h6>
-                            <small class="text-muted">Généré le 25/07/2025 à
-                              10:45</small>
+                            <h6 class="mb-1"><i class="bi bi-shield-lock-fill text-success me-2"></i> Audit de Sécurité</h6>
+                            <small class="text-muted">Généré le 25/07/2025 à 10:45</small>
                           </div>
                           <div class="text-end">
                             <span class="badge bg-success rounded-pill">PDF</span>
@@ -1473,14 +1492,11 @@
                           </div>
                         </div>
                       </a>
-                      <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
-                        data-bs-target="#rapportModal" data-title="Performances Réseau - Juillet 2025">
+                      <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#rapportModal" data-title="Performances Réseau - Juillet 2025">
                         <div class="d-flex w-100 justify-content-between">
                           <div>
-                            <h6 class="mb-1"><i class="bi bi-speedometer2 text-info me-2"></i>
-                              Performances Réseau</h6>
-                            <small class="text-muted">Généré le 20/07/2025 à
-                              14:20</small>
+                            <h6 class="mb-1"><i class="bi bi-speedometer2 text-info me-2"></i> Performances Réseau</h6>
+                            <small class="text-muted">Généré le 20/07/2025 à 14:20</small>
                           </div>
                           <div class="text-end">
                             <span class="badge bg-info rounded-pill">PDF</span>
@@ -1509,13 +1525,11 @@
               </div>
             </div>
             <!-- Modal Aperçu Rapport -->
-            <div class="modal fade" id="rapportModal" tabindex="-1" aria-labelledby="rapportModalLabel"
-              aria-hidden="true">
+            <div class="modal fade" id="rapportModal" tabindex="-1" aria-labelledby="rapportModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                   <div class="modal-header bg-dark text-white d-flex align-items-center">
-                    <h5 class="modal-title" id="rapportModalLabel">Aperçu du
-                      rapport</h5>
+                    <h5 class="modal-title" id="rapportModalLabel">Aperçu du rapport</h5>
                     <div class="ms-auto d-flex align-items-center">
                       <button type="button" class="btn btn-sm btn-primary me-2">
                         <i class="bi bi-download text-white"></i> Télécharger
@@ -1523,8 +1537,7 @@
                       <button type="button" class="btn btn-sm btn-primary me-2">
                         <i class="bi bi-printer text-white"></i> Imprimer
                       </button>
-                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                   </div>
                   <div class="modal-body">
@@ -1534,22 +1547,19 @@
                     </div>
                     <div class="row mb-4">
                       <div class="col-md-6">
-                        <h5><i class="bi bi-graph-up text-primary"></i>
-                          Statistiques clés</h5>
+                        <h5><i class="bi bi-graph-up text-primary"></i> Statistiques clés</h5>
                         <div class="table-responsive">
                           <table class="table table-sm">
                             <tbody>
                               <tr>
                                 <th>Alertes critiques</th>
                                 <td>12</td>
-                                <td><span class="badge bg-danger">+2 depuis
-                                    hier</span></td>
+                                <td><span class="badge bg-danger">+2 depuis hier</span></td>
                               </tr>
                               <tr>
                                 <th>Alertes majeures</th>
                                 <td>24</td>
-                                <td><span class="badge bg-warning text-dark">-5
-                                    depuis hier</span></td>
+                                <td><span class="badge bg-warning text-dark">-5 depuis hier</span></td>
                               </tr>
                               <tr>
                                 <th>Taux de résolution</th>
@@ -1566,16 +1576,13 @@
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <h5><i class="bi bi-pie-chart text-info"></i>
-                          Répartition des alertes</h5>
+                        <h5><i class="bi bi-pie-chart text-info"></i> Répartition des alertes</h5>
                         <div class="text-center">
-                          <img src="https://via.placeholder.com/300x150?text=Graphique+de+répartition"
-                            class="img-fluid border rounded" alt="Graphique">
+                          <img src="https://via.placeholder.com/300x150?text=Graphique+de+répartition" class="img-fluid border rounded" alt="Graphique">
                         </div>
                       </div>
                     </div>
-                    <h5><i class="bi bi-list-check text-success"></i> Incidents
-                      majeurs</h5>
+                    <h5><i class="bi bi-list-check text-success"></i> Incidents majeurs</h5>
                     <div class="table-responsive mb-4">
                       <table class="table table-sm table-hover">
                         <thead>
@@ -1597,34 +1604,29 @@
                             <td>27/07 09:50</td>
                             <td><span class="badge bg-warning text-dark">Majeure</span></td>
                             <td>Température élevée sur Switch2 (72°C)</td>
-                            <td><span class="badge bg-warning text-dark">En
-                                cours</span></td>
+                            <td><span class="badge bg-warning text-dark">En cours</span></td>
                           </tr>
                           <tr>
                             <td>27/07 10:15</td>
                             <td><span class="badge bg-primary">Mineure</span></td>
-                            <td>Disque /var presque plein (92%) sur
-                              SRV-DB01</td>
+                            <td>Disque /var presque plein (92%) sur SRV-DB01</td>
                             <td><span class="badge bg-success">Résolu</span></td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
-                    <h5><i class="bi bi-lightbulb text-warning"></i>
-                      Recommandations</h5>
+                    <h5><i class="bi bi-lightbulb text-warning"></i> Recommandations</h5>
                     <div class="alert alert-warning">
                       <ul class="mb-0">
-                        <li>Vérifier la configuration de refroidissement du
-                          Switch2</li>
-                        <li>Planifier une maintenance préventive pour les
-                          disques sur SRV-DB01</li>
-                        <li>Mettre à jour les règles du firewall pour bloquer
-                          les tentatives SSH répétées</li>
+                        <li>Vérifier la configuration de refroidissement du Switch2</li>
+                        <li>Planifier une maintenance préventive pour les disques sur SRV-DB01</li>
+                        <li>Mettre à jour les règles du firewall pour bloquer les tentatives SSH répétées</li>
                       </ul>
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Fermer </button>
+                    <button type="button" class="btn btn-secondary"
+                      data-bs-dismiss="modal"> Fermer </button>
                     <button type="button" class="btn btn-primary">Exporter en
                       PDF</button>
                   </div>
@@ -1638,12 +1640,11 @@
               <div>
                 <h2 class="mb-0 d-flex align-items-center">
                   <i class="bi bi-journal-text me-2 fs-4" style="color: green;"></i>
-                  <span class="gradient-text">Journal des Événements</span>
+                  <span class="gradient-text" >Journal des Événements</span>
                 </h2>
                 <div class="d-flex gap-3 mt-2">
                   <span class="text-muted">
-                    <i class="bi bi-clock-history me-1"></i> Dernière
-                    actualisation : <span id="lastUpdateTime">maintenant</span>
+                    <i class="bi bi-clock-history me-1"></i> Dernière actualisation : <span id="lastUpdateTime">maintenant</span>
                   </span>
                   <span class="text-muted">
                     <i class="bi bi-list-ul me-1"></i> Total logs : <span id="totalLogs">247</span>
@@ -1656,8 +1657,7 @@
                   <span class="d-none d-md-inline">Actualiser</span>
                 </button>
                 <div class="dropdown">
-                  <button class="btn btn-primary dropdown-toggle" type="button" id="exportDropdown"
-                    data-bs-toggle="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" id="exportDropdown" data-bs-toggle="dropdown">
                     <i class="bi bi-download"></i>
                     <span class="d-none d-md-inline">Exporter</span>
                   </button>
@@ -1805,8 +1805,7 @@
                         <td>Connexion API réussie - Token généré</td>
                         <td>API</td>
                         <td>
-                          <button class="btn btn-sm btn-outline-light btn-log-details" data-bs-toggle="modal"
-                            data-bs-target="#logModal" data-log-id="log-001">
+                          <button class="btn btn-sm btn-outline-light btn-log-details" data-bs-toggle="modal" data-bs-target="#logModal" data-log-id="log-001">
                             <i class="bi bi-three-dots-vertical"></i>
                           </button>
                         </td>
@@ -1827,12 +1826,10 @@
                             Marie Martin
                           </div>
                         </td>
-                        <td>Utilisation mémoire élevée (92%) - Serveur
-                          backend-01</td>
+                        <td>Utilisation mémoire élevée (92%) - Serveur backend-01</td>
                         <td>Backend</td>
                         <td>
-                          <button class="btn btn-sm btn-outline-light btn-log-details" data-bs-toggle="modal"
-                            data-bs-target="#logModal" data-log-id="log-002">
+                          <button class="btn btn-sm btn-outline-light btn-log-details" data-bs-toggle="modal" data-bs-target="#logModal" data-log-id="log-002">
                             <i class="bi bi-three-dots-vertical"></i>
                           </button>
                         </td>
@@ -1853,12 +1850,10 @@
                             Jean Dupont
                           </div>
                         </td>
-                        <td>Échec sauvegarde base de données - Espace disque
-                          insuffisant</td>
+                        <td>Échec sauvegarde base de données - Espace disque insuffisant</td>
                         <td>Database</td>
                         <td>
-                          <button class="btn btn-sm btn-outline-light btn-log-details" data-bs-toggle="modal"
-                            data-bs-target="#logModal" data-log-id="log-003">
+                          <button class="btn btn-sm btn-outline-light btn-log-details" data-bs-toggle="modal" data-bs-target="#logModal" data-log-id="log-003">
                             <i class="bi bi-three-dots-vertical"></i>
                           </button>
                         </td>
@@ -1879,12 +1874,10 @@
                             System
                           </div>
                         </td>
-                        <td>Crash application - Exception non gérée dans le
-                          module payment</td>
+                        <td>Crash application - Exception non gérée dans le module payment</td>
                         <td>Backend</td>
                         <td>
-                          <button class="btn btn-sm btn-outline-light btn-log-details" data-bs-toggle="modal"
-                            data-bs-target="#logModal" data-log-id="log-004">
+                          <button class="btn btn-sm btn-outline-light btn-log-details" data-bs-toggle="modal" data-bs-target="#logModal" data-log-id="log-004">
                             <i class="bi bi-three-dots-vertical"></i>
                           </button>
                         </td>
@@ -1919,8 +1912,7 @@
                     <h5 class="modal-title" id="logModalLabel">
                       <i class="bi bi-journal-text me-2"></i>Détails du log
                     </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <div class="row mb-4">
@@ -1930,8 +1922,7 @@
                             <span class="badge bg-log-info fs-6" id="logModalType">Info</span>
                           </div>
                           <div>
-                            <h6 class="mb-0" id="logModalDate">04/04/2024
-                              13:55:12</h6>
+                            <h6 class="mb-0" id="logModalDate">04/04/2024 13:55:12</h6>
                             <small class="text-muted" id="logModalSource">Source: API</small>
                           </div>
                         </div>
@@ -2020,8 +2011,7 @@ Chargement de la stack trace...
                           <i class="bi bi-check-circle me-1"></i> Résoudre
                         </button>
                         <button class="btn btn-primary">
-                          <i class="bi bi-ticket-detailed me-1"></i> Créer
-                          ticket
+                          <i class="bi bi-ticket-detailed me-1"></i> Créer ticket
                         </button>
                       </div>
                     </div>
@@ -2035,8 +2025,7 @@ Chargement de la stack trace...
             <div class="card border-0 shadow-sm">
               <div class="card-header bg-dark text-white">
                 <h4 class="mb-4 d-flex align-items-center">
-                  <i class="bi bi-sliders me-2 fs-4" style="color: green;"></i>
-                  Paramètres de surveillance
+                  <i class="bi bi-sliders me-2 fs-4" style="color: green;"></i> Paramètres de surveillance
                 </h4>
               </div>
               <div class="card-body">
@@ -2048,51 +2037,34 @@ Chargement de la stack trace...
                     <div class="row g-3">
                       <div class="col-md-6">
                         <div class="form-floating">
-                          <input type="number" class="form-control" id="cpuThreshold" min="1" max="100" value="80"
-                            required placeholder="Seuil CPU">
-                          <label for="cpuThreshold">Seuil d'alerte CPU
-                            (%)</label>
-                          <div class="invalid-feedback">Doit être entre 1 et
-                            100</div>
-                          <div class="form-text text-muted">Déclenche une alerte
-                            quand l'utilisation dépasse ce pourcentage</div>
+                          <input type="number" class="form-control" id="cpuThreshold" min="1" max="100" value="80" required placeholder="Seuil CPU">
+                          <label for="cpuThreshold">Seuil d'alerte CPU (%)</label>
+                          <div class="invalid-feedback">Doit être entre 1 et 100</div>
+                          <div class="form-text text-muted">Déclenche une alerte quand l'utilisation dépasse ce pourcentage</div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-floating">
-                          <input type="number" class="form-control" id="ramThreshold" min="1" max="100" value="90"
-                            required placeholder="Seuil RAM">
-                          <label for="ramThreshold">Seuil d'alerte RAM
-                            (%)</label>
-                          <div class="invalid-feedback">Doit être entre 1 et
-                            100</div>
-                          <div class="form-text text-muted">Déclenche une alerte
-                            quand la mémoire dépasse ce pourcentage</div>
+                          <input type="number" class="form-control" id="ramThreshold" min="1" max="100" value="90" required placeholder="Seuil RAM">
+                          <label for="ramThreshold">Seuil d'alerte RAM (%)</label>
+                          <div class="invalid-feedback">Doit être entre 1 et 100</div>
+                          <div class="form-text text-muted">Déclenche une alerte quand la mémoire dépasse ce pourcentage</div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-floating">
-                          <input type="number" class="form-control" id="diskThreshold" min="1" max="100" value="85"
-                            required placeholder="Seuil Disque">
-                          <label for="diskThreshold">Seuil d'alerte Disque
-                            (%)</label>
-                          <div class="invalid-feedback">Doit être entre 1 et
-                            100</div>
-                          <div class="form-text text-muted">Déclenche une alerte
-                            quand l'espace disque est inférieur à ce
-                            pourcentage</div>
+                          <input type="number" class="form-control" id="diskThreshold" min="1" max="100" value="85" required placeholder="Seuil Disque">
+                          <label for="diskThreshold">Seuil d'alerte Disque (%)</label>
+                          <div class="invalid-feedback">Doit être entre 1 et 100</div>
+                          <div class="form-text text-muted">Déclenche une alerte quand l'espace disque est inférieur à ce pourcentage</div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-floating">
-                          <input type="number" class="form-control" id="networkThreshold" min="1" max="1000" value="90"
-                            required placeholder="Seuil Réseau">
-                          <label for="networkThreshold">Seuil d'alerte Réseau
-                            (Mbps)</label>
-                          <div class="invalid-feedback">Doit être entre 1 et
-                            1000</div>
-                          <div class="form-text text-muted">Déclenche une alerte
-                            quand le débit dépasse cette valeur</div>
+                          <input type="number" class="form-control" id="networkThreshold" min="1" max="1000" value="90" required placeholder="Seuil Réseau">
+                          <label for="networkThreshold">Seuil d'alerte Réseau (Mbps)</label>
+                          <div class="invalid-feedback">Doit être entre 1 et 1000</div>
+                          <div class="form-text text-muted">Déclenche une alerte quand le débit dépasse cette valeur</div>
                         </div>
                       </div>
                     </div>
@@ -2104,51 +2076,37 @@ Chargement de la stack trace...
                     <div class="row g-3">
                       <div class="col-md-6">
                         <div class="form-floating">
-                          <input type="email" class="form-control" id="emailNotif" value="admin@email.com" required
-                            placeholder="Email">
+                          <input type="email" class="form-control" id="emailNotif" value="admin@email.com" required placeholder="Email">
                           <label for="emailNotif">Email de notification</label>
-                          <div class="invalid-feedback">Adresse email
-                            invalide</div>
-                          <div class="form-text text-muted">Recevez les alertes
-                            par email</div>
+                          <div class="invalid-feedback">Adresse email invalide</div>
+                          <div class="form-text text-muted">Recevez les alertes par email</div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="slackWebhook"
-                            value="https://hooks.slack.com/services/..." required placeholder="Webhook Slack">
+                          <input type="text" class="form-control" id="slackWebhook" value="https://hooks.slack.com/services/..." required placeholder="Webhook Slack">
                           <label for="slackWebhook">Webhook Slack</label>
-                          <div class="invalid-feedback">URL doit commencer par
-                            https://</div>
-                          <div class="form-text text-muted">Intégration avec les
-                            channels Slack</div>
+                          <div class="invalid-feedback">URL doit commencer par https://</div>
+                          <div class="form-text text-muted">Intégration avec les channels Slack</div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-floating">
                           <select class="form-select" id="notificationLevel" required>
-                            <option value="high">Haute (Toutes les
-                              alertes)</option>
-                            <option value="medium" selected>Moyenne (Alertes
-                              importantes)</option>
-                            <option value="low">Basse (Alertes critiques
-                              seulement)</option>
+                            <option value="high">Haute (Toutes les alertes)</option>
+                            <option value="medium" selected>Moyenne (Alertes importantes)</option>
+                            <option value="low">Basse (Alertes critiques seulement)</option>
                           </select>
-                          <label for="notificationLevel">Niveau de
-                            notification</label>
-                          <div class="form-text text-muted">Contrôle la
-                            fréquence des notifications</div>
+                          <label for="notificationLevel">Niveau de notification</label>
+                          <div class="form-text text-muted">Contrôle la fréquence des notifications</div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-floating">
                           <input type="text" class="form-control" id="smsNumber" placeholder="Numéro SMS">
-                          <label for="smsNumber">Numéro pour SMS
-                            (optionnel)</label>
-                          <div class="invalid-feedback">Format de numéro
-                            invalide</div>
-                          <div class="form-text text-muted">Recevez les alertes
-                            critiques par SMS</div>
+                          <label for="smsNumber">Numéro pour SMS (optionnel)</label>
+                          <div class="invalid-feedback">Format de numéro invalide</div>
+                          <div class="form-text text-muted">Recevez les alertes critiques par SMS</div>
                         </div>
                       </div>
                     </div>
@@ -2161,25 +2119,20 @@ Chargement de la stack trace...
                       <div class="col-md-6">
                         <div class="form-floating">
                           <select class="form-select" id="workingHours">
-                            <option value="9-18">9h - 18h (Heures de
-                              bureau)</option>
+                            <option value="9-18">9h - 18h (Heures de bureau)</option>
                             <option value="24/7" selected>24h/24 7j/7</option>
                             <option value="custom">Personnalisé</option>
                           </select>
-                          <label for="workingHours">Période de
-                            surveillance</label>
-                          <div class="form-text text-muted">Définissez quand le
-                            système doit être surveillé</div>
+                          <label for="workingHours">Période de surveillance</label>
+                          <div class="form-text text-muted">Définissez quand le système doit être surveillé</div>
                         </div>
                       </div>
                       <div class="col-md-6" id="customHoursContainer" style="display:none;">
                         <div class="form-floating">
                           <input type="text" class="form-control" id="customHours" placeholder="Ex: 8-17">
                           <label for="customHours">Heures personnalisées</label>
-                          <div class="invalid-feedback">Format: HH-HH (ex:
-                            8-17)</div>
-                          <div class="form-text text-muted">Ex: 8-17 pour 8h du
-                            matin à 17h</div>
+                          <div class="invalid-feedback">Format: HH-HH (ex: 8-17)</div>
+                          <div class="form-text text-muted">Ex: 8-17 pour 8h du matin à 17h</div>
                         </div>
                       </div>
                     </div>
@@ -2187,8 +2140,7 @@ Chargement de la stack trace...
                   <div class="col-12 mt-4">
                     <div class="d-flex justify-content-between align-items-center">
                       <button class="btn btn-primary px-4" type="submit">
-                        <i class="bi bi-save me-2"></i>Enregistrer les
-                        modifications
+                        <i class="bi bi-save me-2"></i>Enregistrer les modifications
                       </button>
                       <div>
                         <button class="btn btn-primary me-2" type="button" id="testEmailBtn">
@@ -2212,8 +2164,7 @@ Chargement de la stack trace...
                 <h4 class="mb-0 d-flex align-items-center">
                   <i class="bi bi-diagram-3 me-2 fs-4" style="color: green;"></i> Topologie réseau
                 </h4>
-                <small class="text-muted">Visualisation temps réel de
-                  l'infrastructure</small>
+                <small class="text-muted">Visualisation temps réel de l'infrastructure</small>
               </div>
               <div class="d-flex align-items-center">
                 <div class="me-3">
@@ -2252,8 +2203,7 @@ Chargement de la stack trace...
                     </button>
                   </div>
                   <div class="btn-group">
-                    <button id="toggleLabelsBtn" class="btn btn-sm btn-outline-primary"
-                      title="Afficher/Masquer les étiquettes">
+                    <button id="toggleLabelsBtn" class="btn btn-sm btn-outline-primary" title="Afficher/Masquer les étiquettes">
                       <i class="bi bi-tags"></i>
                     </button>
                     <button id="toggleGridBtn" class="btn btn-sm btn-outline-primary" title="Afficher la grille">
@@ -2368,21 +2318,17 @@ Chargement de la stack trace...
                 </div>
               </div>
             </div>
-
+            
             <!-- Modal de performance des équipements -->
-            <div class="modal fade" id="graphieModal" tabindex="-1" role="dialog" aria-labelledby="graphiqueModallabel"
-              aria-hidden="true">
+            <div class="modal fade" id="graphieModal" tabindex="-1" role="dialog" aria-labelledby="graphiqueModallabel" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title">Equipements de web-server-01</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
                   </div>
-                  <strong class="px-3 text-primary bg-body-tertiary py-2"><i class="bi bi-ethernet"> eth0 <span
-                        class="text-primary-emphasis">(Interface
-                        réseau)</span></i></strong>
-                  <strong class="px-3"><i class="bi bi-ethernet"> sda1 <span
-                        class="text-primary-emphasis">(Disque)</span></i></strong>
+                  <strong class="px-3 text-primary bg-body-tertiary py-2"><i class="bi bi-ethernet"> eth0 <span class="text-primary-emphasis">(Interface réseau)</span></i></strong>
+                  <strong class="px-3"><i class="bi bi-ethernet"> sda1 <span class="text-primary-emphasis">(Disque)</span></i></strong>
                   <div class="modal-body">
                     <h4 class="text-primary"> eth0 (Interface réseau)</h4>
                     <div class="row">
@@ -2409,8 +2355,7 @@ Chargement de la stack trace...
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
                   </div>
                   <div class="modal-body">
-                    <h4 class="text-bold">Voulez-vous vraiment supprimer l'hôte
-                      "web-server-01"</h4>
+                    <h4 class="text-bold">Voulez-vous vraiment supprimer l'hôte "web-server-01"</h4>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
@@ -2420,8 +2365,7 @@ Chargement de la stack trace...
               </div>
             </div>
             <!-- Modal de détails -->
-            <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="graphiqueModallabel"
-              aria-hidden="true">
+            <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="graphiqueModallabel" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -2452,14 +2396,18 @@ Chargement de la stack trace...
 
           <!-----------===============Modal de suppression================---------->
 
-          <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+          <div class="modal fade" id="deleteModal" tabindex="-1"
+            aria-labelledby="deleteModal"
+            aria-hidden="true" >
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">
                     Confirmer la suppression
                   </h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                  <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Fermer"></button>
                 </div>
                 <div class="modal-body">
                   <h4 class="text-info">Voulez-vous vraiment supprimer
@@ -2467,39 +2415,50 @@ Chargement de la stack trace...
                 </div>
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                  <button type="submit" class="btn btn-danger">Confirmer</button>
+                  <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Annuler</button>
+                  <button type="submit"
+                    class="btn btn-danger">Confirmer</button>
                 </div>
               </div>
             </div>
           </div>
           <!----Modal de suppression de l'utilisateur au niveaux des utlisateurs---->
 
-          <div class="modal fade" id="deleteUser" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+          <div class="modal fade" id="deleteUser" tabindex="-1"
+            aria-labelledby="deleteModal"
+            aria-hidden="true" >
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">
                     Confirmer la suppression
                   </h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                  <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Fermer"></button>
                 </div>
                 <div class="modal-body">
-                  <h4 class="text-info">Voulez-vous vraiment supprimer
-                    "Dupont jean"</h4>
+                  <h4 class="text-info">Voulez-vous vraiment supprimer  "Dupont jean"</h4>
                 </div>
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                  <button type="submit" class="btn btn-danger">Confirmer</button>
+                  <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Annuler</button>
+                  <button type="submit"
+                    class="btn btn-danger">Confirmer</button>
                 </div>
               </div>
             </div>
           </div>
 
+
+
+
           <!-----=============================Detail Modal==================-->
 
-          <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="graphiqueModallabel"
+          <div class="modal fade" id="detailModal" tabindex="-1"
+            role="dialog" aria-labelledby="graphiqueModallabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
@@ -2507,7 +2466,9 @@ Chargement de la stack trace...
                   <h5 class="modal-title">
                     Détails de l'hôtes
                   </h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                  <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Fermer"></button>
                 </div>
                 <div class="modal-body">
                   <div class>
@@ -2523,99 +2484,32 @@ Chargement de la stack trace...
                       <li>CPU OK</li>
                       <li>DisK OK</li>
                     </ul>
-                    <button class=" bg-primary btn px-2 py-1"><i class="bi bi-diagram-3"></i> Voir
+                    <button class=" bg-primary btn px-2 py-1"><i
+                        class="bi bi-diagram-3"></i> Voir
                       Equipements</button>
                   </div>
                 </div>
-                <!-- Section Planification -->
-                <div class="col-12 mt-4">
-                  <h5 class="mb-3 text-dark">
-                    <i class="bi bi-calendar-event me-2"></i>
-                    Planification
-                  </h5>
-                  <div class="row g-3">
-                    <div class="col-md-6">
-                      <div class="form-floating">
-                        <select class="form-select" id="workingHours">
-                          <option value="9-18">
-                            9h - 18h (Heures de
-                            bureau)
-                          </option>
-                          <option value="24/7" selected>24h/24 7j/7</option>
-                          <option value="custom">Personnalisé</option>
-                        </select>
-                        <label for="workingHours">
-                          Période de
-                          surveillance
-                        </label>
-                        <div class="form-text text-muted">
-                          Définissez quand le
-                          système doit être surveillé
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6" id="customHoursContainer" style="display:none;">
-                      <div class="form-floating">
-                        <input type="text" class="form-control" id="customHours" placeholder="Ex: 8-17">
-                        <label for="customHours">Heures personnalisées</label>
-                        <div class="invalid-feedback">
-                          Format: HH-HH (ex:
-                          8-17)
-                        </div>
-                        <div class="form-text text-muted">
-                          Ex: 8-17 pour 8h du
-                          matin à 17h
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 mt-4">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <!-- Bouton principal avec une couleur plus sobre -->
-                    <button class="btn btn-dark px-4" type="submit">
-                      <i class="bi bi-save me-2"></i>
-                      Enregistrer les
-                      modifications
-                    </button>
-                    <div>
-                      <button class="btn btn-outline-dark me-2" type="button" id="testEmailBtn">
-                        <i class="bi bi-envelope me-2"></i>
-                        Tester email
-                      </button>
-                      <button class="btn btn-outline-dark" type="button" id="testSlackBtn">
-                        <i class="bi bi-slack me-2"></i>
-                        Tester Slack
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                </form>
-                <div id="notifResult" class="mt-4"></div>
               </div>
             </div>
           </div>
 
-            <!-- Vérification de l'authentification -->
+          <!-- Vérification de l'authentification -->
           <div id="auth-verification" class="page-section d-none">
             <!-- Contenu de la section Vérification d'authentification -->
             <div class="container-fluid d-flex align-items-center justify-content-center py-5">
               <div class="card shadow-lg" style="width: 100%; max-width: 500px;">
                 <div class="card-header bg-primary text-white">
                   <h5 class="mb-0 text-center">
-                    <i class="bi bi-shield-lock me-2"></i> Vérification de
-                    l'authentification
+                    <i class="bi bi-shield-lock me-2"></i> Vérification de l'authentification
                   </h5>
                 </div>
                 <div class="card-body">
                   <p class="text-muted mb-4">
-                    Nous avons envoyé un code de vérification à votre adresse
-                    e-mail. Veuillez le saisir ci-dessous pour continuer.
+                    Nous avons envoyé un code de vérification à votre adresse e-mail. Veuillez le saisir ci-dessous pour continuer.
                   </p>
                   <form id="authForm">
                     <div class="mb-3">
-                      <input type="text" class="form-control form-control-lg text-center"
-                        placeholder="Code à 6 chiffres" required>
+                      <input type="text" class="form-control form-control-lg text-center" placeholder="Code à 6 chiffres" required>
                     </div>
                     <button type="submit" class="btn btn-primary w-100 py-2">
                       <i class="bi bi-check-circle me-2"></i> Vérifier
@@ -2628,13 +2522,6 @@ Chargement de la stack trace...
                   </div>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">
-                  Voir les détails
-                  complets
-                </button>
-              </div>
             </div>
           </div>
           <div id="Code_de_vérification" class="page-section d-none">
@@ -2645,8 +2532,6 @@ Chargement de la stack trace...
                   <h5 class="mb-0 text-center">
                     <i class="bi bi-patch-check me-2"></i> Code de vérification
                   </h5>
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
                 </div>
                 <div class="card-body text-center">
                   <div class="mb-4">
@@ -2665,98 +2550,105 @@ Chargement de la stack trace...
             </div>
           </div>
 
-            <!------------RENITIALISATION DU MOTS DE PASSE---------------->
+               <!------------RENITIALISATION DU MOTS DE PASSE---------------->
           <div id="renit" class="page-section d-none">
-            <div class="container-fluid d-flex align-items-center justify-content-center py-5">
-              <div class="card shadow-lg" style="width: 100%; max-width: 500px;">
+            <div
+              class="container-fluid d-flex align-items-center justify-content-center py-5">
+              <div class="card shadow-lg"
+                style="width: 100%; max-width: 500px;">
                 <div class="card-header bg-primary text-white">
                   <h5 class="mb-0 text-center">
-                    <i class="bi bi-people me-2"></i>Renitialisation du Mots de
-                    passe
+                    <i class="bi bi-people me-2"></i>Renitialisation du Mots de passe
                   </h5>
                 </div>
                 <div class="card-body text-center">
-                  <div class="d-flex flex-column w-100 ">
-                    <div class="d-flex flex-column gap-1 w-75 mx-auto">
-                      <label for>EMAIL</label>
-                      <input class="py-2 rounded-2 btn-outline-none px-2" type="text" placeholder="toto@gmail.com" />
-                    </div>
-                    <div class="d-flex flex-column my-1 gap-1">
-                      <label for>NOUVEAU MOTS DE PASSE</label>
-                      <input class="rounded-2 py-2 w-75 mx-auto " type="password"
-                        placeholder="Nouveau mots de passe" />
-                    </div>
-                    <div class="d-flex flex-column my-1 gap-1">
-                      <label for>CONFIRMATION DU MOTS DE PASSE</label>
-                      <input class="rounded-2 py-2 w-75 mx-auto" type="password"
-                        placeholder="Confirmation du mots de passe" />
-                    </div>
-                    <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
-                      <button class="btn btn-primary" type="submit">RENITIALISATION</button>
-                    </div>
-                  </div>
+                <div class="d-flex flex-column w-100 " >
+                <div class="d-flex flex-column gap-1 w-75 mx-auto">
+                  <label for="">EMAIL</label>
+                  <input class="py-2 rounded-2 btn-outline-none px-2" type="text" placeholder="toto@gmail.com"/>
+                </div>
+                <div class="d-flex flex-column my-1 gap-1">
+                  <label for="">NOUVEAU MOTS DE PASSE</label>
+                  <input class="rounded-2 py-2 w-75 mx-auto " type="password" placeholder="Nouveau mots de passe"/>
+                </div>
+                <div class="d-flex flex-column my-1 gap-1">
+                  <label for="">CONFIRMATION DU MOTS DE PASSE</label>
+                  <input class="rounded-2 py-2 w-75 mx-auto" type="password" placeholder="Confirmation du mots de passe"/>
+                </div>
+                <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
+                  <button class="btn btn-primary" type="submit">RENITIALISATION</button>
+                </div>
+                </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-------Email de confirmation----------------------------------->
+             <!-------Email de confirmation----------------------------------->
           <div id="oubli" class="page-section d-none">
-            <div class="container-fluid d-flex align-items-center justify-content-center py-5">
-              <div class="card shadow-lg" style="width: 100%; max-width: 500px;">
-                <div class="card-header bg-primary text-white">
-                  <h5 class="mb-0 text-center">
-                    <i class="bi bi-people me-2"></i>Confirmation de Email
-                  </h5>
+          <div
+            class="container-fluid d-flex align-items-center justify-content-center py-5">
+            <div class="card shadow-lg"
+              style="width: 100%; max-width: 500px;">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0 text-center">
+                  <i class="bi bi-people me-2"></i>Confirmation de Email
+                </h5>
+              </div>
+              <div class="card-body text-center">
+                <div class="d-flex flex-column w-100" >
+                <div class="d-flex flex-column gap-1 w-75 mx-auto gap">
+                <label class="w-100" for="">VEUILLEZ ENTRER VOTRE EMAIL POUR LA VERIFICATION</label>
+                <input class="py-2 rounded-2 btn-outline-none" type="text" placeholder="toto@gmail.com"/>
                 </div>
-                <div class="card-body text-center">
-                  <div class="d-flex flex-column w-100">
-                    <div class="d-flex flex-column gap-1 w-75 mx-auto gap">
-                      <label class="w-100" for>VEUILLEZ ENTRER VOTRE EMAIL POUR
-                        LA VERIFICATION</label>
-                      <input class="py-2 rounded-2 btn-outline-none" type="text" placeholder="toto@gmail.com" />
-                    </div>
-                    <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
-                      <button class="btn btn-primary" type="submit">VERIFICATION</button>
-                    </div>
-                  </div>
+                <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
+                <button class="btn btn-primary" type="submit">VERIFICATION</button>
+                </div>
                 </div>
               </div>
             </div>
           </div>
-          <!---------------page de connexion--------------->
-          <div id="login" class="page-section d-none">
-            <div class="container-fluid d-flex align-items-center justify-content-center py-5">
-              <div class="card shadow-lg" style="width: 100%; max-width: 500px;">
+          </div>
+        <!---------------page de connexion--------------->
+        <div id="login" class="page-section d-none">
+            <div
+              class="container-fluid d-flex align-items-center justify-content-center py-5">
+              <div class="card shadow-lg"
+                style="width: 100%; max-width: 500px;">
                 <div class="card-header bg-primary text-white">
                   <h5 class="mb-0 text-center">
                     <i class="bi bi-people me-2"></i>Connexion
                   </h5>
                 </div>
                 <div class="card-body text-center">
-                  <div class="d-flex flex-column w-100 gap-2">
-                    <div class="d-flex flex-column gap-1 w-75 mx-auto">
-                      <label for>EMAIL</label>
-                      <input class="py-2 rounded-2 btn-outline-none px-2" type="text" placeholder="toto@gmail.com" />
-                    </div>
-                    <div class="d-flex flex-column gap-1 w-75 mx-auto">
-                      <label for>MOTS DE PASSE</label>
-                      <input class="rounded-2 py-2 w-100 px-2" type="password" placeholder="mots de passe" />
-                    </div>
-                    <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
-                      <button class="btn btn-primary w-100" type="submit">CONNEXION</button>
-                      <div>
-                        <input type="checkbox" name id>
-                        <label for>Se souvenir de moi</label>
-                      </div>
-                    </div>
-                    <a href="#">Mots de passe oublier</a>
+                 <div class="d-flex flex-column w-100 gap-2" >
+                 <div class="d-flex flex-column gap-1 w-75 mx-auto">
+                  <label for="">EMAIL</label>
+                  <input class="py-2 rounded-2 btn-outline-none px-2" type="text" placeholder="toto@gmail.com"/>
+                 </div>
+                 <div class="d-flex flex-column gap-1 w-75 mx-auto">
+                  <label for="">MOTS DE PASSE</label>
+                  <input class="rounded-2 py-2 w-100 px-2" type="password" placeholder="mots de passe"/>
+                 </div>
+                 <div class="d-flex flex-column gap-2 w-75 mx-auto mt-1">
+                  <button class="btn btn-primary w-100" type="submit">CONNEXION</button>
+                  <div>
+                    <input type="checkbox" name="" id="">
+                    <label for="">Se souvenir de moi</label>
                   </div>
-
+                 </div>
+                 <a href="#">Mots de passe oublier</a>
+                 </div>
                 </div>
               </div>
             </div>
+        </div>
+        </div>
+
           </div>
+          </div>    
+      </div>
+      </div>
           
           <div class="container-fluid py-4 page-section d-none" id="profilEditContainer">
             <div class="row">
