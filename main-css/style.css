@@ -1,3 +1,4 @@
+
 :root[data-bs-theme='dark'] {
   --bg-color: #1e1e2f;
   --sidebar-bg: #2c2f48;
@@ -6,8 +7,8 @@
   --link-hover-bg: #3d4160;
   --card-bg: #2c2f48;
   --card-text: #ffffff;
+  --gradient-text-color: #ffffff;
 }
-
 :root[data-bs-theme='light'] {
   --bg-color: #f8f9fa;
   --sidebar-bg: #e9ecef;
@@ -16,9 +17,46 @@
   --link-hover-bg: #dee2e6;
   --card-bg: #ffffff;
   --card-text: #212529;
+  --gradient-text-color: #000000; 
+}
+/* transition entre les onglets et c'est global pour toutes les interfaces  */
+.page-section {
+  transition: opacity 0.3s ease;
 }
 
-/* Application des variables les gars on ajusteras au besoin.... */
+/* Profil  */
+#profile-container .profile-card {
+    border-radius: 12px;
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#profile-edit-btn {
+    font-weight: bold;
+}
+
+#profile-tabs .nav-link {
+    cursor: pointer;
+}
+
+.profile-tab-content {
+    animation: profileFadeIn 0.3s ease-in-out;
+}
+
+@keyframes profileFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+#profile-security .btn-outline-secondary,
+#profile-security .btn-outline-success {
+    border-radius: 50%;
+    padding: 4px 7px;
+}
+
+
+/*-------------  accueil commence ici --------------*/
+
+/* Application des variables en utilisant les var()...les gars on ajusteras au besoin.... */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -45,6 +83,20 @@ body {
   color: var(--text-color);
   border-radius: 15px;
 }
+.sidebar-sub-link {
+  display: block;
+  color: #b0b3c4;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.sidebar-sub-link:hover {
+  background-color: #3d4160;
+  color: white;
+  border-radius: 10px;
+}
+
 
 .card {
   background-color: var(--card-bg);
@@ -133,3 +185,454 @@ body {
 }
 
 
+/*------------- les gars c'est ici que commence les css des hôtes --------------*/
+
+
+/*  j'ai fait ici pour donne une couleur au icone qui s'affiche dedans ...
+genre dans les interfaces ..;*/
+
+.page-section h4 i {
+  color: #2ebe11;
+}
+
+.table-dark th {
+  background-color:var(--bg-color);
+  color: var(--card-text);
+  border: none;
+}
+
+.table-dark td {
+  background-color: var(--card-bg);
+  border-top: 1px solid #3b3d4a;
+  color: var(--card-text);
+}
+
+.badge.bg-dark {
+  background-color: var(--bg-color);
+  font-size: 0.9rem;
+}
+
+.btn-outline-light {
+  border-color: #6c757d;
+  color: var(--text-color);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--card-bg);
+}
+
+/*====== pour un peur créer une joli effet quand on va survoler les équipements qu'on veu ajouter lààà======*/
+#host-list button:hover {
+  background-color: #b2cdf3;
+  color: white;
+}
+
+/*====== pour entete de table des utilisateurs =====*/
+.table-user th{
+  background-color:var(--bg-color);
+  color: var(--card-text);
+  border: none;
+}
+/*====== css pour service  =====*/
+    /* Styles personnalisés */
+    .gradient-text {
+        background: linear-gradient(90deg, #3498db, #9b59b6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    .service-card {
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .service-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+    
+    .service-icon-lg {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #7f8c8d;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-refresh {
+        transition: transform 0.3s;
+    }
+    
+    .btn-refresh:hover {
+        transform: rotate(90deg);
+    }
+    
+    .progress {
+        border-radius: 3px;
+        background-color: #f0f0f0;
+    }
+    
+    .progress-bar {
+        border-radius: 3px;
+    }
+   /*====== css pour raporrts  =====*/
+
+    .card-block {
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 24px 28px 18px 28px;
+      margin-bottom: 28px;
+    }
+    .report-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .report-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 20px 24px 16px 24px;
+      min-width: 260px;
+      max-width: 320px;
+      flex: 1 1 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+    .report-title { font-size: 1.1em; font-weight: bold; margin-bottom: 4px; }
+    .report-actions { display: flex; gap: 10px; margin-top: 8px; }
+    .btn-action { background: #35354a; color: #fff; border: none; border-radius: 8px; padding: 6px 16px; transition: background 0.2s; font-size: 1em; }
+    .btn-action:hover { background: #44445a; }
+    .form-label { color: #bfc9db; }
+    @media (max-width: 700px) {
+      .report-list { flex-direction: column; gap: 16px; }
+      .report-card { min-width: 0; max-width: 100%; }
+    }
+
+   /*====== css pour logs  =====*/
+
+   .gradient-text {
+    background: var(--text-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent; /* pour WebKit/Firefox récents */
+    display: inline-block; /* évite certains soucis d'inline */
+  }
+  
+    
+    .stat-card {
+        border: none;
+        border-radius: 10px;
+        transition: transform 0.3s;
+        height: 100%;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .bg-log-info {
+        background-color: var(--bg-log-info);
+        border-left: 4px solid #3498db;
+    }
+    
+    .bg-log-warning {
+        background-color: var(--bg-log-warning);
+        border-left: 4px solid #f1c40f;
+    }
+    
+    .bg-log-error {
+        background-color: var(--bg-log-error);
+        border-left: 4px solid #e74c3c;
+    }
+    
+    .bg-log-critical {
+        background-color: var(--bg-log-critical);
+        border-left: 4px solid #c0392b;
+    }
+    
+    .table-head-custom th {
+        background-color: #2c3e50;
+        color: white;
+        font-weight: 500;
+        padding: 12px 15px;
+    }
+    
+    .section-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #7f8c8d;
+        margin-bottom: 0.5rem;
+    }
+    
+    .avatar {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .avatar-sm {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+    
+    .btn-refresh {
+        transition: transform 0.3s;
+    }
+    
+    .btn-refresh:hover {
+        transform: rotate(90deg);
+    }
+    
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.85rem;
+    }
+
+/*====== css pour alerte  =====*/
+
+
+    .badge-critique { background-color: #dc3545; }
+        .badge-majeure { background-color: #ffc107; color: #000; }
+        .badge-mineure { background-color: #0d6efd; }
+        .table td, .table th { vertical-align: middle; }
+
+    /*====== css pour carte reseaux  =====*/
+    
+    /* Styles de base */
+    .topology-container {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .loading-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    }
+    
+    /* Styles pour les éléments réseau */
+    .network-device {
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .network-device:hover {
+        filter: drop-shadow(0 0 8px rgba(13, 110, 253, 0.3));
+    }
+    
+    .device-router {
+        fill: #0d6efd;
+    }
+    
+    .device-switch {
+        fill: #fd7e14;
+    }
+    
+    .device-server {
+        fill: #198754;
+    }
+    
+    .device-offline {
+        fill: #dc3545;
+    }
+    
+    .device-label {
+        font-size: 12px;
+        font-weight: 500;
+        pointer-events: none;
+    }
+    
+    .connection-line {
+        stroke: #6c757d;
+        stroke-width: 2;
+    }
+    
+    /* Légende améliorée */
+    .legend-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+    
+    /* Panneau d'informations */
+    .info-panel {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 350px;
+        z-index: 1000;
+    }
+    
+    /* Grille */
+    .grid-bg {
+        transition: opacity 0.3s ease;
+    }
+    
+    .grid-visible {
+        opacity: 1 !important;
+    }
+
+    /*====== css pour configuration  =====*/
+  
+    /* ===== Fond général de la page Configuration ===== */
+
+/* ====== Section Configuration ====== */
+#configuration {
+  /* Fond identique au Journal des événements */
+  background: var(--bg-color);
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Style global des cartes ===== */
+#configuration .card {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: none;
+  background-color:var(--bg-color); /* Même ton que les cartes du journal */
+}
+
+/* ===== Titres des cartes ===== */
+.gradient-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #2196f3, #9c27b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* important pour que le background-clip fonctionne bien */
+}
+
+
+#configuration .card-header i {
+  font-size: 1.6rem;
+  color: #2196f3;
+}
+
+/* ===== Style des boutons principaux ===== */
+#configuration .btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  font-weight: 600;
+}
+#configuration .btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+/* ======= SECTION 1 : Seuils d'alerte ======= */
+#configuration #configForm > div.col-12:nth-child(1) {
+  background-color: rgba(255, 127, 80, 0.1);
+  border: 1px solid #ff7f50;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+#configuration #configForm > div.col-12:nth-child(1) h5 {
+  color: #ff7f50;
+  border-bottom: 3px solid #ff7f50;
+}
+
+/* ======= SECTION 2 : Notifications ======= */
+#configuration #configForm > div.col-12:nth-child(2) {
+  background-color: rgba(76, 175, 80, 0.1);
+  border: 1px solid #4caf50;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+#configuration #configForm > div.col-12:nth-child(2) h5 {
+  color: #4caf50;
+  border-bottom: 3px solid #4caf50;
+}
+
+/* ======= SECTION 3 : Planification ======= */
+#configuration #configForm > div.col-12:nth-child(3) {
+  background-color: rgba(33, 150, 243, 0.1);
+  border: 1px solid #2196f3;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+#configuration #configForm > div.col-12:nth-child(3) h5 {
+  color: #2196f3;
+  border-bottom: 3px solid #2196f3;
+}
+
+/* Valeur par défaut (au cas où) */
+:root { --text-color: #000; }
+
+/* Si le thème est posé sur <html> ou <body>, on couvre les deux */
+html[data-bs-theme='dark'], body[data-bs-theme='dark'] { --text-color: #fff; }
+html[data-bs-theme='light'], body[data-bs-theme='light'] { --text-color: #000; }
+
+/* FORÇAGE propre de la couleur du texte, sans gradient */
+html[data-bs-theme] .gradient-text,
+body[data-bs-theme] .gradient-text {
+  color: var(--text-color) !important;
+  -webkit-text-fill-color: var(--text-color) !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+
+/* Fallback sans variables (au cas où elles ne fonctionnent pas du tout) */
+html[data-bs-theme='dark'] .gradient-text,
+body[data-bs-theme='dark'] .gradient-text {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+html[data-bs-theme='light'] .gradient-text,
+body[data-bs-theme='light'] .gradient-text {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+}
